@@ -5,7 +5,7 @@ const Model = use('Model')
 
 class User extends Model {
   static boot () {
-    super.boot()
+    super.boot();
 
     /**
      * A hook to hash the user password before saving
