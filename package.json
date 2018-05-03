@@ -5,8 +5,11 @@
   "description": "The fullstack application boilerplate for Adonisjs",
   "main": "index.js",
   "scripts": {
-    "start": "node server.js",
-    "test": "node ace test"
+    "start": "npm-run-all --parallel run_backend run_frontend ",
+    "run": "node server.js",
+    "test": "node ace test",
+    "run_backend": "adonis serve --dev",
+    "run_frontend": "cd web && ng build -w"
   },
   "keywords": [
     "adonisjs",
