@@ -57626,30 +57626,55 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+var dialog_service_1 = __webpack_require__("./src/app/services/dialog.service.ts");
 var core_1 = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
 var material_1 = __webpack_require__("./node_modules/@angular/material/esm5/material.es5.js");
-var default_component_1 = __webpack_require__("./src/app/components/dialog/default/default.component.ts");
 var NotifyComponent = (function () {
-    function NotifyComponent(snackBar, dialog) {
+    function NotifyComponent(snackBar, dialogService) {
         // this.snackBar.openFromComponent(PizzaPartyComponent, {
         //   duration: 500,
         // });
         this.snackBar = snackBar;
-        this.dialog = dialog;
+        this.dialogService = dialogService;
     }
     NotifyComponent.prototype.ngOnInit = function () {
     };
-    NotifyComponent.prototype.openDialog = function () {
-        var dialogRef = this.dialog.open(default_component_1.DialogDefaultComponent, {
-            width: '250px',
-            data: {}
-        });
-        dialogRef.afterClosed().subscribe(function (result) {
-            console.log('The dialog was closed');
-        });
+    NotifyComponent.prototype.openDialog = function (type) {
+        switch (type) {
+            case 'default':
+                this.dialogService.default().subscribe(function (result) {
+                    console.log(result);
+                });
+                break;
+            case 'success':
+                this.dialogService.success().subscribe(function (result) {
+                    console.log(result);
+                });
+                break;
+            case 'warning':
+                this.dialogService.warning().subscribe(function (result) {
+                    console.log(result);
+                });
+                break;
+            case 'danger':
+                this.dialogService.danger().subscribe(function (result) {
+                    console.log(result);
+                });
+                break;
+            case 'info':
+                this.dialogService.info().subscribe(function (result) {
+                    console.log(result);
+                });
+                break;
+            default:
+                this.dialogService.default().subscribe(function (result) {
+                    console.log(result);
+                });
+                break;
+        }
     };
     NotifyComponent.prototype.openSnackbar = function () {
-        this.snackBar.openFromComponent(default_component_1.DialogDefaultComponent);
+        // this.snackBar.openFromComponent(DialogDefaultComponent);
     };
     NotifyComponent = __decorate([
         core_1.Component({
@@ -57657,7 +57682,7 @@ var NotifyComponent = (function () {
             template: __webpack_require__("./src/app/components-material/child/notify/notify.component.html"),
             styles: [__webpack_require__("./src/app/components-material/child/notify/notify.component.scss")]
         }),
-        __metadata("design:paramtypes", [material_1.MatSnackBar, material_1.MatDialog])
+        __metadata("design:paramtypes", [material_1.MatSnackBar, dialog_service_1.DialogService])
     ], NotifyComponent);
     return NotifyComponent;
 }());
@@ -57828,7 +57853,7 @@ exports.ComponentsMaterialComponent = ComponentsMaterialComponent;
 /***/ "./src/app/components/dialog/danger/danger.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  danger works!\n</p>\n"
+module.exports = "<div class=\"mt-modal\">\n  <div class=\"modal-header\">\n    <h4>Warning</h4>\n  </div>\n  <div class=\"modal-body\">\n    <p *ngIf=\"!content.message\">Are you sure ?</p>\n    <p *ngIf=\"content.message\">{{content.message}} ?</p>\n  </div>\n  <div class=\"modal-footer\">\n    <button mat-raised-button color=\"warn\" (click)=\"continue()\">\n      OK\n    </button>\n    <button mat-button mat-dialog-close=\"false\">\n      Cancel\n    </button>\n  </div>\n</div>"
 
 /***/ }),
 
@@ -57853,12 +57878,29 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+var __param = (this && this.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+var material_1 = __webpack_require__("./node_modules/@angular/material/esm5/material.es5.js");
 var DialogDangerComponent = (function () {
-    function DialogDangerComponent() {
+    function DialogDangerComponent(dialogRef, data) {
+        this.dialogRef = dialogRef;
+        this.data = data;
+        this.content = data;
     }
     DialogDangerComponent.prototype.ngOnInit = function () {
+    };
+    DialogDangerComponent.prototype.continue = function () {
+        this.dialogRef.close({
+            success: true
+        });
+    };
+    DialogDangerComponent.prototype.cancel = function () {
+        this.dialogRef.close({
+            success: false
+        });
     };
     DialogDangerComponent = __decorate([
         core_1.Component({
@@ -57866,7 +57908,8 @@ var DialogDangerComponent = (function () {
             template: __webpack_require__("./src/app/components/dialog/danger/danger.component.html"),
             styles: [__webpack_require__("./src/app/components/dialog/danger/danger.component.scss")]
         }),
-        __metadata("design:paramtypes", [])
+        __param(1, core_1.Inject(material_1.MAT_DIALOG_DATA)),
+        __metadata("design:paramtypes", [material_1.MatDialogRef, Object])
     ], DialogDangerComponent);
     return DialogDangerComponent;
 }());
@@ -57878,7 +57921,7 @@ exports.DialogDangerComponent = DialogDangerComponent;
 /***/ "./src/app/components/dialog/default/default.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  default works!\n</p>\n"
+module.exports = "<div class=\"mt-modal\">\n  <div class=\"modal-header\">\n    <h4>Warning</h4>\n  </div>\n  <div class=\"modal-body\">\n    <p *ngIf=\"!content.message\">Are you sure ?</p>\n    <p *ngIf=\"content.message\">{{content.message}} ?</p>\n  </div>\n  <div class=\"modal-footer\">\n    <button mat-raised-button color=\"warn\" (click)=\"continue()\">\n      OK\n    </button>\n    <button mat-button mat-dialog-close=\"false\">\n      Cancel\n    </button>\n  </div>\n</div>"
 
 /***/ }),
 
@@ -57903,12 +57946,29 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+var __param = (this && this.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+var material_1 = __webpack_require__("./node_modules/@angular/material/esm5/material.es5.js");
 var DialogDefaultComponent = (function () {
-    function DialogDefaultComponent() {
+    function DialogDefaultComponent(dialogRef, data) {
+        this.dialogRef = dialogRef;
+        this.data = data;
+        this.content = data;
     }
     DialogDefaultComponent.prototype.ngOnInit = function () {
+    };
+    DialogDefaultComponent.prototype.continue = function () {
+        this.dialogRef.close({
+            success: true
+        });
+    };
+    DialogDefaultComponent.prototype.cancel = function () {
+        this.dialogRef.close({
+            success: false
+        });
     };
     DialogDefaultComponent = __decorate([
         core_1.Component({
@@ -57916,7 +57976,8 @@ var DialogDefaultComponent = (function () {
             template: __webpack_require__("./src/app/components/dialog/default/default.component.html"),
             styles: [__webpack_require__("./src/app/components/dialog/default/default.component.scss")]
         }),
-        __metadata("design:paramtypes", [])
+        __param(1, core_1.Inject(material_1.MAT_DIALOG_DATA)),
+        __metadata("design:paramtypes", [material_1.MatDialogRef, Object])
     ], DialogDefaultComponent);
     return DialogDefaultComponent;
 }());
@@ -57928,7 +57989,7 @@ exports.DialogDefaultComponent = DialogDefaultComponent;
 /***/ "./src/app/components/dialog/info/info.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  info works!\n</p>\n"
+module.exports = "<div class=\"mt-modal\">\n  <div class=\"modal-header\">\n    <h4>Warning</h4>\n  </div>\n  <div class=\"modal-body\">\n    <p *ngIf=\"!content.message\">Are you sure ?</p>\n    <p *ngIf=\"content.message\">{{content.message}} ?</p>\n  </div>\n  <div class=\"modal-footer\">\n    <button mat-raised-button color=\"warn\" (click)=\"continue()\">\n      OK\n    </button>\n    <button mat-button mat-dialog-close=\"false\">\n      Cancel\n    </button>\n  </div>\n</div>"
 
 /***/ }),
 
@@ -57953,12 +58014,29 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+var __param = (this && this.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+var material_1 = __webpack_require__("./node_modules/@angular/material/esm5/material.es5.js");
 var DialogInfoComponent = (function () {
-    function DialogInfoComponent() {
+    function DialogInfoComponent(dialogRef, data) {
+        this.dialogRef = dialogRef;
+        this.data = data;
+        this.content = data;
     }
     DialogInfoComponent.prototype.ngOnInit = function () {
+    };
+    DialogInfoComponent.prototype.continue = function () {
+        this.dialogRef.close({
+            success: true
+        });
+    };
+    DialogInfoComponent.prototype.cancel = function () {
+        this.dialogRef.close({
+            success: false
+        });
     };
     DialogInfoComponent = __decorate([
         core_1.Component({
@@ -57966,7 +58044,8 @@ var DialogInfoComponent = (function () {
             template: __webpack_require__("./src/app/components/dialog/info/info.component.html"),
             styles: [__webpack_require__("./src/app/components/dialog/info/info.component.scss")]
         }),
-        __metadata("design:paramtypes", [])
+        __param(1, core_1.Inject(material_1.MAT_DIALOG_DATA)),
+        __metadata("design:paramtypes", [material_1.MatDialogRef, Object])
     ], DialogInfoComponent);
     return DialogInfoComponent;
 }());
@@ -57978,7 +58057,7 @@ exports.DialogInfoComponent = DialogInfoComponent;
 /***/ "./src/app/components/dialog/success/success.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  success works!\n</p>\n"
+module.exports = "<div class=\"mt-modal\">\n  <div class=\"modal-header\">\n    <h4>Warning</h4>\n  </div>\n  <div class=\"modal-body\">\n    <p *ngIf=\"!content.message\">Are you sure ?</p>\n    <p *ngIf=\"content.message\">{{content.message}} ?</p>\n  </div>\n  <div class=\"modal-footer\">\n    <button mat-raised-button color=\"warn\" (click)=\"continue()\">\n      OK\n    </button>\n    <button mat-button mat-dialog-close=\"false\">\n      Cancel\n    </button>\n  </div>\n</div>"
 
 /***/ }),
 
@@ -58003,12 +58082,29 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+var __param = (this && this.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+var material_1 = __webpack_require__("./node_modules/@angular/material/esm5/material.es5.js");
 var DialogSuccessComponent = (function () {
-    function DialogSuccessComponent() {
+    function DialogSuccessComponent(dialogRef, data) {
+        this.dialogRef = dialogRef;
+        this.data = data;
+        this.content = data;
     }
     DialogSuccessComponent.prototype.ngOnInit = function () {
+    };
+    DialogSuccessComponent.prototype.continue = function () {
+        this.dialogRef.close({
+            success: true
+        });
+    };
+    DialogSuccessComponent.prototype.cancel = function () {
+        this.dialogRef.close({
+            success: false
+        });
     };
     DialogSuccessComponent = __decorate([
         core_1.Component({
@@ -58016,7 +58112,8 @@ var DialogSuccessComponent = (function () {
             template: __webpack_require__("./src/app/components/dialog/success/success.component.html"),
             styles: [__webpack_require__("./src/app/components/dialog/success/success.component.scss")]
         }),
-        __metadata("design:paramtypes", [])
+        __param(1, core_1.Inject(material_1.MAT_DIALOG_DATA)),
+        __metadata("design:paramtypes", [material_1.MatDialogRef, Object])
     ], DialogSuccessComponent);
     return DialogSuccessComponent;
 }());
@@ -58028,7 +58125,7 @@ exports.DialogSuccessComponent = DialogSuccessComponent;
 /***/ "./src/app/components/dialog/warning/warning.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  warning works!\n</p>\n"
+module.exports = "<div class=\"mt-modal\">\n  <div class=\"modal-header\">\n    <h4>Warning</h4>\n  </div>\n  <div class=\"modal-body\">\n    <p *ngIf=\"!content.message\">Are you sure ?</p>\n    <p *ngIf=\"content.message\">{{content.message}} ?</p>\n  </div>\n  <div class=\"modal-footer\">\n    <button mat-raised-button color=\"warn\" (click)=\"continue()\">\n      OK\n    </button>\n    <button mat-button mat-dialog-close=\"false\">\n      Cancel\n    </button>\n  </div>\n</div>"
 
 /***/ }),
 
@@ -58053,12 +58150,29 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+var __param = (this && this.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+var material_1 = __webpack_require__("./node_modules/@angular/material/esm5/material.es5.js");
 var DialogWarningComponent = (function () {
-    function DialogWarningComponent() {
+    function DialogWarningComponent(dialogRef, data) {
+        this.dialogRef = dialogRef;
+        this.data = data;
+        this.content = data;
     }
     DialogWarningComponent.prototype.ngOnInit = function () {
+    };
+    DialogWarningComponent.prototype.continue = function () {
+        this.dialogRef.close({
+            success: true
+        });
+    };
+    DialogWarningComponent.prototype.cancel = function () {
+        this.dialogRef.close({
+            success: false
+        });
     };
     DialogWarningComponent = __decorate([
         core_1.Component({
@@ -58066,7 +58180,8 @@ var DialogWarningComponent = (function () {
             template: __webpack_require__("./src/app/components/dialog/warning/warning.component.html"),
             styles: [__webpack_require__("./src/app/components/dialog/warning/warning.component.scss")]
         }),
-        __metadata("design:paramtypes", [])
+        __param(1, core_1.Inject(material_1.MAT_DIALOG_DATA)),
+        __metadata("design:paramtypes", [material_1.MatDialogRef, Object])
     ], DialogWarningComponent);
     return DialogWarningComponent;
 }());
@@ -58137,6 +58252,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+var dialog_service_1 = __webpack_require__("./src/app/services/dialog.service.ts");
 var http_service_1 = __webpack_require__("./src/app/services/http.service.ts");
 var notify_component_1 = __webpack_require__("./src/app/components-material/child/notify/notify.component.ts");
 var icons_component_1 = __webpack_require__("./src/app/components-material/child/icons/icons.component.ts");
@@ -58206,7 +58322,8 @@ var AdminLayoutModule = (function () {
                 warning_component_1.DialogWarningComponent
             ],
             providers: [
-                http_service_1.HttpService
+                http_service_1.HttpService,
+                dialog_service_1.DialogService
             ],
             entryComponents: [
                 default_component_1.DialogDefaultComponent,
@@ -58288,6 +58405,78 @@ var LogInComponent = (function () {
     return LogInComponent;
 }());
 exports.LogInComponent = LogInComponent;
+
+
+/***/ }),
+
+/***/ "./src/app/services/dialog.service.ts":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+var default_component_1 = __webpack_require__("./src/app/components/dialog/default/default.component.ts");
+var success_component_1 = __webpack_require__("./src/app/components/dialog/success/success.component.ts");
+var info_component_1 = __webpack_require__("./src/app/components/dialog/info/info.component.ts");
+var warning_component_1 = __webpack_require__("./src/app/components/dialog/warning/warning.component.ts");
+var danger_component_1 = __webpack_require__("./src/app/components/dialog/danger/danger.component.ts");
+var material_1 = __webpack_require__("./node_modules/@angular/material/esm5/material.es5.js");
+var DialogService = (function () {
+    function DialogService(dialog) {
+        this.dialog = dialog;
+    }
+    DialogService.prototype.default = function () {
+        var dialogRef = this.dialog.open(default_component_1.DialogDefaultComponent, {
+            width: '750px',
+            data: {}
+        });
+        return dialogRef.afterClosed();
+    };
+    DialogService.prototype.success = function () {
+        var dialogRef = this.dialog.open(success_component_1.DialogSuccessComponent, {
+            width: '750px',
+            data: {}
+        });
+        return dialogRef.afterClosed();
+    };
+    DialogService.prototype.info = function () {
+        var dialogRef = this.dialog.open(info_component_1.DialogInfoComponent, {
+            width: '750px',
+            data: {}
+        });
+        return dialogRef.afterClosed();
+    };
+    DialogService.prototype.warning = function () {
+        var dialogRef = this.dialog.open(warning_component_1.DialogWarningComponent, {
+            width: '750px',
+            data: {}
+        });
+        return dialogRef.afterClosed();
+    };
+    DialogService.prototype.danger = function () {
+        var dialogRef = this.dialog.open(danger_component_1.DialogDangerComponent, {
+            width: '750px',
+            data: {}
+        });
+        return dialogRef.afterClosed();
+    };
+    DialogService = __decorate([
+        core_1.Injectable(),
+        __metadata("design:paramtypes", [material_1.MatDialog])
+    ], DialogService);
+    return DialogService;
+}());
+exports.DialogService = DialogService;
 
 
 /***/ }),

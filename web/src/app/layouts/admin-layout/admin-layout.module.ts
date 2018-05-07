@@ -1,3 +1,4 @@
+import { DialogService } from './../../services/dialog.service';
 import { HttpService } from './../../services/http.service';
 import { NotifyComponent } from './../../components-material/child/notify/notify.component';
 import { IconsComponent } from './../../components-material/child/icons/icons.component';
@@ -86,7 +87,8 @@ import { DialogWarningComponent } from '../../components/dialog/warning/warning.
     DialogWarningComponent
   ],
   providers:[
-    HttpService
+    HttpService,
+    DialogService
   ],
   entryComponents:[
     DialogDefaultComponent,

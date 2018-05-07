@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 
 @Component({
   selector: 'app-default',
@@ -6,10 +7,24 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./default.component.scss']
 })
 export class DialogDefaultComponent implements OnInit {
-
-  constructor() { }
+  content;
+  constructor(public dialogRef: MatDialogRef<DialogDefaultComponent>, @Inject(MAT_DIALOG_DATA) public data: any, ) {
+    this.content = data;
+  }
 
   ngOnInit() {
+  }
+
+  continue() {
+    this.dialogRef.close({
+      success: true
+    });
+  }
+
+  cancel() {
+    this.dialogRef.close({
+      success: false
+    });
   }
 
 }

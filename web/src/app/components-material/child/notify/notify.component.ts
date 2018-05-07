@@ -1,3 +1,4 @@
+import { DialogService } from './../../../services/dialog.service';
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar, MatDialog } from '@angular/material';
 import { DialogDefaultComponent } from '../../../components/dialog/default/default.component';
@@ -9,7 +10,7 @@ import { DialogDefaultComponent } from '../../../components/dialog/default/defau
 })
 export class NotifyComponent implements OnInit {
 
-  constructor(public snackBar: MatSnackBar, public dialog: MatDialog) {
+  constructor(public snackBar: MatSnackBar, private dialogService: DialogService) {
     // this.snackBar.openFromComponent(PizzaPartyComponent, {
     //   duration: 500,
     // });
@@ -20,18 +21,41 @@ export class NotifyComponent implements OnInit {
   ngOnInit() {
   }
 
-  openDialog(){
-    let dialogRef = this.dialog.open(DialogDefaultComponent, {
-      width: '250px',
-      data: { }
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-    });
-
+  openDialog(type) {
+    switch (type) {
+      case 'default':
+        this.dialogService.default().subscribe(result => {
+          console.log(result);
+        })
+        break;
+      case 'success':
+        this.dialogService.success().subscribe(result => {
+          console.log(result);
+        })
+        break;
+      case 'warning':
+        this.dialogService.warning().subscribe(result => {
+          console.log(result);
+        })
+        break;
+      case 'danger':
+        this.dialogService.danger().subscribe(result => {
+          console.log(result);
+        })
+        break;
+      case 'info':
+        this.dialogService.info().subscribe(result => {
+          console.log(result);
+        })
+        break;
+      default:
+        this.dialogService.default().subscribe(result => {
+          console.log(result);
+        })
+        break;
+    }
   }
-  openSnackbar(){
-    this.snackBar.openFromComponent(DialogDefaultComponent);
+  openSnackbar() {
+    // this.snackBar.openFromComponent(DialogDefaultComponent);
   }
 }
