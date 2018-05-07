@@ -46313,6 +46313,22 @@ var Scheduler = /*@__PURE__*/ (/*@__PURE__*/ function () {
 
 /***/ }),
 
+/***/ "./node_modules/rxjs/_esm5/add/operator/map.js":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Observable__ = __webpack_require__("./node_modules/rxjs/_esm5/Observable.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__operator_map__ = __webpack_require__("./node_modules/rxjs/_esm5/operator/map.js");
+/** PURE_IMPORTS_START .._.._Observable,.._.._operator_map PURE_IMPORTS_END */
+
+
+__WEBPACK_IMPORTED_MODULE_0__Observable__["a" /* Observable */].prototype.map = __WEBPACK_IMPORTED_MODULE_1__operator_map__["a" /* map */];
+//# sourceMappingURL=map.js.map
+
+
+/***/ }),
+
 /***/ "./node_modules/rxjs/_esm5/observable/DeferObservable.js":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -57581,6 +57597,75 @@ exports.IconsComponent = IconsComponent;
 
 /***/ }),
 
+/***/ "./src/app/components-material/child/notify/notify.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"card\">\n  <div class=\"card-body\">\n    <button mat-button class=\"btn btn-default\" (click)=\"openDialog('default')\">Dialog Default</button>\n    <button mat-button class=\"btn btn-primary\" (click)=\"openDialog('primary')\">Dialog Primary</button>\n    <button mat-button class=\"btn btn-info\" (click)=\"openDialog('info')\">Dialog Info</button>\n    <button mat-button class=\"btn btn-success\" (click)=\"openDialog('susccess')\">Dialog Success</button>\n    <button mat-button class=\"btn btn-warning\" (click)=\"openDialog('warning')\">Dialog Warning</button>\n    <button mat-button class=\"btn btn-danger\" (click)=\"openDialog('danger')\">Dialog Danger</button>\n  </div>\n</div>\n\n<div class=\"card\">\n  <div class=\"card-body\">\n    <button mat-button class=\"btn btn-default\" (click)=\"openSnackbar('default')\">Snackbar Default</button>\n    <button mat-button class=\"btn btn-primary\" (click)=\"openSnackbar('primary')\">Snackbar Primary</button>\n    <button mat-button class=\"btn btn-info\" (click)=\"openSnackbar('info')\">Snackbar Info</button>\n    <button mat-button class=\"btn btn-success\" (click)=\"openSnackbar('success')\">Snackbar Success</button>\n    <button mat-button class=\"btn btn-warning\" (click)=\"openSnackbar('warning')\">Snackbar Warning</button>\n    <button mat-button class=\"btn btn-danger\" (click)=\"openSnackbar('danger')\">Snackbar Danger</button>\n  </div>\n</div>"
+
+/***/ }),
+
+/***/ "./src/app/components-material/child/notify/notify.component.scss":
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/components-material/child/notify/notify.component.ts":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+var material_1 = __webpack_require__("./node_modules/@angular/material/esm5/material.es5.js");
+var default_component_1 = __webpack_require__("./src/app/components/dialog/default/default.component.ts");
+var NotifyComponent = (function () {
+    function NotifyComponent(snackBar, dialog) {
+        // this.snackBar.openFromComponent(PizzaPartyComponent, {
+        //   duration: 500,
+        // });
+        this.snackBar = snackBar;
+        this.dialog = dialog;
+    }
+    NotifyComponent.prototype.ngOnInit = function () {
+    };
+    NotifyComponent.prototype.openDialog = function () {
+        var dialogRef = this.dialog.open(default_component_1.DialogDefaultComponent, {
+            width: '250px',
+            data: {}
+        });
+        dialogRef.afterClosed().subscribe(function (result) {
+            console.log('The dialog was closed');
+        });
+    };
+    NotifyComponent.prototype.openSnackbar = function () {
+        this.snackBar.openFromComponent(default_component_1.DialogDefaultComponent);
+    };
+    NotifyComponent = __decorate([
+        core_1.Component({
+            selector: 'app-notify',
+            template: __webpack_require__("./src/app/components-material/child/notify/notify.component.html"),
+            styles: [__webpack_require__("./src/app/components-material/child/notify/notify.component.scss")]
+        }),
+        __metadata("design:paramtypes", [material_1.MatSnackBar, material_1.MatDialog])
+    ], NotifyComponent);
+    return NotifyComponent;
+}());
+exports.NotifyComponent = NotifyComponent;
+
+
+/***/ }),
+
 /***/ "./src/app/components-material/child/stepper/stepper.component.html":
 /***/ (function(module, exports) {
 
@@ -57643,7 +57728,7 @@ exports.StepperComponent = StepperComponent;
 /***/ "./src/app/components-material/child/table/table.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"\">\n  <div class=\"row\">\n    <div class=\"col-12\">\n      <div class=\"card card-plain\">\n        <div class=\"card-header card-header-primary\">\n          <h4 class=\"card-title\">Table Title</h4>\n          <p class=\"card-category\">Here is a subtitle for this table</p>\n        </div>\n        <div class=\"card-content table-responsive table-full-width\">\n          <ngx-datatable class=\"material\" [rows]=\"rows\" [loadingIndicator]=\"loadingIndicator\" [columns]=\"columns\" [columnMode]=\"'force'\"\n            [headerHeight]=\"50\" [footerHeight]=\"50\" [rowHeight]=\"'auto'\" [reorderable]=\"reorderable\">\n          </ngx-datatable>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>"
+module.exports = "<div class=\"\">\n  <div class=\"row\">\n    <div class=\"col-12\">\n      <div class=\"card card-plain\">\n        <div class=\"card-header card-header-primary\">\n          <h4 class=\"card-title\">Table Title</h4>\n          <p class=\"card-category\">Here is a subtitle for this table</p>\n        </div>\n        <div class=\"card-content table-responsive table-full-width\">\n          <table class=\"table\">\n            <thead>\n              <th class=\"text-warning\">Name</th>\n              <th class=\"text-danger\">Country</th>\n              <th class=\"text-info\">City</th>\n              <th class=\"text-primary\">Salary</th>\n            </thead>\n            <tbody>\n              <tr>\n                <td class=\"text-warning\">Dakota Rice</td>\n                <td class=\"text-danger\">Niger</td>\n                <td class=\"text-info\">Oud-Turnhout</td>\n                <td class=\"text-primary\">$36,738</td>\n              </tr>\n              <tr>\n                <td class=\"text-warning\">Minerva Hooper</td>\n                <td class=\"text-danger\">Curaçao</td>\n                <td class=\"text-info\">Sinaai-Waas</td>\n                <td class=\"text-primary\">$23,789</td>\n              </tr>\n              <tr>\n                <td class=\"text-warning\">Sage Rodriguez</td>\n                <td class=\"text-danger\">Netherlands</td>\n                <td class=\"text-info\">Baileux</td>\n                <td class=\"text-primary\">$56,142</td>\n              </tr>\n              <tr>\n                <td class=\"text-warning\">Philip Chaney</td>\n                <td class=\"text-danger\">Korea, South</td>\n                <td class=\"text-info\">Overland Park</td>\n                <td class=\"text-primary\">$38,735</td>\n              </tr>\n              <tr>\n                <td class=\"text-warning\">Doris Greene</td>\n                <td class=\"text-danger\">Malawi</td>\n                <td class=\"text-info\">Feldkirchen in Kärnten</td>\n                <td class=\"text-primary\">$63,542</td>\n              </tr>\n              <tr>\n                <td class=\"text-warning\">Mason Porter</td>\n                <td class=\"text-danger\">Chile</td>\n                <td class=\"text-info\">Gloucester</td>\n                <td class=\"text-primary\">$78,615</td>\n              </tr>\n            </tbody>\n          </table>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>"
 
 /***/ }),
 
@@ -57672,521 +57757,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
 var TableComponent = (function () {
     function TableComponent() {
-        var _this = this;
-        this.rows = [];
-        this.loadingIndicator = true;
-        this.reorderable = true;
-        this.columns = [
-            { prop: 'name' },
-            { name: 'Gender' },
-            { name: 'Company', sortable: false }
-        ];
-        this.rows = [
-            {
-                "name": "Ethel Price",
-                "gender": "female",
-                "company": "Johnson, Johnson and Partners, LLC CMP DDC",
-                "age": 22
-            },
-            {
-                "name": "Claudine Neal",
-                "gender": "female",
-                "company": "Sealoud",
-                "age": 55
-            },
-            {
-                "name": "Beryl Rice",
-                "gender": "female",
-                "company": "Velity",
-                "age": 67
-            },
-            {
-                "name": "Wilder Gonzales",
-                "gender": "male",
-                "company": "Geekko"
-            },
-            {
-                "name": "Georgina Schultz",
-                "gender": "female",
-                "company": "Suretech"
-            },
-            {
-                "name": "Carroll Buchanan",
-                "gender": "male",
-                "company": "Ecosys"
-            },
-            {
-                "name": "Valarie Atkinson",
-                "gender": "female",
-                "company": "Hopeli"
-            },
-            {
-                "name": "Schroeder Mathews",
-                "gender": "male",
-                "company": "Polarium"
-            },
-            {
-                "name": "Lynda Mendoza",
-                "gender": "female",
-                "company": "Dogspa"
-            },
-            {
-                "name": "Sarah Massey",
-                "gender": "female",
-                "company": "Bisba"
-            },
-            {
-                "name": "Robles Boyle",
-                "gender": "male",
-                "company": "Comtract"
-            },
-            {
-                "name": "Evans Hickman",
-                "gender": "male",
-                "company": "Parleynet"
-            },
-            {
-                "name": "Dawson Barber",
-                "gender": "male",
-                "company": "Dymi"
-            },
-            {
-                "name": "Bruce Strong",
-                "gender": "male",
-                "company": "Xyqag"
-            },
-            {
-                "name": "Nellie Whitfield",
-                "gender": "female",
-                "company": "Exospace"
-            },
-            {
-                "name": "Jackson Macias",
-                "gender": "male",
-                "company": "Aquamate"
-            },
-            {
-                "name": "Pena Pena",
-                "gender": "male",
-                "company": "Quarx"
-            },
-            {
-                "name": "Lelia Gates",
-                "gender": "female",
-                "company": "Proxsoft"
-            },
-            {
-                "name": "Letitia Vasquez",
-                "gender": "female",
-                "company": "Slumberia"
-            },
-            {
-                "name": "Trevino Moreno",
-                "gender": "male",
-                "company": "Conjurica"
-            },
-            {
-                "name": "Barr Page",
-                "gender": "male",
-                "company": "Apex"
-            },
-            {
-                "name": "Kirkland Merrill",
-                "gender": "male",
-                "company": "Utara"
-            },
-            {
-                "name": "Blanche Conley",
-                "gender": "female",
-                "company": "Imkan"
-            },
-            {
-                "name": "Atkins Dunlap",
-                "gender": "male",
-                "company": "Comveyor"
-            },
-            {
-                "name": "Everett Foreman",
-                "gender": "male",
-                "company": "Maineland"
-            },
-            {
-                "name": "Gould Randolph",
-                "gender": "male",
-                "company": "Intergeek"
-            },
-            {
-                "name": "Kelli Leon",
-                "gender": "female",
-                "company": "Verbus"
-            },
-            {
-                "name": "Freda Mason",
-                "gender": "female",
-                "company": "Accidency"
-            },
-            {
-                "name": "Tucker Maxwell",
-                "gender": "male",
-                "company": "Lumbrex"
-            },
-            {
-                "name": "Yvonne Parsons",
-                "gender": "female",
-                "company": "Zolar"
-            },
-            {
-                "name": "Woods Key",
-                "gender": "male",
-                "company": "Bedder"
-            },
-            {
-                "name": "Stephens Reilly",
-                "gender": "male",
-                "company": "Acusage"
-            },
-            {
-                "name": "Mcfarland Sparks",
-                "gender": "male",
-                "company": "Comvey"
-            },
-            {
-                "name": "Jocelyn Sawyer",
-                "gender": "female",
-                "company": "Fortean"
-            },
-            {
-                "name": "Renee Barr",
-                "gender": "female",
-                "company": "Kiggle"
-            },
-            {
-                "name": "Gaines Beck",
-                "gender": "male",
-                "company": "Sequitur"
-            },
-            {
-                "name": "Luisa Farrell",
-                "gender": "female",
-                "company": "Cinesanct"
-            },
-            {
-                "name": "Robyn Strickland",
-                "gender": "female",
-                "company": "Obones"
-            },
-            {
-                "name": "Roseann Jarvis",
-                "gender": "female",
-                "company": "Aquazure"
-            },
-            {
-                "name": "Johnston Park",
-                "gender": "male",
-                "company": "Netur"
-            },
-            {
-                "name": "Wong Craft",
-                "gender": "male",
-                "company": "Opticall"
-            },
-            {
-                "name": "Merritt Cole",
-                "gender": "male",
-                "company": "Techtrix"
-            },
-            {
-                "name": "Dale Byrd",
-                "gender": "female",
-                "company": "Kneedles"
-            },
-            {
-                "name": "Sara Delgado",
-                "gender": "female",
-                "company": "Netagy"
-            },
-            {
-                "name": "Alisha Myers",
-                "gender": "female",
-                "company": "Intradisk"
-            },
-            {
-                "name": "Felecia Smith",
-                "gender": "female",
-                "company": "Futurity"
-            },
-            {
-                "name": "Neal Harvey",
-                "gender": "male",
-                "company": "Pyramax"
-            },
-            {
-                "name": "Nola Miles",
-                "gender": "female",
-                "company": "Sonique"
-            },
-            {
-                "name": "Herring Pierce",
-                "gender": "male",
-                "company": "Geeketron"
-            },
-            {
-                "name": "Shelley Rodriquez",
-                "gender": "female",
-                "company": "Bostonic"
-            },
-            {
-                "name": "Cora Chase",
-                "gender": "female",
-                "company": "Isonus"
-            },
-            {
-                "name": "Mckay Santos",
-                "gender": "male",
-                "company": "Amtas"
-            },
-            {
-                "name": "Hilda Crane",
-                "gender": "female",
-                "company": "Jumpstack"
-            },
-            {
-                "name": "Jeanne Lindsay",
-                "gender": "female",
-                "company": "Genesynk"
-            },
-            {
-                "name": "Frye Sharpe",
-                "gender": "male",
-                "company": "Eplode"
-            },
-            {
-                "name": "Velma Fry",
-                "gender": "female",
-                "company": "Ronelon"
-            },
-            {
-                "name": "Reyna Espinoza",
-                "gender": "female",
-                "company": "Prismatic"
-            },
-            {
-                "name": "Spencer Sloan",
-                "gender": "male",
-                "company": "Comverges"
-            },
-            {
-                "name": "Graham Marsh",
-                "gender": "male",
-                "company": "Medifax"
-            },
-            {
-                "name": "Hale Boone",
-                "gender": "male",
-                "company": "Digial"
-            },
-            {
-                "name": "Wiley Hubbard",
-                "gender": "male",
-                "company": "Zensus"
-            },
-            {
-                "name": "Blackburn Drake",
-                "gender": "male",
-                "company": "Frenex"
-            },
-            {
-                "name": "Franco Hunter",
-                "gender": "male",
-                "company": "Rockabye"
-            },
-            {
-                "name": "Barnett Case",
-                "gender": "male",
-                "company": "Norali"
-            },
-            {
-                "name": "Alexander Foley",
-                "gender": "male",
-                "company": "Geekosis"
-            },
-            {
-                "name": "Lynette Stein",
-                "gender": "female",
-                "company": "Macronaut"
-            },
-            {
-                "name": "Anthony Joyner",
-                "gender": "male",
-                "company": "Senmei"
-            },
-            {
-                "name": "Garrett Brennan",
-                "gender": "male",
-                "company": "Bluegrain"
-            },
-            {
-                "name": "Betsy Horton",
-                "gender": "female",
-                "company": "Zilla"
-            },
-            {
-                "name": "Patton Small",
-                "gender": "male",
-                "company": "Genmex"
-            },
-            {
-                "name": "Lakisha Huber",
-                "gender": "female",
-                "company": "Insource"
-            },
-            {
-                "name": "Lindsay Avery",
-                "gender": "female",
-                "company": "Unq"
-            },
-            {
-                "name": "Ayers Hood",
-                "gender": "male",
-                "company": "Accuprint"
-            },
-            {
-                "name": "Torres Durham",
-                "gender": "male",
-                "company": "Uplinx"
-            },
-            {
-                "name": "Vincent Hernandez",
-                "gender": "male",
-                "company": "Talendula"
-            },
-            {
-                "name": "Baird Ryan",
-                "gender": "male",
-                "company": "Aquasseur"
-            },
-            {
-                "name": "Georgia Mercer",
-                "gender": "female",
-                "company": "Skyplex"
-            },
-            {
-                "name": "Francesca Elliott",
-                "gender": "female",
-                "company": "Nspire"
-            },
-            {
-                "name": "Lyons Peters",
-                "gender": "male",
-                "company": "Quinex"
-            },
-            {
-                "name": "Kristi Brewer",
-                "gender": "female",
-                "company": "Oronoko"
-            },
-            {
-                "name": "Tonya Bray",
-                "gender": "female",
-                "company": "Insuron"
-            },
-            {
-                "name": "Valenzuela Huff",
-                "gender": "male",
-                "company": "Applideck"
-            },
-            {
-                "name": "Tiffany Anderson",
-                "gender": "female",
-                "company": "Zanymax"
-            },
-            {
-                "name": "Jerri King",
-                "gender": "female",
-                "company": "Eventex"
-            },
-            {
-                "name": "Rocha Meadows",
-                "gender": "male",
-                "company": "Goko"
-            },
-            {
-                "name": "Marcy Green",
-                "gender": "female",
-                "company": "Pharmex"
-            },
-            {
-                "name": "Kirk Cross",
-                "gender": "male",
-                "company": "Portico"
-            },
-            {
-                "name": "Hattie Mullen",
-                "gender": "female",
-                "company": "Zilencio"
-            },
-            {
-                "name": "Deann Bridges",
-                "gender": "female",
-                "company": "Equitox"
-            },
-            {
-                "name": "Chaney Roach",
-                "gender": "male",
-                "company": "Qualitern"
-            },
-            {
-                "name": "Consuelo Dickson",
-                "gender": "female",
-                "company": "Poshome"
-            },
-            {
-                "name": "Billie Rowe",
-                "gender": "female",
-                "company": "Cemention"
-            },
-            {
-                "name": "Bean Donovan",
-                "gender": "male",
-                "company": "Mantro"
-            },
-            {
-                "name": "Lancaster Patel",
-                "gender": "male",
-                "company": "Krog"
-            },
-            {
-                "name": "Rosa Dyer",
-                "gender": "female",
-                "company": "Netility"
-            },
-            {
-                "name": "Christine Compton",
-                "gender": "female",
-                "company": "Bleeko"
-            },
-            {
-                "name": "Milagros Finch",
-                "gender": "female",
-                "company": "Handshake"
-            },
-            {
-                "name": "Ericka Alvarado",
-                "gender": "female",
-                "company": "Lyrichord"
-            },
-            {
-                "name": "Sylvia Sosa",
-                "gender": "female",
-                "company": "Circum"
-            },
-            {
-                "name": "Humphrey Curtis",
-                "gender": "male",
-                "company": "Corepan"
-            }
-        ];
-        setTimeout(function () { _this.loadingIndicator = false; }, 1500);
     }
     TableComponent.prototype.ngOnInit = function () {
     };
@@ -58208,7 +57778,7 @@ exports.TableComponent = TableComponent;
 /***/ "./src/app/components-material/components-material.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"main-content\">\n    <div class=\"container-fluid\">\n        <mat-tab-group class=\"tab-success\">\n            <mat-tab label=\"Components\">\n                <child-components></child-components>\n            </mat-tab>\n            <mat-tab label=\"Forms\">\n                <app-forms></app-forms>\n            </mat-tab>\n            <mat-tab label=\"Table\">\n                <app-table></app-table>\n            </mat-tab>\n            <mat-tab label=\"Materal Icons\">\n                <app-icons></app-icons>\n            </mat-tab>\n            <mat-tab label=\"Expansion\">\n                <app-expansion></app-expansion>\n            </mat-tab>\n            <mat-tab label=\"Stepper\">\n                <app-stepper></app-stepper>\n            </mat-tab>\n        </mat-tab-group>\n    </div>\n</div>"
+module.exports = "<div class=\"main-content\">\n    <div class=\"container-fluid\">\n        <mat-tab-group class=\"tab-success\">\n            <mat-tab label=\"Components\">\n                <child-components></child-components>\n            </mat-tab>\n            <mat-tab label=\"Forms\">\n                <app-forms></app-forms>\n            </mat-tab>\n            <mat-tab label=\"Table\">\n                <app-table></app-table>\n            </mat-tab>\n            <mat-tab label=\"Materal Icons\">\n                <app-icons></app-icons>\n            </mat-tab>\n            <mat-tab label=\"Expansion\">\n                <app-expansion></app-expansion>\n            </mat-tab>\n            <mat-tab label=\"Stepper\">\n                <app-stepper></app-stepper>\n            </mat-tab>\n            <mat-tab label=\"Notify\">\n                <app-notify></app-notify>\n            </mat-tab>\n        </mat-tab-group>\n    </div>\n</div>"
 
 /***/ }),
 
@@ -58251,6 +57821,256 @@ var ComponentsMaterialComponent = (function () {
     return ComponentsMaterialComponent;
 }());
 exports.ComponentsMaterialComponent = ComponentsMaterialComponent;
+
+
+/***/ }),
+
+/***/ "./src/app/components/dialog/danger/danger.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<p>\n  danger works!\n</p>\n"
+
+/***/ }),
+
+/***/ "./src/app/components/dialog/danger/danger.component.scss":
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/components/dialog/danger/danger.component.ts":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+var DialogDangerComponent = (function () {
+    function DialogDangerComponent() {
+    }
+    DialogDangerComponent.prototype.ngOnInit = function () {
+    };
+    DialogDangerComponent = __decorate([
+        core_1.Component({
+            selector: 'app-danger',
+            template: __webpack_require__("./src/app/components/dialog/danger/danger.component.html"),
+            styles: [__webpack_require__("./src/app/components/dialog/danger/danger.component.scss")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], DialogDangerComponent);
+    return DialogDangerComponent;
+}());
+exports.DialogDangerComponent = DialogDangerComponent;
+
+
+/***/ }),
+
+/***/ "./src/app/components/dialog/default/default.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<p>\n  default works!\n</p>\n"
+
+/***/ }),
+
+/***/ "./src/app/components/dialog/default/default.component.scss":
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/components/dialog/default/default.component.ts":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+var DialogDefaultComponent = (function () {
+    function DialogDefaultComponent() {
+    }
+    DialogDefaultComponent.prototype.ngOnInit = function () {
+    };
+    DialogDefaultComponent = __decorate([
+        core_1.Component({
+            selector: 'app-default',
+            template: __webpack_require__("./src/app/components/dialog/default/default.component.html"),
+            styles: [__webpack_require__("./src/app/components/dialog/default/default.component.scss")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], DialogDefaultComponent);
+    return DialogDefaultComponent;
+}());
+exports.DialogDefaultComponent = DialogDefaultComponent;
+
+
+/***/ }),
+
+/***/ "./src/app/components/dialog/info/info.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<p>\n  info works!\n</p>\n"
+
+/***/ }),
+
+/***/ "./src/app/components/dialog/info/info.component.scss":
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/components/dialog/info/info.component.ts":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+var DialogInfoComponent = (function () {
+    function DialogInfoComponent() {
+    }
+    DialogInfoComponent.prototype.ngOnInit = function () {
+    };
+    DialogInfoComponent = __decorate([
+        core_1.Component({
+            selector: 'app-info',
+            template: __webpack_require__("./src/app/components/dialog/info/info.component.html"),
+            styles: [__webpack_require__("./src/app/components/dialog/info/info.component.scss")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], DialogInfoComponent);
+    return DialogInfoComponent;
+}());
+exports.DialogInfoComponent = DialogInfoComponent;
+
+
+/***/ }),
+
+/***/ "./src/app/components/dialog/success/success.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<p>\n  success works!\n</p>\n"
+
+/***/ }),
+
+/***/ "./src/app/components/dialog/success/success.component.scss":
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/components/dialog/success/success.component.ts":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+var DialogSuccessComponent = (function () {
+    function DialogSuccessComponent() {
+    }
+    DialogSuccessComponent.prototype.ngOnInit = function () {
+    };
+    DialogSuccessComponent = __decorate([
+        core_1.Component({
+            selector: 'app-success',
+            template: __webpack_require__("./src/app/components/dialog/success/success.component.html"),
+            styles: [__webpack_require__("./src/app/components/dialog/success/success.component.scss")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], DialogSuccessComponent);
+    return DialogSuccessComponent;
+}());
+exports.DialogSuccessComponent = DialogSuccessComponent;
+
+
+/***/ }),
+
+/***/ "./src/app/components/dialog/warning/warning.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<p>\n  warning works!\n</p>\n"
+
+/***/ }),
+
+/***/ "./src/app/components/dialog/warning/warning.component.scss":
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/components/dialog/warning/warning.component.ts":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+var DialogWarningComponent = (function () {
+    function DialogWarningComponent() {
+    }
+    DialogWarningComponent.prototype.ngOnInit = function () {
+    };
+    DialogWarningComponent = __decorate([
+        core_1.Component({
+            selector: 'app-warning',
+            template: __webpack_require__("./src/app/components/dialog/warning/warning.component.html"),
+            styles: [__webpack_require__("./src/app/components/dialog/warning/warning.component.scss")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], DialogWarningComponent);
+    return DialogWarningComponent;
+}());
+exports.DialogWarningComponent = DialogWarningComponent;
 
 
 /***/ }),
@@ -58317,6 +58137,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+var http_service_1 = __webpack_require__("./src/app/services/http.service.ts");
+var notify_component_1 = __webpack_require__("./src/app/components-material/child/notify/notify.component.ts");
 var icons_component_1 = __webpack_require__("./src/app/components-material/child/icons/icons.component.ts");
 var table_component_1 = __webpack_require__("./src/app/components-material/child/table/table.component.ts");
 var forms_component_1 = __webpack_require__("./src/app/components-material/child/forms/forms.component.ts");
@@ -58332,6 +58154,11 @@ var material_1 = __webpack_require__("./node_modules/@angular/material/esm5/mate
 var log_in_component_1 = __webpack_require__("./src/app/log-in/log-in.component.ts");
 var expansion_component_1 = __webpack_require__("./src/app/components-material/child/expansion/expansion.component.ts");
 var stepper_component_1 = __webpack_require__("./src/app/components-material/child/stepper/stepper.component.ts");
+var default_component_1 = __webpack_require__("./src/app/components/dialog/default/default.component.ts");
+var danger_component_1 = __webpack_require__("./src/app/components/dialog/danger/danger.component.ts");
+var info_component_1 = __webpack_require__("./src/app/components/dialog/info/info.component.ts");
+var success_component_1 = __webpack_require__("./src/app/components/dialog/success/success.component.ts");
+var warning_component_1 = __webpack_require__("./src/app/components/dialog/warning/warning.component.ts");
 var AdminLayoutModule = (function () {
     function AdminLayoutModule() {
     }
@@ -58370,7 +58197,23 @@ var AdminLayoutModule = (function () {
                 table_component_1.TableComponent,
                 icons_component_1.IconsComponent,
                 expansion_component_1.ExpansionComponent,
-                stepper_component_1.StepperComponent
+                stepper_component_1.StepperComponent,
+                notify_component_1.NotifyComponent,
+                default_component_1.DialogDefaultComponent,
+                danger_component_1.DialogDangerComponent,
+                info_component_1.DialogInfoComponent,
+                success_component_1.DialogSuccessComponent,
+                warning_component_1.DialogWarningComponent
+            ],
+            providers: [
+                http_service_1.HttpService
+            ],
+            entryComponents: [
+                default_component_1.DialogDefaultComponent,
+                danger_component_1.DialogDangerComponent,
+                info_component_1.DialogInfoComponent,
+                success_component_1.DialogSuccessComponent,
+                warning_component_1.DialogWarningComponent
             ]
         })
     ], AdminLayoutModule);
@@ -58445,6 +58288,99 @@ var LogInComponent = (function () {
     return LogInComponent;
 }());
 exports.LogInComponent = LogInComponent;
+
+
+/***/ }),
+
+/***/ "./src/app/services/http.service.ts":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+var http_1 = __webpack_require__("./node_modules/@angular/http/esm5/http.js");
+__webpack_require__("./node_modules/rxjs/_esm5/add/operator/map.js");
+var HttpService = (function () {
+    function HttpService(http, url) {
+        this.http = http;
+        this.host = 'http://localhost:2206';
+        this.url = '';
+        this.url = url;
+    }
+    HttpService.prototype.get = function (params, url) {
+        if (params === void 0) { params = {}; }
+        if (url === void 0) { url = null; }
+        return this.http.get(this.host + "/" + (url || this.url), {
+            params: params,
+            headers: this.setHeader()
+        }).map(function (response) { return response.json(); });
+    };
+    HttpService.prototype.post = function (data, params, url) {
+        if (params === void 0) { params = {}; }
+        if (url === void 0) { url = null; }
+        return this.http.post(this.host + "/" + (url || this.url), data, {
+            params: params,
+            headers: this.setHeader()
+        }).map(function (response) { return response.json(); });
+    };
+    HttpService.prototype.delete = function (params) {
+        if (params === void 0) { params = {}; }
+        return this.http.delete(this.host + "/" + this.url);
+    };
+    HttpService.prototype.put = function (data, params) {
+        if (params === void 0) { params = {}; }
+        return this.http.put(this.host + "/" + this.url, data, {
+            params: params,
+            headers: this.setHeader()
+        });
+    };
+    // getAll(params = {}) {
+    //     return this.get(params);
+    // }
+    // create(data, params = {}) {
+    //     return this.post(data, params);
+    // }
+    // edit(id, params = {}) {
+    //     return this.http.get(`${this.host}/${this.url}/${id}`, {
+    //         params,
+    //         headers: this.setHeader()
+    //     }).map(response => response.json());
+    // }
+    // update(id, data, params = {}) {
+    //     return this.http.post(`${this.host}/${this.url}/${id}`, data, {
+    //         params,
+    //         headers: this.setHeader()
+    //     }).map(response => response.json());
+    // }
+    // remove(id, params = {}) {
+    //     return this.http.delete(`${this.host}/${this.url}/${id}`, {
+    //         params,
+    //         headers: this.setHeader()
+    //     })
+    // }
+    HttpService.prototype.setHeader = function () {
+        var headers = new http_1.Headers();
+        headers.append('X-CSRF-TOKEN', this.csrfToken);
+        headers.append('Authorization', localStorage['Personal_userInfo']);
+        return headers;
+    };
+    HttpService = __decorate([
+        core_1.Injectable(),
+        __metadata("design:paramtypes", [http_1.Http, String])
+    ], HttpService);
+    return HttpService;
+}());
+exports.HttpService = HttpService;
 
 
 /***/ })

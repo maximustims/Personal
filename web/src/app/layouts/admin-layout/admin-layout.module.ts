@@ -1,3 +1,5 @@
+import { HttpService } from './../../services/http.service';
+import { NotifyComponent } from './../../components-material/child/notify/notify.component';
 import { IconsComponent } from './../../components-material/child/icons/icons.component';
 import { TableComponent } from './../../components-material/child/table/table.component';
 import { FormsComponent } from './../../components-material/child/forms/forms.component';
@@ -36,6 +38,11 @@ import {
 import { LogInComponent } from '../../log-in/log-in.component';
 import { ExpansionComponent } from '../../components-material/child/expansion/expansion.component';
 import { StepperComponent } from '../../components-material/child/stepper/stepper.component';
+import { DialogDefaultComponent } from '../../components/dialog/default/default.component';
+import { DialogDangerComponent } from '../../components/dialog/danger/danger.component';
+import { DialogInfoComponent } from '../../components/dialog/info/info.component';
+import { DialogSuccessComponent } from '../../components/dialog/success/success.component';
+import { DialogWarningComponent } from '../../components/dialog/warning/warning.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -60,7 +67,6 @@ import { StepperComponent } from '../../components-material/child/stepper/steppe
     MatProgressBarModule,
     MatDialogModule,
     MatSnackBarModule,
-    NgxDatatableModule
   ],
   declarations: [
     DashboardComponent,
@@ -71,7 +77,23 @@ import { StepperComponent } from '../../components-material/child/stepper/steppe
     TableComponent,
     IconsComponent,
     ExpansionComponent,
-    StepperComponent
+    StepperComponent,
+    NotifyComponent,
+    DialogDefaultComponent,
+    DialogDangerComponent,
+    DialogInfoComponent,
+    DialogSuccessComponent,
+    DialogWarningComponent
+  ],
+  providers:[
+    HttpService
+  ],
+  entryComponents:[
+    DialogDefaultComponent,
+    DialogDangerComponent,
+    DialogInfoComponent,
+    DialogSuccessComponent,
+    DialogWarningComponent
   ]
 })
 

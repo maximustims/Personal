@@ -20,6 +20,6 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     FooterComponent,
     NavbarComponent,
     SidebarComponent
-  ]
+  ],
 })
 export class ComponentsModule { }

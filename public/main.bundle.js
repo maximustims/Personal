@@ -211,7 +211,7 @@ var ComponentsModule = (function () {
                 footer_component_1.FooterComponent,
                 navbar_component_1.NavbarComponent,
                 sidebar_component_1.SidebarComponent
-            ]
+            ],
         })
     ], ComponentsModule);
     return ComponentsModule;
