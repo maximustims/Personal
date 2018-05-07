@@ -16,3 +16,9 @@
 const Route = use('Route')
 
 Route.get('/*','Web/IndexController.index')
+
+Route.group(() => {
+    /** Module Auth */
+    Route.post('/log-out', 'AuthController.logout')
+    Route.post('/login', 'AuthController.login')
+  }).prefix('api')

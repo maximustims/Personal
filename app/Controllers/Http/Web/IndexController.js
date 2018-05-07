@@ -1,7 +1,7 @@
 'use strict'
 
 class IndexController {
-    index({request, view}){
+    index({ request, view }) {
         return view.render('index');
     }
 }
