@@ -104,7 +104,7 @@ var AppModule = (function () {
                 router_1.RouterModule,
                 app_routing_1.AppRoutingModule,
                 core_2.AgmCoreModule.forRoot({
-                    apiKey: 'YOUR_GOOGLE_MAPS_API_KEY'
+                    apiKey: 'AIzaSyAHt2kR9H46CIjvn8BGA3absqf3fwYT7Mg'
                 })
             ],
             declarations: [

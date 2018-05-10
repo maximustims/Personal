@@ -2,6 +2,8 @@ import { DialogService } from './../../../services/dialog.service';
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar, MatDialog } from '@angular/material';
 import { DialogDefaultComponent } from '../../../components/dialog/default/default.component';
+import { SnackbarDefaultComponent } from '../../../components/snackbar/default/default.component';
+import { SnackbarService } from '../../../services/snackbar.service';
 
 @Component({
   selector: 'app-notify',
@@ -10,11 +12,7 @@ import { DialogDefaultComponent } from '../../../components/dialog/default/defau
 })
 export class NotifyComponent implements OnInit {
 
-  constructor(public snackBar: MatSnackBar, private dialogService: DialogService) {
-    // this.snackBar.openFromComponent(PizzaPartyComponent, {
-    //   duration: 500,
-    // });
-
+  constructor(private snackBarSvc: SnackbarService, private dialogService: DialogService) {
   }
 
 
@@ -22,40 +20,35 @@ export class NotifyComponent implements OnInit {
   }
 
   openDialog(type) {
-    switch (type) {
-      case 'default':
-        this.dialogService.default().subscribe(result => {
-          console.log(result);
-        })
-        break;
-      case 'success':
-        this.dialogService.success().subscribe(result => {
-          console.log(result);
-        })
-        break;
-      case 'warning':
-        this.dialogService.warning().subscribe(result => {
-          console.log(result);
-        })
-        break;
-      case 'danger':
-        this.dialogService.danger().subscribe(result => {
-          console.log(result);
-        })
-        break;
-      case 'info':
-        this.dialogService.info().subscribe(result => {
-          console.log(result);
-        })
-        break;
-      default:
-        this.dialogService.default().subscribe(result => {
-          console.log(result);
-        })
-        break;
-    }
+    if (type === 'default')
+      this.dialogService.default().subscribe(result => { });
+    else if (type === 'success')
+      this.dialogService.success().subscribe(result => { });
+    else if (type === 'warning')
+      this.dialogService.warning().subscribe(result => { })
+    else if (type === 'danger')
+      this.dialogService.danger().subscribe(result => { })
+    else if (type === 'info')
+      this.dialogService.info().subscribe(result => { })
+    else if (type === 'primary')
+      this.dialogService.primary().subscribe(result => { })
+    else
+      this.dialogService.default().subscribe(result => { })
   }
-  openSnackbar() {
-    // this.snackBar.openFromComponent(DialogDefaultComponent);
+  openSnackbar(type) {
+    if (type === 'default')
+      this.snackBarSvc.default()
+    else if (type === 'success')
+      this.snackBarSvc.success()
+    else if (type === 'warning')
+      this.snackBarSvc.warning()
+    else if (type === 'danger')
+      this.snackBarSvc.danger()
+    else if (type === 'info')
+      this.snackBarSvc.info()
+    else if (type === 'primary')
+      this.snackBarSvc.primary()
+    else
+      this.snackBarSvc.default()
   }
 }

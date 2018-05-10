@@ -1,0 +1,58 @@
+.mt-modal {
+    margin: -24px;
+    .modal-header{
+        border-radius: 0;
+        color: white;
+    }
+    &.modal-default {
+        .modal-header {
+            background: $btn-default-bg;
+        }
+    }
+    &.modal-danger {
+        .modal-header {
+            background: $brand-danger;
+        }
+    }
+    &.modal-success {
+        .modal-header {
+            background: $brand-success;
+        }
+    }
+    &.modal-warning {
+        .modal-header {
+            background: $brand-warning;
+        }
+    }
+    &.modal-info {
+        .modal-header {
+            background: $brand-info;
+        }
+    }
+    &.modal-primary {
+        .modal-header {
+            background: $brand-primary;
+        }
+    }
+}
+
+.mat-snack-bar-container{
+    &.snackbar-default{
+        background: $btn-default-bg;
+    }
+    &.snackbar-danger{
+        background: $brand-danger;
+    }
+    &.snackbar-success{
+        background: $brand-success;
+    }
+    &.snackbar-warning{
+        background: $brand-warning;
+    }
+    &.snackbar-info{
+        background: $brand-info;
+    }
+    &.snackbar-primary{
+        background: $brand-primary;
+    }
+}

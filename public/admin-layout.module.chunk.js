@@ -57352,7 +57352,7 @@ function not(pred, thisArg) {
 /***/ "./src/app/components-material/child/components/components.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"\">\n  <div class=\"row\">\n    <div class=\"col-sm-6\">\n      <div class=\"card\">\n        <div class=\"card-header\">\n          <h3 class=\"card-title\">\n            Buttons\n          </h3>\n        </div>\n        <div class=\"card-body\">\n          <button mat-button class=\"btn btn-default\">Default</button>\n          <button mat-button class=\"btn btn-primary\">Primary</button>\n          <button mat-button class=\"btn btn-info\">Info</button>\n          <button mat-button class=\"btn btn-success\">Success</button>\n          <button mat-button class=\"btn btn-warning\">Warning</button>\n          <button mat-button class=\"btn btn-danger\">Danger</button>\n        </div>\n      </div>\n      <div class=\"card\">\n        <div class=\"card-header\">\n          <h3 class=\"card-title\">\n            Buttons with size\n          </h3>\n        </div>\n        <div class=\"card-body\">\n          <div>\n            <button mat-button class=\"btn btn-default btn-lg\">Default</button>\n            <button mat-button class=\"btn btn-default\">Default</button>\n            <button mat-button class=\"btn btn-default btn-sm\">Default</button>\n          </div>\n          <div>\n            <button mat-button class=\"btn btn-primary btn-lg\">Primary</button>\n            <button mat-button class=\"btn btn-primary\">Primary</button>\n            <button mat-button class=\"btn btn-primary btn-sm\">Primary</button>\n          </div>\n          <div>\n            <button mat-button class=\"btn btn-info btn-lg\">Info</button>\n            <button mat-button class=\"btn btn-info\">Info</button>\n            <button mat-button class=\"btn btn-info btn-sm\">Info</button>\n          </div>\n          <div>\n            <button mat-button class=\"btn btn-success btn-lg\">Success</button>\n            <button mat-button class=\"btn btn-success\">Success</button>\n            <button mat-button class=\"btn btn-success btn-sm\">Success</button>\n          </div>\n          <div>\n            <button mat-button class=\"btn btn-warning btn-lg\">Warning</button>\n            <button mat-button class=\"btn btn-warning\">Warning</button>\n            <button mat-button class=\"btn btn-warning btn-sm\">Warning</button>\n          </div>\n          <div>\n            <button mat-button class=\"btn btn-danger btn-lg\">Danger</button>\n            <button mat-button class=\"btn btn-danger\">Danger</button>\n            <button mat-button class=\"btn btn-danger btn-sm\">Danger</button>\n          </div>\n        </div>\n      </div>\n    </div>\n    <div class=\"col-sm-6\">\n      <div class=\"card\">\n        <div class=\"card-header\">\n          <h3 class=\"card-title\">\n            Dropdown, Dropup\n          </h3>\n        </div>\n        <div class=\"card-body\">\n          <div class=\"dropdown\">\n            <button href=\"#\" class=\"btn dropdown-toggle\" data-toggle=\"dropdown\" aria-expanded=\"true\">\n              Regular\n              <b class=\"caret\"></b>\n            </button>\n            <ul class=\"dropdown-menu\">\n              <li>\n                <a href=\"#\">Action</a>\n              </li>\n              <li>\n                <a href=\"#\">Another action</a>\n              </li>\n              <li>\n                <a href=\"#\">Something else here</a>\n              </li>\n              <li class=\"divider\"></li>\n              <li>\n                <a href=\"#\">Separated link</a>\n              </li>\n              <li class=\"divider\"></li>\n              <li>\n                <a href=\"#\">One more separated link</a>\n              </li>\n            </ul>\n          </div>\n          <span class=\"dropup\">\n            <button href=\"#\" class=\"dropdown-toggle btn btn-primary btn-round\" data-toggle=\"dropdown\">Dropup\n              <b class=\"caret\"></b>\n            </button>\n            <ul class=\"dropdown-menu dropdown-primary dropdown-menu-right\">\n              <li class=\"dropdown-header\">Dropdown header</li>\n              <li>\n                <a href=\"#\">Action</a>\n              </li>\n              <li>\n                <a href=\"#\">Another action</a>\n              </li>\n              <li>\n                <a href=\"#\">Something else here</a>\n              </li>\n              <li class=\"divider\"></li>\n              <li>\n                <a href=\"#\">Separated link</a>\n              </li>\n              <li class=\"divider\"></li>\n              <li>\n                <a href=\"#\">One more separated link</a>\n              </li>\n            </ul>\n          </span>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>"
+module.exports = "<div class=\"\">\n  <div class=\"row\">\n    <div class=\"col-sm-6\">\n      <div class=\"card\">\n        <div class=\"card-header\">\n          <h3 class=\"card-title\">\n            Buttons\n          </h3>\n        </div>\n        <div class=\"card-body\">\n          <button mat-button class=\"btn btn-default\">Default</button>\n          <button mat-button class=\"btn btn-primary\">Primary</button>\n          <button mat-button class=\"btn btn-info\">Info</button>\n          <button mat-button class=\"btn btn-success\">Success</button>\n          <button mat-button class=\"btn btn-warning\">Warning</button>\n          <button mat-button class=\"btn btn-danger\">Danger</button>\n        </div>\n        <div class=\"card-body\">\n          <button mat-button class=\"btn btn-default\" (click)=\"testApi()\">Test Api</button>\n        </div>\n      </div>\n      <div class=\"card\">\n        <div class=\"card-header\">\n          <h3 class=\"card-title\">\n            Buttons with size\n          </h3>\n        </div>\n        <div class=\"card-body\">\n          <div>\n            <button mat-button class=\"btn btn-default btn-lg\">Default</button>\n            <button mat-button class=\"btn btn-default\">Default</button>\n            <button mat-button class=\"btn btn-default btn-sm\">Default</button>\n          </div>\n          <div>\n            <button mat-button class=\"btn btn-primary btn-lg\">Primary</button>\n            <button mat-button class=\"btn btn-primary\">Primary</button>\n            <button mat-button class=\"btn btn-primary btn-sm\">Primary</button>\n          </div>\n          <div>\n            <button mat-button class=\"btn btn-info btn-lg\">Info</button>\n            <button mat-button class=\"btn btn-info\">Info</button>\n            <button mat-button class=\"btn btn-info btn-sm\">Info</button>\n          </div>\n          <div>\n            <button mat-button class=\"btn btn-success btn-lg\">Success</button>\n            <button mat-button class=\"btn btn-success\">Success</button>\n            <button mat-button class=\"btn btn-success btn-sm\">Success</button>\n          </div>\n          <div>\n            <button mat-button class=\"btn btn-warning btn-lg\">Warning</button>\n            <button mat-button class=\"btn btn-warning\">Warning</button>\n            <button mat-button class=\"btn btn-warning btn-sm\">Warning</button>\n          </div>\n          <div>\n            <button mat-button class=\"btn btn-danger btn-lg\">Danger</button>\n            <button mat-button class=\"btn btn-danger\">Danger</button>\n            <button mat-button class=\"btn btn-danger btn-sm\">Danger</button>\n          </div>\n        </div>\n      </div>\n    </div>\n    <div class=\"col-sm-6\">\n      <div class=\"card\">\n        <div class=\"card-header\">\n          <h3 class=\"card-title\">\n            Dropdown, Dropup\n          </h3>\n        </div>\n        <div class=\"card-body\">\n          <div class=\"dropdown\">\n            <button href=\"#\" class=\"btn dropdown-toggle\" data-toggle=\"dropdown\" aria-expanded=\"true\">\n              Regular\n              <b class=\"caret\"></b>\n            </button>\n            <ul class=\"dropdown-menu\">\n              <li>\n                <a href=\"#\">Action</a>\n              </li>\n              <li>\n                <a href=\"#\">Another action</a>\n              </li>\n              <li>\n                <a href=\"#\">Something else here</a>\n              </li>\n              <li class=\"divider\"></li>\n              <li>\n                <a href=\"#\">Separated link</a>\n              </li>\n              <li class=\"divider\"></li>\n              <li>\n                <a href=\"#\">One more separated link</a>\n              </li>\n            </ul>\n          </div>\n          <span class=\"dropup\">\n            <button href=\"#\" class=\"dropdown-toggle btn btn-primary btn-round\" data-toggle=\"dropdown\">Dropup\n              <b class=\"caret\"></b>\n            </button>\n            <ul class=\"dropdown-menu dropdown-primary dropdown-menu-right\">\n              <li class=\"dropdown-header\">Dropdown header</li>\n              <li>\n                <a href=\"#\">Action</a>\n              </li>\n              <li>\n                <a href=\"#\">Another action</a>\n              </li>\n              <li>\n                <a href=\"#\">Something else here</a>\n              </li>\n              <li class=\"divider\"></li>\n              <li>\n                <a href=\"#\">Separated link</a>\n              </li>\n              <li class=\"divider\"></li>\n              <li>\n                <a href=\"#\">One more separated link</a>\n              </li>\n            </ul>\n          </span>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>"
 
 /***/ }),
 
@@ -57379,10 +57379,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+var components_service_1 = __webpack_require__("./src/app/components-material/child/components/components.service.ts");
 var ComponentsComponent = (function () {
-    function ComponentsComponent() {
+    function ComponentsComponent(compnentsSvc) {
+        this.compnentsSvc = compnentsSvc;
     }
     ComponentsComponent.prototype.ngOnInit = function () {
+    };
+    ComponentsComponent.prototype.testApi = function () {
+        this.compnentsSvc.get().subscribe(function (data) {
+            console.log(data);
+        });
     };
     ComponentsComponent = __decorate([
         core_1.Component({
@@ -57390,11 +57397,55 @@ var ComponentsComponent = (function () {
             template: __webpack_require__("./src/app/components-material/child/components/components.component.html"),
             styles: [__webpack_require__("./src/app/components-material/child/components/components.component.scss")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [components_service_1.ComponentsService])
     ], ComponentsComponent);
     return ComponentsComponent;
 }());
 exports.ComponentsComponent = ComponentsComponent;
+
+
+/***/ }),
+
+/***/ "./src/app/components-material/child/components/components.service.ts":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var http_service_1 = __webpack_require__("./src/app/services/http.service.ts");
+var core_1 = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+var http_1 = __webpack_require__("./node_modules/@angular/http/esm5/http.js");
+var ComponentsService = (function (_super) {
+    __extends(ComponentsService, _super);
+    function ComponentsService(http) {
+        return _super.call(this, http, 'api/index') || this;
+    }
+    ComponentsService = __decorate([
+        core_1.Injectable(),
+        __metadata("design:paramtypes", [http_1.Http])
+    ], ComponentsService);
+    return ComponentsService;
+}(http_service_1.HttpService));
+exports.ComponentsService = ComponentsService;
 
 
 /***/ }),
@@ -57600,7 +57651,7 @@ exports.IconsComponent = IconsComponent;
 /***/ "./src/app/components-material/child/notify/notify.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"card\">\n  <div class=\"card-body\">\n    <button mat-button class=\"btn btn-default\" (click)=\"openDialog('default')\">Dialog Default</button>\n    <button mat-button class=\"btn btn-primary\" (click)=\"openDialog('primary')\">Dialog Primary</button>\n    <button mat-button class=\"btn btn-info\" (click)=\"openDialog('info')\">Dialog Info</button>\n    <button mat-button class=\"btn btn-success\" (click)=\"openDialog('susccess')\">Dialog Success</button>\n    <button mat-button class=\"btn btn-warning\" (click)=\"openDialog('warning')\">Dialog Warning</button>\n    <button mat-button class=\"btn btn-danger\" (click)=\"openDialog('danger')\">Dialog Danger</button>\n  </div>\n</div>\n\n<div class=\"card\">\n  <div class=\"card-body\">\n    <button mat-button class=\"btn btn-default\" (click)=\"openSnackbar('default')\">Snackbar Default</button>\n    <button mat-button class=\"btn btn-primary\" (click)=\"openSnackbar('primary')\">Snackbar Primary</button>\n    <button mat-button class=\"btn btn-info\" (click)=\"openSnackbar('info')\">Snackbar Info</button>\n    <button mat-button class=\"btn btn-success\" (click)=\"openSnackbar('success')\">Snackbar Success</button>\n    <button mat-button class=\"btn btn-warning\" (click)=\"openSnackbar('warning')\">Snackbar Warning</button>\n    <button mat-button class=\"btn btn-danger\" (click)=\"openSnackbar('danger')\">Snackbar Danger</button>\n  </div>\n</div>"
+module.exports = "<div class=\"card\">\n  <div class=\"card-body\">\n    <button mat-button class=\"btn btn-default\" (click)=\"openDialog('default')\">Dialog Default</button>\n    <button mat-button class=\"btn btn-primary\" (click)=\"openDialog('primary')\">Dialog Primary</button>\n    <button mat-button class=\"btn btn-info\" (click)=\"openDialog('info')\">Dialog Info</button>\n    <button mat-button class=\"btn btn-success\" (click)=\"openDialog('success')\">Dialog Success</button>\n    <button mat-button class=\"btn btn-warning\" (click)=\"openDialog('warning')\">Dialog Warning</button>\n    <button mat-button class=\"btn btn-danger\" (click)=\"openDialog('danger')\">Dialog Danger</button>\n  </div>\n</div>\n\n<div class=\"card\">\n  <div class=\"card-body\">\n    <button mat-button class=\"btn btn-default\" (click)=\"openSnackbar('default')\">Snackbar Default</button>\n    <button mat-button class=\"btn btn-primary\" (click)=\"openSnackbar('primary')\">Snackbar Primary</button>\n    <button mat-button class=\"btn btn-info\" (click)=\"openSnackbar('info')\">Snackbar Info</button>\n    <button mat-button class=\"btn btn-success\" (click)=\"openSnackbar('success')\">Snackbar Success</button>\n    <button mat-button class=\"btn btn-warning\" (click)=\"openSnackbar('warning')\">Snackbar Warning</button>\n    <button mat-button class=\"btn btn-danger\" (click)=\"openSnackbar('danger')\">Snackbar Danger</button>\n  </div>\n</div>"
 
 /***/ }),
 
@@ -57628,53 +57679,45 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var dialog_service_1 = __webpack_require__("./src/app/services/dialog.service.ts");
 var core_1 = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
-var material_1 = __webpack_require__("./node_modules/@angular/material/esm5/material.es5.js");
+var snackbar_service_1 = __webpack_require__("./src/app/services/snackbar.service.ts");
 var NotifyComponent = (function () {
-    function NotifyComponent(snackBar, dialogService) {
-        // this.snackBar.openFromComponent(PizzaPartyComponent, {
-        //   duration: 500,
-        // });
-        this.snackBar = snackBar;
+    function NotifyComponent(snackBarSvc, dialogService) {
+        this.snackBarSvc = snackBarSvc;
         this.dialogService = dialogService;
     }
     NotifyComponent.prototype.ngOnInit = function () {
     };
     NotifyComponent.prototype.openDialog = function (type) {
-        switch (type) {
-            case 'default':
-                this.dialogService.default().subscribe(function (result) {
-                    console.log(result);
-                });
-                break;
-            case 'success':
-                this.dialogService.success().subscribe(function (result) {
-                    console.log(result);
-                });
-                break;
-            case 'warning':
-                this.dialogService.warning().subscribe(function (result) {
-                    console.log(result);
-                });
-                break;
-            case 'danger':
-                this.dialogService.danger().subscribe(function (result) {
-                    console.log(result);
-                });
-                break;
-            case 'info':
-                this.dialogService.info().subscribe(function (result) {
-                    console.log(result);
-                });
-                break;
-            default:
-                this.dialogService.default().subscribe(function (result) {
-                    console.log(result);
-                });
-                break;
-        }
+        if (type === 'default')
+            this.dialogService.default().subscribe(function (result) { });
+        else if (type === 'success')
+            this.dialogService.success().subscribe(function (result) { });
+        else if (type === 'warning')
+            this.dialogService.warning().subscribe(function (result) { });
+        else if (type === 'danger')
+            this.dialogService.danger().subscribe(function (result) { });
+        else if (type === 'info')
+            this.dialogService.info().subscribe(function (result) { });
+        else if (type === 'primary')
+            this.dialogService.primary().subscribe(function (result) { });
+        else
+            this.dialogService.default().subscribe(function (result) { });
     };
-    NotifyComponent.prototype.openSnackbar = function () {
-        // this.snackBar.openFromComponent(DialogDefaultComponent);
+    NotifyComponent.prototype.openSnackbar = function (type) {
+        if (type === 'default')
+            this.snackBarSvc.default();
+        else if (type === 'success')
+            this.snackBarSvc.success();
+        else if (type === 'warning')
+            this.snackBarSvc.warning();
+        else if (type === 'danger')
+            this.snackBarSvc.danger();
+        else if (type === 'info')
+            this.snackBarSvc.info();
+        else if (type === 'primary')
+            this.snackBarSvc.primary();
+        else
+            this.snackBarSvc.default();
     };
     NotifyComponent = __decorate([
         core_1.Component({
@@ -57682,7 +57725,7 @@ var NotifyComponent = (function () {
             template: __webpack_require__("./src/app/components-material/child/notify/notify.component.html"),
             styles: [__webpack_require__("./src/app/components-material/child/notify/notify.component.scss")]
         }),
-        __metadata("design:paramtypes", [material_1.MatSnackBar, dialog_service_1.DialogService])
+        __metadata("design:paramtypes", [snackbar_service_1.SnackbarService, dialog_service_1.DialogService])
     ], NotifyComponent);
     return NotifyComponent;
 }());
@@ -57853,7 +57896,7 @@ exports.ComponentsMaterialComponent = ComponentsMaterialComponent;
 /***/ "./src/app/components/dialog/danger/danger.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"mt-modal\">\n  <div class=\"modal-header\">\n    <h4>Warning</h4>\n  </div>\n  <div class=\"modal-body\">\n    <p *ngIf=\"!content.message\">Are you sure ?</p>\n    <p *ngIf=\"content.message\">{{content.message}} ?</p>\n  </div>\n  <div class=\"modal-footer\">\n    <button mat-raised-button color=\"warn\" (click)=\"continue()\">\n      OK\n    </button>\n    <button mat-button mat-dialog-close=\"false\">\n      Cancel\n    </button>\n  </div>\n</div>"
+module.exports = "<div class=\"mt-modal modal-danger\">\n  <div class=\"modal-header\">\n      <h4 *ngIf=\"!content.header\">Confirm</h4>\n      <h4 *ngIf=\"content.header\">{{content.header}} ?</h4>\n  </div>\n  <div class=\"modal-body\">\n    <p *ngIf=\"!content.message\">Are you sure ?</p>\n    <p *ngIf=\"content.message\">{{content.message}} ?</p>\n  </div>\n  <div class=\"modal-footer\">\n    <button mat-button class=\"btn btn-danger\" (click)=\"continue()\">OK</button>\n    <button mat-button mat-dialog-close=\"false\">\n      Cancel\n    </button>\n  </div>\n</div>"
 
 /***/ }),
 
@@ -57921,7 +57964,7 @@ exports.DialogDangerComponent = DialogDangerComponent;
 /***/ "./src/app/components/dialog/default/default.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"mt-modal\">\n  <div class=\"modal-header\">\n    <h4>Warning</h4>\n  </div>\n  <div class=\"modal-body\">\n    <p *ngIf=\"!content.message\">Are you sure ?</p>\n    <p *ngIf=\"content.message\">{{content.message}} ?</p>\n  </div>\n  <div class=\"modal-footer\">\n    <button mat-raised-button color=\"warn\" (click)=\"continue()\">\n      OK\n    </button>\n    <button mat-button mat-dialog-close=\"false\">\n      Cancel\n    </button>\n  </div>\n</div>"
+module.exports = "<div class=\"mt-modal modal-default\">\n  <div class=\"modal-header\">\n    <h4 *ngIf=\"!content.header\">Header</h4>\n    <h4 *ngIf=\"content.header\">{{content.header}} ?</h4>\n  </div>\n  <div class=\"modal-body\">\n    <p *ngIf=\"!content.message\">Are you sure ?</p>\n    <p *ngIf=\"content.message\">{{content.message}} ?</p>\n  </div>\n  <div class=\"modal-footer\">\n    <button mat-button class=\"btn btn-default\" (click)=\"continue()\">OK</button>\n    <button mat-button mat-dialog-close=\"false\">\n      Cancel\n    </button>\n  </div>\n</div>"
 
 /***/ }),
 
@@ -57989,7 +58032,7 @@ exports.DialogDefaultComponent = DialogDefaultComponent;
 /***/ "./src/app/components/dialog/info/info.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"mt-modal\">\n  <div class=\"modal-header\">\n    <h4>Warning</h4>\n  </div>\n  <div class=\"modal-body\">\n    <p *ngIf=\"!content.message\">Are you sure ?</p>\n    <p *ngIf=\"content.message\">{{content.message}} ?</p>\n  </div>\n  <div class=\"modal-footer\">\n    <button mat-raised-button color=\"warn\" (click)=\"continue()\">\n      OK\n    </button>\n    <button mat-button mat-dialog-close=\"false\">\n      Cancel\n    </button>\n  </div>\n</div>"
+module.exports = "<div class=\"mt-modal modal-info\">\n  <div class=\"modal-header\">\n    <h4 *ngIf=\"!content.header\">Info</h4>\n    <h4 *ngIf=\"content.header\">{{content.header}} ?</h4>\n  </div>\n  <div class=\"modal-body\">\n    <p *ngIf=\"!content.message\">Are you sure ?</p>\n    <p *ngIf=\"content.message\">{{content.message}} ?</p>\n  </div>\n  <div class=\"modal-footer\">\n    <button mat-button mat-dialog-close=\"false\">\n      Close\n    </button>\n  </div>\n</div>"
 
 /***/ }),
 
@@ -58054,10 +58097,78 @@ exports.DialogInfoComponent = DialogInfoComponent;
 
 /***/ }),
 
+/***/ "./src/app/components/dialog/primary/primary.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"mt-modal modal-primary\">\n  <div class=\"modal-header\">\n    <h4 *ngIf=\"!content.header\">Primary</h4>\n    <h4 *ngIf=\"content.header\">{{content.header}} ?</h4>\n  </div>\n  <div class=\"modal-body\">\n    <p *ngIf=\"!content.message\">Are you sure ?</p>\n    <p *ngIf=\"content.message\">{{content.message}} ?</p>\n  </div>\n  <div class=\"modal-footer\">\n    <button mat-button class=\"btn btn-primary\" (click)=\"continue()\">OK</button>\n    <button mat-button mat-dialog-close=\"false\">\n      Cancel\n    </button>\n  </div>\n</div>"
+
+/***/ }),
+
+/***/ "./src/app/components/dialog/primary/primary.component.scss":
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/components/dialog/primary/primary.component.ts":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __param = (this && this.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+var material_1 = __webpack_require__("./node_modules/@angular/material/esm5/material.es5.js");
+var DialogPrimaryComponent = (function () {
+    function DialogPrimaryComponent(dialogRef, data) {
+        this.dialogRef = dialogRef;
+        this.data = data;
+        this.content = data;
+    }
+    DialogPrimaryComponent.prototype.ngOnInit = function () {
+    };
+    DialogPrimaryComponent.prototype.continue = function () {
+        this.dialogRef.close({
+            success: true
+        });
+    };
+    DialogPrimaryComponent.prototype.cancel = function () {
+        this.dialogRef.close({
+            success: false
+        });
+    };
+    DialogPrimaryComponent = __decorate([
+        core_1.Component({
+            selector: 'app-primary',
+            template: __webpack_require__("./src/app/components/dialog/primary/primary.component.html"),
+            styles: [__webpack_require__("./src/app/components/dialog/primary/primary.component.scss")]
+        }),
+        __param(1, core_1.Inject(material_1.MAT_DIALOG_DATA)),
+        __metadata("design:paramtypes", [material_1.MatDialogRef, Object])
+    ], DialogPrimaryComponent);
+    return DialogPrimaryComponent;
+}());
+exports.DialogPrimaryComponent = DialogPrimaryComponent;
+
+
+/***/ }),
+
 /***/ "./src/app/components/dialog/success/success.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"mt-modal\">\n  <div class=\"modal-header\">\n    <h4>Warning</h4>\n  </div>\n  <div class=\"modal-body\">\n    <p *ngIf=\"!content.message\">Are you sure ?</p>\n    <p *ngIf=\"content.message\">{{content.message}} ?</p>\n  </div>\n  <div class=\"modal-footer\">\n    <button mat-raised-button color=\"warn\" (click)=\"continue()\">\n      OK\n    </button>\n    <button mat-button mat-dialog-close=\"false\">\n      Cancel\n    </button>\n  </div>\n</div>"
+module.exports = "<div class=\"mt-modal modal-success\">\n  <div class=\"modal-header\">\n    <h4 *ngIf=\"!content.header\">Success</h4>\n    <h4 *ngIf=\"content.header\">{{content.header}} ?</h4>\n  </div>\n  <div class=\"modal-body\">\n    <p *ngIf=\"!content.message\">Mission Success!</p>\n    <p *ngIf=\"content.message\">{{content.message}} ?</p>\n  </div>\n  <div class=\"modal-footer\">\n    <button mat-button class=\"btn btn-success\" (click)=\"continue()\">OK</button>\n  </div>\n</div>"
 
 /***/ }),
 
@@ -58125,7 +58236,7 @@ exports.DialogSuccessComponent = DialogSuccessComponent;
 /***/ "./src/app/components/dialog/warning/warning.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"mt-modal\">\n  <div class=\"modal-header\">\n    <h4>Warning</h4>\n  </div>\n  <div class=\"modal-body\">\n    <p *ngIf=\"!content.message\">Are you sure ?</p>\n    <p *ngIf=\"content.message\">{{content.message}} ?</p>\n  </div>\n  <div class=\"modal-footer\">\n    <button mat-raised-button color=\"warn\" (click)=\"continue()\">\n      OK\n    </button>\n    <button mat-button mat-dialog-close=\"false\">\n      Cancel\n    </button>\n  </div>\n</div>"
+module.exports = "<div class=\"mt-modal modal-warning\">\n  <div class=\"modal-header\">\n    <h4>Warning</h4>\n  </div>\n  <div class=\"modal-body\">\n    <p *ngIf=\"!content.message\">Are you sure ?</p>\n    <p *ngIf=\"content.message\">{{content.message}} ?</p>\n  </div>\n  <div class=\"modal-footer\">\n    <button mat-button class=\"btn btn-warning\" (click)=\"continue()\">OK</button>\n    <button mat-button mat-dialog-close=\"false\">\n      Cancel\n    </button>\n  </div>\n</div>"
 
 /***/ }),
 
@@ -58186,6 +58297,56 @@ var DialogWarningComponent = (function () {
     return DialogWarningComponent;
 }());
 exports.DialogWarningComponent = DialogWarningComponent;
+
+
+/***/ }),
+
+/***/ "./src/app/components/snackbar/default/default.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "Test"
+
+/***/ }),
+
+/***/ "./src/app/components/snackbar/default/default.component.scss":
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/components/snackbar/default/default.component.ts":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+var SnackbarDefaultComponent = (function () {
+    function SnackbarDefaultComponent() {
+    }
+    SnackbarDefaultComponent.prototype.ngOnInit = function () {
+    };
+    SnackbarDefaultComponent = __decorate([
+        core_1.Component({
+            selector: 'app-default',
+            template: __webpack_require__("./src/app/components/snackbar/default/default.component.html"),
+            styles: [__webpack_require__("./src/app/components/snackbar/default/default.component.scss")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], SnackbarDefaultComponent);
+    return SnackbarDefaultComponent;
+}());
+exports.SnackbarDefaultComponent = SnackbarDefaultComponent;
 
 
 /***/ }),
@@ -58252,6 +58413,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+var primary_component_1 = __webpack_require__("./src/app/components/dialog/primary/primary.component.ts");
+var components_service_1 = __webpack_require__("./src/app/components-material/child/components/components.service.ts");
 var dialog_service_1 = __webpack_require__("./src/app/services/dialog.service.ts");
 var http_service_1 = __webpack_require__("./src/app/services/http.service.ts");
 var notify_component_1 = __webpack_require__("./src/app/components-material/child/notify/notify.component.ts");
@@ -58275,6 +58438,8 @@ var danger_component_1 = __webpack_require__("./src/app/components/dialog/danger
 var info_component_1 = __webpack_require__("./src/app/components/dialog/info/info.component.ts");
 var success_component_1 = __webpack_require__("./src/app/components/dialog/success/success.component.ts");
 var warning_component_1 = __webpack_require__("./src/app/components/dialog/warning/warning.component.ts");
+var default_component_2 = __webpack_require__("./src/app/components/snackbar/default/default.component.ts");
+var snackbar_service_1 = __webpack_require__("./src/app/services/snackbar.service.ts");
 var AdminLayoutModule = (function () {
     function AdminLayoutModule() {
     }
@@ -58319,18 +58484,24 @@ var AdminLayoutModule = (function () {
                 danger_component_1.DialogDangerComponent,
                 info_component_1.DialogInfoComponent,
                 success_component_1.DialogSuccessComponent,
-                warning_component_1.DialogWarningComponent
+                warning_component_1.DialogWarningComponent,
+                primary_component_1.DialogPrimaryComponent,
+                default_component_2.SnackbarDefaultComponent
             ],
             providers: [
                 http_service_1.HttpService,
-                dialog_service_1.DialogService
+                dialog_service_1.DialogService,
+                components_service_1.ComponentsService,
+                snackbar_service_1.SnackbarService
             ],
             entryComponents: [
                 default_component_1.DialogDefaultComponent,
                 danger_component_1.DialogDangerComponent,
                 info_component_1.DialogInfoComponent,
                 success_component_1.DialogSuccessComponent,
-                warning_component_1.DialogWarningComponent
+                warning_component_1.DialogWarningComponent,
+                primary_component_1.DialogPrimaryComponent,
+                default_component_2.SnackbarDefaultComponent
             ]
         })
     ], AdminLayoutModule);
@@ -58431,6 +58602,7 @@ var info_component_1 = __webpack_require__("./src/app/components/dialog/info/inf
 var warning_component_1 = __webpack_require__("./src/app/components/dialog/warning/warning.component.ts");
 var danger_component_1 = __webpack_require__("./src/app/components/dialog/danger/danger.component.ts");
 var material_1 = __webpack_require__("./node_modules/@angular/material/esm5/material.es5.js");
+var primary_component_1 = __webpack_require__("./src/app/components/dialog/primary/primary.component.ts");
 var DialogService = (function () {
     function DialogService(dialog) {
         this.dialog = dialog;
@@ -58465,6 +58637,13 @@ var DialogService = (function () {
     };
     DialogService.prototype.danger = function () {
         var dialogRef = this.dialog.open(danger_component_1.DialogDangerComponent, {
+            width: '750px',
+            data: {}
+        });
+        return dialogRef.afterClosed();
+    };
+    DialogService.prototype.primary = function () {
+        var dialogRef = this.dialog.open(primary_component_1.DialogPrimaryComponent, {
             width: '750px',
             data: {}
         });
@@ -58570,6 +58749,75 @@ var HttpService = (function () {
     return HttpService;
 }());
 exports.HttpService = HttpService;
+
+
+/***/ }),
+
+/***/ "./src/app/services/snackbar.service.ts":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+var material_1 = __webpack_require__("./node_modules/@angular/material/esm5/material.es5.js");
+var default_component_1 = __webpack_require__("./src/app/components/snackbar/default/default.component.ts");
+var SnackbarService = (function () {
+    function SnackbarService(snackBar) {
+        this.snackBar = snackBar;
+    }
+    SnackbarService.prototype.default = function () {
+        this.snackBar.openFromComponent(default_component_1.SnackbarDefaultComponent, {
+            panelClass: 'snackbar-default',
+            duration: 1000
+        });
+    };
+    SnackbarService.prototype.success = function () {
+        this.snackBar.openFromComponent(default_component_1.SnackbarDefaultComponent, {
+            panelClass: 'snackbar-success',
+            duration: 1000
+        });
+    };
+    SnackbarService.prototype.info = function () {
+        this.snackBar.openFromComponent(default_component_1.SnackbarDefaultComponent, {
+            panelClass: 'snackbar-info',
+            duration: 1000
+        });
+    };
+    SnackbarService.prototype.warning = function () {
+        this.snackBar.openFromComponent(default_component_1.SnackbarDefaultComponent, {
+            panelClass: 'snackbar-warning',
+            duration: 1000
+        });
+    };
+    SnackbarService.prototype.danger = function () {
+        this.snackBar.openFromComponent(default_component_1.SnackbarDefaultComponent, {
+            panelClass: 'snackbar-danger',
+            duration: 1000
+        });
+    };
+    SnackbarService.prototype.primary = function () {
+        this.snackBar.openFromComponent(default_component_1.SnackbarDefaultComponent, {
+            panelClass: 'snackbar-primary',
+            duration: 1000
+        });
+    };
+    SnackbarService = __decorate([
+        core_1.Injectable(),
+        __metadata("design:paramtypes", [material_1.MatSnackBar])
+    ], SnackbarService);
+    return SnackbarService;
+}());
+exports.SnackbarService = SnackbarService;
 
 
 /***/ })

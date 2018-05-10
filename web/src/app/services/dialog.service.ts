@@ -5,6 +5,7 @@ import { DialogInfoComponent } from '../components/dialog/info/info.component';
 import { DialogWarningComponent } from '../components/dialog/warning/warning.component';
 import { DialogDangerComponent } from '../components/dialog/danger/danger.component';
 import { MatDialog } from '@angular/material';
+import { DialogPrimaryComponent } from '../components/dialog/primary/primary.component';
 
 @Injectable()
 export class DialogService {
@@ -44,6 +45,15 @@ export class DialogService {
   }
   danger() {
     let dialogRef = this.dialog.open(DialogDangerComponent, {
+      width: '750px',
+      data: {}
+    });
+
+    return dialogRef.afterClosed();
+  }
+
+  primary() {
+    let dialogRef = this.dialog.open(DialogPrimaryComponent, {
       width: '750px',
       data: {}
     });

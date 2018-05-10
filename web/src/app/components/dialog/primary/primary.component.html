@@ -1,6 +1,6 @@
-<div class="mt-modal modal-info">
+<div class="mt-modal modal-primary">
   <div class="modal-header">
-    <h4 *ngIf="!content.header">Info</h4>
+    <h4 *ngIf="!content.header">Primary</h4>
     <h4 *ngIf="content.header">{{content.header}} ?</h4>
   </div>
   <div class="modal-body">
@@ -8,8 +8,9 @@
     <p *ngIf="content.message">{{content.message}} ?</p>
   </div>
   <div class="modal-footer">
+    <button mat-button class="btn btn-primary" (click)="continue()">OK</button>
     <button mat-button mat-dialog-close="false">
-      Close
+      Cancel
     </button>
   </div>
 </div>

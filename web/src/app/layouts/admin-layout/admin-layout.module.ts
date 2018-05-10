@@ -1,3 +1,5 @@
+import { DialogPrimaryComponent } from './../../components/dialog/primary/primary.component';
+import { ComponentsService } from './../../components-material/child/components/components.service';
 import { DialogService } from './../../services/dialog.service';
 import { HttpService } from './../../services/http.service';
 import { NotifyComponent } from './../../components-material/child/notify/notify.component';
@@ -44,6 +46,8 @@ import { DialogDangerComponent } from '../../components/dialog/danger/danger.com
 import { DialogInfoComponent } from '../../components/dialog/info/info.component';
 import { DialogSuccessComponent } from '../../components/dialog/success/success.component';
 import { DialogWarningComponent } from '../../components/dialog/warning/warning.component';
+import { SnackbarDefaultComponent } from '../../components/snackbar/default/default.component';
+import { SnackbarService } from '../../services/snackbar.service';
 @NgModule({
   imports: [
     CommonModule,
@@ -84,18 +88,24 @@ import { DialogWarningComponent } from '../../components/dialog/warning/warning.
     DialogDangerComponent,
     DialogInfoComponent,
     DialogSuccessComponent,
-    DialogWarningComponent
+    DialogWarningComponent,
+    DialogPrimaryComponent,
+    SnackbarDefaultComponent
   ],
   providers:[
     HttpService,
-    DialogService
+    DialogService,
+    ComponentsService,
+    SnackbarService
   ],
   entryComponents:[
     DialogDefaultComponent,
     DialogDangerComponent,
     DialogInfoComponent,
     DialogSuccessComponent,
-    DialogWarningComponent
+    DialogWarningComponent,
+    DialogPrimaryComponent,
+    SnackbarDefaultComponent
   ]
 })
 
