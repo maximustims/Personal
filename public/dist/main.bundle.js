@@ -351,7 +351,7 @@ module.exports = ""
 /***/ "./src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\n<router-outlet></router-outlet>\n"
+module.exports = "\r\n<router-outlet></router-outlet>\r\n"
 
 /***/ }),
 
@@ -503,7 +503,7 @@ exports.AppRoutingModule = AppRoutingModule;
 /***/ "./src/app/layouts/admin-layout/admin-layout.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"wrapper\">\n    <div class=\"sidebar\" data-color=\"danger\" data-background-color=\"white\" data-image=\"../assets/img/sidebar-1.jpg\">\n        <app-sidebar></app-sidebar>\n        <div class=\"sidebar-background\" style=\"background-image: url(../assets/img/sidebar-4.jpg)\"></div>\n    </div>\n    <div class=\"main-panel\">\n        <app-navbar></app-navbar>\n        <router-outlet></router-outlet>\n        <div *ngIf=\"isMaps('maps')\">\n            <app-footer></app-footer>\n        </div>\n    </div>\n</div>\n"
+module.exports = "<div class=\"wrapper\">\r\n    <div class=\"sidebar\" data-color=\"danger\" data-background-color=\"white\" data-image=\"../assets/img/sidebar-1.jpg\">\r\n        <app-sidebar></app-sidebar>\r\n        <div class=\"sidebar-background\" style=\"background-image: url(../assets/img/sidebar-4.jpg)\"></div>\r\n    </div>\r\n    <div class=\"main-panel\">\r\n        <app-navbar></app-navbar>\r\n        <router-outlet></router-outlet>\r\n        <div *ngIf=\"isMaps('maps')\">\r\n            <app-footer></app-footer>\r\n        </div>\r\n    </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -623,7 +623,7 @@ exports.AdminLayoutComponent = AdminLayoutComponent;
 /***/ "./src/app/layouts/web-layout/web-layout.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"wrapper\">\n    <div class=\"main-panel\">\n        <router-outlet></router-outlet>\n    </div>\n</div>\n"
+module.exports = "<div class=\"wrapper\">\r\n    <div class=\"main-panel\">\r\n        <router-outlet></router-outlet>\r\n    </div>\r\n</div>\r\n"
 
 /***/ }),
 

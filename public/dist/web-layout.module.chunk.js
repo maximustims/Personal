@@ -79,7 +79,7 @@ exports.WebLayoutRoutes = [
 /***/ "./src/app/web/modules/error404/error404.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  error404 works!\n</p>\n"
+module.exports = "<p>\r\n  error404 works!\r\n</p>\r\n"
 
 /***/ }),
 
@@ -129,7 +129,7 @@ exports.Error404Component = Error404Component;
 /***/ "./src/app/web/modules/index/index.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  index works!\n  <button mat-button class=\"btn btn-success\">Success</button>\n</p>\n"
+module.exports = "<p>\r\n  index works!\r\n  <button mat-button class=\"btn btn-success\">Success</button>\r\n</p>\r\n"
 
 /***/ }),
 
