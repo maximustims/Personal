@@ -9,7 +9,7 @@
     "run": "node server.js",
     "test": "node ace test",
     "run_backend": "adonis serve --dev",
-    "run_frontend": "cd web && ng build -w"
+    "run_frontend": "cd templates && ng build -w"
   },
   "keywords": [
     "adonisjs",

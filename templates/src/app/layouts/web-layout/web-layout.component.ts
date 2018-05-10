@@ -1,17 +1,15 @@
 import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { Location, LocationStrategy, PathLocationStrategy, PopStateEvent } from '@angular/common';
 import 'rxjs/add/operator/filter';
-import { NavbarComponent } from '../../components/navbar/navbar.component';
 import { Router, NavigationEnd, NavigationStart } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
-import PerfectScrollbar from 'perfect-scrollbar';
 
 @Component({
-  selector: 'app-admin-layout',
-  templateUrl: './admin-layout.component.html',
-  styleUrls: ['./admin-layout.component.scss']
+  selector: 'app-web-layout',
+  templateUrl: './web-layout.component.html',
+  styleUrls: ['./web-layout.component.scss']
 })
-export class AdminLayoutComponent implements OnInit {
+export class WebLayoutComponent implements OnInit {
   private _router: Subscription;
   private lastPoppedUrl: string;
   private yScrollStack: number[] = [];
@@ -22,7 +20,6 @@ export class AdminLayoutComponent implements OnInit {
       const isWindows = navigator.platform.indexOf('Win') > -1 ? true : false;
 
       if (isWindows && !document.getElementsByTagName('body')[0].classList.contains('sidebar-mini')) {
-          // if we are on windows OS we activate the perfectScrollbar function
 
           document.getElementsByTagName('body')[0].classList.add('perfect-scrollbar-on');
       } else {
@@ -50,10 +47,6 @@ export class AdminLayoutComponent implements OnInit {
            elemMainPanel.scrollTop = 0;
            elemSidebar.scrollTop = 0;
       });
-      if (window.matchMedia(`(min-width: 960px)`).matches && !this.isMac()) {
-          let ps = new PerfectScrollbar(elemMainPanel);
-          ps = new PerfectScrollbar(elemSidebar);
-      }
   }
   ngAfterViewInit() {
       this.runOnRouteChange();
@@ -71,8 +64,6 @@ export class AdminLayoutComponent implements OnInit {
   runOnRouteChange(): void {
     if (window.matchMedia(`(min-width: 960px)`).matches && !this.isMac()) {
       const elemMainPanel = <HTMLElement>document.querySelector('.main-panel');
-      const ps = new PerfectScrollbar(elemMainPanel);
-      ps.update();
     }
   }
   isMac(): boolean {

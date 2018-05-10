@@ -6,15 +6,15 @@ import { RouterModule } from '@angular/router';
 
 
 import { AppRoutingModule } from './app.routing';
-import { ComponentsModule } from './components/components.module';
+import { ComponentsModule } from './admin/components/components.module';
 
 import { AppComponent } from './app.component';
 
-import { DashboardComponent } from './dashboard/dashboard.component';
 import {
   AgmCoreModule
 } from '@agm/core';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
+import { WebLayoutComponent } from './layouts/web-layout/web-layout.component';
 
 @NgModule({
   imports: [
@@ -31,7 +31,7 @@ import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.compon
   declarations: [
     AppComponent,
     AdminLayoutComponent,
-
+    WebLayoutComponent,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -57349,21 +57349,429 @@ function not(pred, thisArg) {
 
 /***/ }),
 
-/***/ "./src/app/components-material/child/components/components.component.html":
+/***/ "./src/app/admin/components/dialog/danger/danger.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"\">\n  <div class=\"row\">\n    <div class=\"col-sm-6\">\n      <div class=\"card\">\n        <div class=\"card-header\">\n          <h3 class=\"card-title\">\n            Buttons\n          </h3>\n        </div>\n        <div class=\"card-body\">\n          <button mat-button class=\"btn btn-default\">Default</button>\n          <button mat-button class=\"btn btn-primary\">Primary</button>\n          <button mat-button class=\"btn btn-info\">Info</button>\n          <button mat-button class=\"btn btn-success\">Success</button>\n          <button mat-button class=\"btn btn-warning\">Warning</button>\n          <button mat-button class=\"btn btn-danger\">Danger</button>\n        </div>\n        <div class=\"card-body\">\n          <button mat-button class=\"btn btn-default\" (click)=\"testApi()\">Test Api</button>\n        </div>\n      </div>\n      <div class=\"card\">\n        <div class=\"card-header\">\n          <h3 class=\"card-title\">\n            Buttons with size\n          </h3>\n        </div>\n        <div class=\"card-body\">\n          <div>\n            <button mat-button class=\"btn btn-default btn-lg\">Default</button>\n            <button mat-button class=\"btn btn-default\">Default</button>\n            <button mat-button class=\"btn btn-default btn-sm\">Default</button>\n          </div>\n          <div>\n            <button mat-button class=\"btn btn-primary btn-lg\">Primary</button>\n            <button mat-button class=\"btn btn-primary\">Primary</button>\n            <button mat-button class=\"btn btn-primary btn-sm\">Primary</button>\n          </div>\n          <div>\n            <button mat-button class=\"btn btn-info btn-lg\">Info</button>\n            <button mat-button class=\"btn btn-info\">Info</button>\n            <button mat-button class=\"btn btn-info btn-sm\">Info</button>\n          </div>\n          <div>\n            <button mat-button class=\"btn btn-success btn-lg\">Success</button>\n            <button mat-button class=\"btn btn-success\">Success</button>\n            <button mat-button class=\"btn btn-success btn-sm\">Success</button>\n          </div>\n          <div>\n            <button mat-button class=\"btn btn-warning btn-lg\">Warning</button>\n            <button mat-button class=\"btn btn-warning\">Warning</button>\n            <button mat-button class=\"btn btn-warning btn-sm\">Warning</button>\n          </div>\n          <div>\n            <button mat-button class=\"btn btn-danger btn-lg\">Danger</button>\n            <button mat-button class=\"btn btn-danger\">Danger</button>\n            <button mat-button class=\"btn btn-danger btn-sm\">Danger</button>\n          </div>\n        </div>\n      </div>\n    </div>\n    <div class=\"col-sm-6\">\n      <div class=\"card\">\n        <div class=\"card-header\">\n          <h3 class=\"card-title\">\n            Dropdown, Dropup\n          </h3>\n        </div>\n        <div class=\"card-body\">\n          <div class=\"dropdown\">\n            <button href=\"#\" class=\"btn dropdown-toggle\" data-toggle=\"dropdown\" aria-expanded=\"true\">\n              Regular\n              <b class=\"caret\"></b>\n            </button>\n            <ul class=\"dropdown-menu\">\n              <li>\n                <a href=\"#\">Action</a>\n              </li>\n              <li>\n                <a href=\"#\">Another action</a>\n              </li>\n              <li>\n                <a href=\"#\">Something else here</a>\n              </li>\n              <li class=\"divider\"></li>\n              <li>\n                <a href=\"#\">Separated link</a>\n              </li>\n              <li class=\"divider\"></li>\n              <li>\n                <a href=\"#\">One more separated link</a>\n              </li>\n            </ul>\n          </div>\n          <span class=\"dropup\">\n            <button href=\"#\" class=\"dropdown-toggle btn btn-primary btn-round\" data-toggle=\"dropdown\">Dropup\n              <b class=\"caret\"></b>\n            </button>\n            <ul class=\"dropdown-menu dropdown-primary dropdown-menu-right\">\n              <li class=\"dropdown-header\">Dropdown header</li>\n              <li>\n                <a href=\"#\">Action</a>\n              </li>\n              <li>\n                <a href=\"#\">Another action</a>\n              </li>\n              <li>\n                <a href=\"#\">Something else here</a>\n              </li>\n              <li class=\"divider\"></li>\n              <li>\n                <a href=\"#\">Separated link</a>\n              </li>\n              <li class=\"divider\"></li>\n              <li>\n                <a href=\"#\">One more separated link</a>\n              </li>\n            </ul>\n          </span>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>"
+module.exports = "<div class=\"mt-modal modal-danger\">\r\n  <div class=\"modal-header\">\r\n      <h4 *ngIf=\"!content.header\">Confirm</h4>\r\n      <h4 *ngIf=\"content.header\">{{content.header}} ?</h4>\r\n  </div>\r\n  <div class=\"modal-body\">\r\n    <p *ngIf=\"!content.message\">Are you sure ?</p>\r\n    <p *ngIf=\"content.message\">{{content.message}} ?</p>\r\n  </div>\r\n  <div class=\"modal-footer\">\r\n    <button mat-button class=\"btn btn-danger\" (click)=\"continue()\">OK</button>\r\n    <button mat-button mat-dialog-close=\"false\">\r\n      Cancel\r\n    </button>\r\n  </div>\r\n</div>"
 
 /***/ }),
 
-/***/ "./src/app/components-material/child/components/components.component.scss":
+/***/ "./src/app/admin/components/dialog/danger/danger.component.scss":
 /***/ (function(module, exports) {
 
 module.exports = ""
 
 /***/ }),
 
-/***/ "./src/app/components-material/child/components/components.component.ts":
+/***/ "./src/app/admin/components/dialog/danger/danger.component.ts":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __param = (this && this.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+var material_1 = __webpack_require__("./node_modules/@angular/material/esm5/material.es5.js");
+var DialogDangerComponent = (function () {
+    function DialogDangerComponent(dialogRef, data) {
+        this.dialogRef = dialogRef;
+        this.data = data;
+        this.content = data;
+    }
+    DialogDangerComponent.prototype.ngOnInit = function () {
+    };
+    DialogDangerComponent.prototype.continue = function () {
+        this.dialogRef.close({
+            success: true
+        });
+    };
+    DialogDangerComponent.prototype.cancel = function () {
+        this.dialogRef.close({
+            success: false
+        });
+    };
+    DialogDangerComponent = __decorate([
+        core_1.Component({
+            selector: 'app-danger',
+            template: __webpack_require__("./src/app/admin/components/dialog/danger/danger.component.html"),
+            styles: [__webpack_require__("./src/app/admin/components/dialog/danger/danger.component.scss")]
+        }),
+        __param(1, core_1.Inject(material_1.MAT_DIALOG_DATA)),
+        __metadata("design:paramtypes", [material_1.MatDialogRef, Object])
+    ], DialogDangerComponent);
+    return DialogDangerComponent;
+}());
+exports.DialogDangerComponent = DialogDangerComponent;
+
+
+/***/ }),
+
+/***/ "./src/app/admin/components/dialog/default/default.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"mt-modal modal-default\">\r\n  <div class=\"modal-header\">\r\n    <h4 *ngIf=\"!content.header\">Header</h4>\r\n    <h4 *ngIf=\"content.header\">{{content.header}} ?</h4>\r\n  </div>\r\n  <div class=\"modal-body\">\r\n    <p *ngIf=\"!content.message\">Are you sure ?</p>\r\n    <p *ngIf=\"content.message\">{{content.message}} ?</p>\r\n  </div>\r\n  <div class=\"modal-footer\">\r\n    <button mat-button class=\"btn btn-default\" (click)=\"continue()\">OK</button>\r\n    <button mat-button mat-dialog-close=\"false\">\r\n      Cancel\r\n    </button>\r\n  </div>\r\n</div>"
+
+/***/ }),
+
+/***/ "./src/app/admin/components/dialog/default/default.component.scss":
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/admin/components/dialog/default/default.component.ts":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __param = (this && this.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+var material_1 = __webpack_require__("./node_modules/@angular/material/esm5/material.es5.js");
+var DialogDefaultComponent = (function () {
+    function DialogDefaultComponent(dialogRef, data) {
+        this.dialogRef = dialogRef;
+        this.data = data;
+        this.content = data;
+    }
+    DialogDefaultComponent.prototype.ngOnInit = function () {
+    };
+    DialogDefaultComponent.prototype.continue = function () {
+        this.dialogRef.close({
+            success: true
+        });
+    };
+    DialogDefaultComponent.prototype.cancel = function () {
+        this.dialogRef.close({
+            success: false
+        });
+    };
+    DialogDefaultComponent = __decorate([
+        core_1.Component({
+            selector: 'app-default',
+            template: __webpack_require__("./src/app/admin/components/dialog/default/default.component.html"),
+            styles: [__webpack_require__("./src/app/admin/components/dialog/default/default.component.scss")]
+        }),
+        __param(1, core_1.Inject(material_1.MAT_DIALOG_DATA)),
+        __metadata("design:paramtypes", [material_1.MatDialogRef, Object])
+    ], DialogDefaultComponent);
+    return DialogDefaultComponent;
+}());
+exports.DialogDefaultComponent = DialogDefaultComponent;
+
+
+/***/ }),
+
+/***/ "./src/app/admin/components/dialog/info/info.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"mt-modal modal-info\">\r\n  <div class=\"modal-header\">\r\n    <h4 *ngIf=\"!content.header\">Info</h4>\r\n    <h4 *ngIf=\"content.header\">{{content.header}} ?</h4>\r\n  </div>\r\n  <div class=\"modal-body\">\r\n    <p *ngIf=\"!content.message\">Are you sure ?</p>\r\n    <p *ngIf=\"content.message\">{{content.message}} ?</p>\r\n  </div>\r\n  <div class=\"modal-footer\">\r\n    <button mat-button mat-dialog-close=\"false\">\r\n      Close\r\n    </button>\r\n  </div>\r\n</div>"
+
+/***/ }),
+
+/***/ "./src/app/admin/components/dialog/info/info.component.scss":
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/admin/components/dialog/info/info.component.ts":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __param = (this && this.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+var material_1 = __webpack_require__("./node_modules/@angular/material/esm5/material.es5.js");
+var DialogInfoComponent = (function () {
+    function DialogInfoComponent(dialogRef, data) {
+        this.dialogRef = dialogRef;
+        this.data = data;
+        this.content = data;
+    }
+    DialogInfoComponent.prototype.ngOnInit = function () {
+    };
+    DialogInfoComponent.prototype.continue = function () {
+        this.dialogRef.close({
+            success: true
+        });
+    };
+    DialogInfoComponent.prototype.cancel = function () {
+        this.dialogRef.close({
+            success: false
+        });
+    };
+    DialogInfoComponent = __decorate([
+        core_1.Component({
+            selector: 'app-info',
+            template: __webpack_require__("./src/app/admin/components/dialog/info/info.component.html"),
+            styles: [__webpack_require__("./src/app/admin/components/dialog/info/info.component.scss")]
+        }),
+        __param(1, core_1.Inject(material_1.MAT_DIALOG_DATA)),
+        __metadata("design:paramtypes", [material_1.MatDialogRef, Object])
+    ], DialogInfoComponent);
+    return DialogInfoComponent;
+}());
+exports.DialogInfoComponent = DialogInfoComponent;
+
+
+/***/ }),
+
+/***/ "./src/app/admin/components/dialog/primary/primary.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"mt-modal modal-primary\">\r\n  <div class=\"modal-header\">\r\n    <h4 *ngIf=\"!content.header\">Primary</h4>\r\n    <h4 *ngIf=\"content.header\">{{content.header}} ?</h4>\r\n  </div>\r\n  <div class=\"modal-body\">\r\n    <p *ngIf=\"!content.message\">Are you sure ?</p>\r\n    <p *ngIf=\"content.message\">{{content.message}} ?</p>\r\n  </div>\r\n  <div class=\"modal-footer\">\r\n    <button mat-button class=\"btn btn-primary\" (click)=\"continue()\">OK</button>\r\n    <button mat-button mat-dialog-close=\"false\">\r\n      Cancel\r\n    </button>\r\n  </div>\r\n</div>"
+
+/***/ }),
+
+/***/ "./src/app/admin/components/dialog/primary/primary.component.scss":
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/admin/components/dialog/primary/primary.component.ts":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __param = (this && this.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+var material_1 = __webpack_require__("./node_modules/@angular/material/esm5/material.es5.js");
+var DialogPrimaryComponent = (function () {
+    function DialogPrimaryComponent(dialogRef, data) {
+        this.dialogRef = dialogRef;
+        this.data = data;
+        this.content = data;
+    }
+    DialogPrimaryComponent.prototype.ngOnInit = function () {
+    };
+    DialogPrimaryComponent.prototype.continue = function () {
+        this.dialogRef.close({
+            success: true
+        });
+    };
+    DialogPrimaryComponent.prototype.cancel = function () {
+        this.dialogRef.close({
+            success: false
+        });
+    };
+    DialogPrimaryComponent = __decorate([
+        core_1.Component({
+            selector: 'app-primary',
+            template: __webpack_require__("./src/app/admin/components/dialog/primary/primary.component.html"),
+            styles: [__webpack_require__("./src/app/admin/components/dialog/primary/primary.component.scss")]
+        }),
+        __param(1, core_1.Inject(material_1.MAT_DIALOG_DATA)),
+        __metadata("design:paramtypes", [material_1.MatDialogRef, Object])
+    ], DialogPrimaryComponent);
+    return DialogPrimaryComponent;
+}());
+exports.DialogPrimaryComponent = DialogPrimaryComponent;
+
+
+/***/ }),
+
+/***/ "./src/app/admin/components/dialog/success/success.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"mt-modal modal-success\">\r\n  <div class=\"modal-header\">\r\n    <h4 *ngIf=\"!content.header\">Success</h4>\r\n    <h4 *ngIf=\"content.header\">{{content.header}} ?</h4>\r\n  </div>\r\n  <div class=\"modal-body\">\r\n    <p *ngIf=\"!content.message\">Mission Success!</p>\r\n    <p *ngIf=\"content.message\">{{content.message}} ?</p>\r\n  </div>\r\n  <div class=\"modal-footer\">\r\n    <button mat-button class=\"btn btn-success\" (click)=\"continue()\">OK</button>\r\n  </div>\r\n</div>"
+
+/***/ }),
+
+/***/ "./src/app/admin/components/dialog/success/success.component.scss":
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/admin/components/dialog/success/success.component.ts":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __param = (this && this.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+var material_1 = __webpack_require__("./node_modules/@angular/material/esm5/material.es5.js");
+var DialogSuccessComponent = (function () {
+    function DialogSuccessComponent(dialogRef, data) {
+        this.dialogRef = dialogRef;
+        this.data = data;
+        this.content = data;
+    }
+    DialogSuccessComponent.prototype.ngOnInit = function () {
+    };
+    DialogSuccessComponent.prototype.continue = function () {
+        this.dialogRef.close({
+            success: true
+        });
+    };
+    DialogSuccessComponent.prototype.cancel = function () {
+        this.dialogRef.close({
+            success: false
+        });
+    };
+    DialogSuccessComponent = __decorate([
+        core_1.Component({
+            selector: 'app-success',
+            template: __webpack_require__("./src/app/admin/components/dialog/success/success.component.html"),
+            styles: [__webpack_require__("./src/app/admin/components/dialog/success/success.component.scss")]
+        }),
+        __param(1, core_1.Inject(material_1.MAT_DIALOG_DATA)),
+        __metadata("design:paramtypes", [material_1.MatDialogRef, Object])
+    ], DialogSuccessComponent);
+    return DialogSuccessComponent;
+}());
+exports.DialogSuccessComponent = DialogSuccessComponent;
+
+
+/***/ }),
+
+/***/ "./src/app/admin/components/dialog/warning/warning.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"mt-modal modal-warning\">\r\n  <div class=\"modal-header\">\r\n    <h4>Warning</h4>\r\n  </div>\r\n  <div class=\"modal-body\">\r\n    <p *ngIf=\"!content.message\">Are you sure ?</p>\r\n    <p *ngIf=\"content.message\">{{content.message}} ?</p>\r\n  </div>\r\n  <div class=\"modal-footer\">\r\n    <button mat-button class=\"btn btn-warning\" (click)=\"continue()\">OK</button>\r\n    <button mat-button mat-dialog-close=\"false\">\r\n      Cancel\r\n    </button>\r\n  </div>\r\n</div>"
+
+/***/ }),
+
+/***/ "./src/app/admin/components/dialog/warning/warning.component.scss":
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/admin/components/dialog/warning/warning.component.ts":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __param = (this && this.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+var material_1 = __webpack_require__("./node_modules/@angular/material/esm5/material.es5.js");
+var DialogWarningComponent = (function () {
+    function DialogWarningComponent(dialogRef, data) {
+        this.dialogRef = dialogRef;
+        this.data = data;
+        this.content = data;
+    }
+    DialogWarningComponent.prototype.ngOnInit = function () {
+    };
+    DialogWarningComponent.prototype.continue = function () {
+        this.dialogRef.close({
+            success: true
+        });
+    };
+    DialogWarningComponent.prototype.cancel = function () {
+        this.dialogRef.close({
+            success: false
+        });
+    };
+    DialogWarningComponent = __decorate([
+        core_1.Component({
+            selector: 'app-warning',
+            template: __webpack_require__("./src/app/admin/components/dialog/warning/warning.component.html"),
+            styles: [__webpack_require__("./src/app/admin/components/dialog/warning/warning.component.scss")]
+        }),
+        __param(1, core_1.Inject(material_1.MAT_DIALOG_DATA)),
+        __metadata("design:paramtypes", [material_1.MatDialogRef, Object])
+    ], DialogWarningComponent);
+    return DialogWarningComponent;
+}());
+exports.DialogWarningComponent = DialogWarningComponent;
+
+
+/***/ }),
+
+/***/ "./src/app/admin/components/snackbar/default/default.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "Test"
+
+/***/ }),
+
+/***/ "./src/app/admin/components/snackbar/default/default.component.scss":
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/admin/components/snackbar/default/default.component.ts":
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -57379,7 +57787,57 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
-var components_service_1 = __webpack_require__("./src/app/components-material/child/components/components.service.ts");
+var SnackbarDefaultComponent = (function () {
+    function SnackbarDefaultComponent() {
+    }
+    SnackbarDefaultComponent.prototype.ngOnInit = function () {
+    };
+    SnackbarDefaultComponent = __decorate([
+        core_1.Component({
+            selector: 'app-default',
+            template: __webpack_require__("./src/app/admin/components/snackbar/default/default.component.html"),
+            styles: [__webpack_require__("./src/app/admin/components/snackbar/default/default.component.scss")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], SnackbarDefaultComponent);
+    return SnackbarDefaultComponent;
+}());
+exports.SnackbarDefaultComponent = SnackbarDefaultComponent;
+
+
+/***/ }),
+
+/***/ "./src/app/admin/modules/components-material/child/components/components.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"\">\r\n  <div class=\"row\">\r\n    <div class=\"col-sm-6\">\r\n      <div class=\"card\">\r\n        <div class=\"card-header\">\r\n          <h3 class=\"card-title\">\r\n            Buttons\r\n          </h3>\r\n        </div>\r\n        <div class=\"card-body\">\r\n          <button mat-button class=\"btn btn-default\">Default</button>\r\n          <button mat-button class=\"btn btn-primary\">Primary</button>\r\n          <button mat-button class=\"btn btn-info\">Info</button>\r\n          <button mat-button class=\"btn btn-success\">Success</button>\r\n          <button mat-button class=\"btn btn-warning\">Warning</button>\r\n          <button mat-button class=\"btn btn-danger\">Danger</button>\r\n        </div>\r\n        <div class=\"card-body\">\r\n          <button mat-button class=\"btn btn-default\" (click)=\"testApi()\">Test Api</button>\r\n        </div>\r\n      </div>\r\n      <div class=\"card\">\r\n        <div class=\"card-header\">\r\n          <h3 class=\"card-title\">\r\n            Buttons with size\r\n          </h3>\r\n        </div>\r\n        <div class=\"card-body\">\r\n          <div>\r\n            <button mat-button class=\"btn btn-default btn-lg\">Default</button>\r\n            <button mat-button class=\"btn btn-default\">Default</button>\r\n            <button mat-button class=\"btn btn-default btn-sm\">Default</button>\r\n          </div>\r\n          <div>\r\n            <button mat-button class=\"btn btn-primary btn-lg\">Primary</button>\r\n            <button mat-button class=\"btn btn-primary\">Primary</button>\r\n            <button mat-button class=\"btn btn-primary btn-sm\">Primary</button>\r\n          </div>\r\n          <div>\r\n            <button mat-button class=\"btn btn-info btn-lg\">Info</button>\r\n            <button mat-button class=\"btn btn-info\">Info</button>\r\n            <button mat-button class=\"btn btn-info btn-sm\">Info</button>\r\n          </div>\r\n          <div>\r\n            <button mat-button class=\"btn btn-success btn-lg\">Success</button>\r\n            <button mat-button class=\"btn btn-success\">Success</button>\r\n            <button mat-button class=\"btn btn-success btn-sm\">Success</button>\r\n          </div>\r\n          <div>\r\n            <button mat-button class=\"btn btn-warning btn-lg\">Warning</button>\r\n            <button mat-button class=\"btn btn-warning\">Warning</button>\r\n            <button mat-button class=\"btn btn-warning btn-sm\">Warning</button>\r\n          </div>\r\n          <div>\r\n            <button mat-button class=\"btn btn-danger btn-lg\">Danger</button>\r\n            <button mat-button class=\"btn btn-danger\">Danger</button>\r\n            <button mat-button class=\"btn btn-danger btn-sm\">Danger</button>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n    <div class=\"col-sm-6\">\r\n      <div class=\"card\">\r\n        <div class=\"card-header\">\r\n          <h3 class=\"card-title\">\r\n            Dropdown, Dropup\r\n          </h3>\r\n        </div>\r\n        <div class=\"card-body\">\r\n          <div class=\"dropdown\">\r\n            <button href=\"#\" class=\"btn dropdown-toggle\" data-toggle=\"dropdown\" aria-expanded=\"true\">\r\n              Regular\r\n              <b class=\"caret\"></b>\r\n            </button>\r\n            <ul class=\"dropdown-menu\">\r\n              <li>\r\n                <a href=\"#\">Action</a>\r\n              </li>\r\n              <li>\r\n                <a href=\"#\">Another action</a>\r\n              </li>\r\n              <li>\r\n                <a href=\"#\">Something else here</a>\r\n              </li>\r\n              <li class=\"divider\"></li>\r\n              <li>\r\n                <a href=\"#\">Separated link</a>\r\n              </li>\r\n              <li class=\"divider\"></li>\r\n              <li>\r\n                <a href=\"#\">One more separated link</a>\r\n              </li>\r\n            </ul>\r\n          </div>\r\n          <span class=\"dropup\">\r\n            <button href=\"#\" class=\"dropdown-toggle btn btn-primary btn-round\" data-toggle=\"dropdown\">Dropup\r\n              <b class=\"caret\"></b>\r\n            </button>\r\n            <ul class=\"dropdown-menu dropdown-primary dropdown-menu-right\">\r\n              <li class=\"dropdown-header\">Dropdown header</li>\r\n              <li>\r\n                <a href=\"#\">Action</a>\r\n              </li>\r\n              <li>\r\n                <a href=\"#\">Another action</a>\r\n              </li>\r\n              <li>\r\n                <a href=\"#\">Something else here</a>\r\n              </li>\r\n              <li class=\"divider\"></li>\r\n              <li>\r\n                <a href=\"#\">Separated link</a>\r\n              </li>\r\n              <li class=\"divider\"></li>\r\n              <li>\r\n                <a href=\"#\">One more separated link</a>\r\n              </li>\r\n            </ul>\r\n          </span>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>"
+
+/***/ }),
+
+/***/ "./src/app/admin/modules/components-material/child/components/components.component.scss":
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/admin/modules/components-material/child/components/components.component.ts":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+var components_service_1 = __webpack_require__("./src/app/admin/modules/components-material/child/components/components.service.ts");
 var ComponentsComponent = (function () {
     function ComponentsComponent(compnentsSvc) {
         this.compnentsSvc = compnentsSvc;
@@ -57388,14 +57846,13 @@ var ComponentsComponent = (function () {
     };
     ComponentsComponent.prototype.testApi = function () {
         this.compnentsSvc.get().subscribe(function (data) {
-            console.log(data);
         });
     };
     ComponentsComponent = __decorate([
         core_1.Component({
             selector: 'child-components',
-            template: __webpack_require__("./src/app/components-material/child/components/components.component.html"),
-            styles: [__webpack_require__("./src/app/components-material/child/components/components.component.scss")]
+            template: __webpack_require__("./src/app/admin/modules/components-material/child/components/components.component.html"),
+            styles: [__webpack_require__("./src/app/admin/modules/components-material/child/components/components.component.scss")]
         }),
         __metadata("design:paramtypes", [components_service_1.ComponentsService])
     ], ComponentsComponent);
@@ -57406,7 +57863,7 @@ exports.ComponentsComponent = ComponentsComponent;
 
 /***/ }),
 
-/***/ "./src/app/components-material/child/components/components.service.ts":
+/***/ "./src/app/admin/modules/components-material/child/components/components.service.ts":
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -57431,7 +57888,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var http_service_1 = __webpack_require__("./src/app/services/http.service.ts");
+var http_service_1 = __webpack_require__("./src/app/admin/services/http.service.ts");
 var core_1 = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
 var http_1 = __webpack_require__("./node_modules/@angular/http/esm5/http.js");
 var ComponentsService = (function (_super) {
@@ -57450,21 +57907,21 @@ exports.ComponentsService = ComponentsService;
 
 /***/ }),
 
-/***/ "./src/app/components-material/child/expansion/expansion.component.html":
+/***/ "./src/app/admin/modules/components-material/child/expansion/expansion.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<mat-expansion-panel [expanded]=\"step === 0\" (opened)=\"setStep(0)\" hideToggle=\"true\">\n  <mat-expansion-panel-header>\n    <mat-panel-title>\n      Personal data\n    </mat-panel-title>\n    <mat-panel-description>\n      Type your name and age\n      <mat-icon>account_circle</mat-icon>\n    </mat-panel-description>\n  </mat-expansion-panel-header>\n\n  <mat-form-field>\n    <input matInput placeholder=\"First name\">\n  </mat-form-field>\n\n  <mat-form-field>\n    <input matInput type=\"number\" min=\"1\" placeholder=\"Age\">\n  </mat-form-field>\n\n  <mat-action-row>\n    <button mat-button color=\"primary\" (click)=\"nextStep()\">Next</button>\n  </mat-action-row>\n</mat-expansion-panel>\n\n<mat-expansion-panel [expanded]=\"step === 1\" (opened)=\"setStep(1)\" hideToggle=\"true\">\n  <mat-expansion-panel-header>\n    <mat-panel-title>\n      Destination\n    </mat-panel-title>\n    <mat-panel-description>\n      Type the country name\n      <mat-icon>map</mat-icon>\n    </mat-panel-description>\n  </mat-expansion-panel-header>\n\n  <mat-form-field>\n    <input matInput placeholder=\"Country\">\n  </mat-form-field>\n\n  <mat-action-row>\n    <button mat-button color=\"warn\" (click)=\"prevStep()\">Previous</button>\n    <button mat-button color=\"primary\" (click)=\"nextStep()\">Next</button>\n  </mat-action-row>\n</mat-expansion-panel>\n\n<mat-expansion-panel [expanded]=\"step === 2\" (opened)=\"setStep(2)\" hideToggle=\"true\">\n  <mat-expansion-panel-header>\n    <mat-panel-title>\n      Day of the trip\n    </mat-panel-title>\n    <mat-panel-description>\n      Inform the date you wish to travel\n      <mat-icon>date_range</mat-icon>\n    </mat-panel-description>\n  </mat-expansion-panel-header>\n\n  <mat-form-field>\n    <input matInput placeholder=\"Date\" [matDatepicker]=\"picker\" (focus)=\"picker.open()\" readonly>\n  </mat-form-field>\n  <mat-datepicker #picker></mat-datepicker>\n\n  <mat-action-row>\n    <button mat-button color=\"warn\" (click)=\"prevStep()\">Previous</button>\n    <button mat-button color=\"primary\" (click)=\"nextStep()\">End</button>\n  </mat-action-row>\n</mat-expansion-panel>"
+module.exports = "<mat-expansion-panel [expanded]=\"step === 0\" (opened)=\"setStep(0)\" hideToggle=\"true\">\r\n  <mat-expansion-panel-header>\r\n    <mat-panel-title>\r\n      Personal data\r\n    </mat-panel-title>\r\n    <mat-panel-description>\r\n      Type your name and age\r\n      <mat-icon>account_circle</mat-icon>\r\n    </mat-panel-description>\r\n  </mat-expansion-panel-header>\r\n\r\n  <mat-form-field>\r\n    <input matInput placeholder=\"First name\">\r\n  </mat-form-field>\r\n\r\n  <mat-form-field>\r\n    <input matInput type=\"number\" min=\"1\" placeholder=\"Age\">\r\n  </mat-form-field>\r\n\r\n  <mat-action-row>\r\n    <button mat-button color=\"primary\" (click)=\"nextStep()\">Next</button>\r\n  </mat-action-row>\r\n</mat-expansion-panel>\r\n\r\n<mat-expansion-panel [expanded]=\"step === 1\" (opened)=\"setStep(1)\" hideToggle=\"true\">\r\n  <mat-expansion-panel-header>\r\n    <mat-panel-title>\r\n      Destination\r\n    </mat-panel-title>\r\n    <mat-panel-description>\r\n      Type the country name\r\n      <mat-icon>map</mat-icon>\r\n    </mat-panel-description>\r\n  </mat-expansion-panel-header>\r\n\r\n  <mat-form-field>\r\n    <input matInput placeholder=\"Country\">\r\n  </mat-form-field>\r\n\r\n  <mat-action-row>\r\n    <button mat-button color=\"warn\" (click)=\"prevStep()\">Previous</button>\r\n    <button mat-button color=\"primary\" (click)=\"nextStep()\">Next</button>\r\n  </mat-action-row>\r\n</mat-expansion-panel>\r\n\r\n<mat-expansion-panel [expanded]=\"step === 2\" (opened)=\"setStep(2)\" hideToggle=\"true\">\r\n  <mat-expansion-panel-header>\r\n    <mat-panel-title>\r\n      Day of the trip\r\n    </mat-panel-title>\r\n    <mat-panel-description>\r\n      Inform the date you wish to travel\r\n      <mat-icon>date_range</mat-icon>\r\n    </mat-panel-description>\r\n  </mat-expansion-panel-header>\r\n\r\n  <mat-form-field>\r\n    <input matInput placeholder=\"Date\" [matDatepicker]=\"picker\" (focus)=\"picker.open()\" readonly>\r\n  </mat-form-field>\r\n  <mat-datepicker #picker></mat-datepicker>\r\n\r\n  <mat-action-row>\r\n    <button mat-button color=\"warn\" (click)=\"prevStep()\">Previous</button>\r\n    <button mat-button color=\"primary\" (click)=\"nextStep()\">End</button>\r\n  </mat-action-row>\r\n</mat-expansion-panel>"
 
 /***/ }),
 
-/***/ "./src/app/components-material/child/expansion/expansion.component.scss":
+/***/ "./src/app/admin/modules/components-material/child/expansion/expansion.component.scss":
 /***/ (function(module, exports) {
 
 module.exports = ""
 
 /***/ }),
 
-/***/ "./src/app/components-material/child/expansion/expansion.component.ts":
+/***/ "./src/app/admin/modules/components-material/child/expansion/expansion.component.ts":
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -57498,8 +57955,8 @@ var ExpansionComponent = (function () {
     ExpansionComponent = __decorate([
         core_1.Component({
             selector: 'app-expansion',
-            template: __webpack_require__("./src/app/components-material/child/expansion/expansion.component.html"),
-            styles: [__webpack_require__("./src/app/components-material/child/expansion/expansion.component.scss")]
+            template: __webpack_require__("./src/app/admin/modules/components-material/child/expansion/expansion.component.html"),
+            styles: [__webpack_require__("./src/app/admin/modules/components-material/child/expansion/expansion.component.scss")]
         }),
         __metadata("design:paramtypes", [])
     ], ExpansionComponent);
@@ -57510,21 +57967,21 @@ exports.ExpansionComponent = ExpansionComponent;
 
 /***/ }),
 
-/***/ "./src/app/components-material/child/forms/forms.component.html":
+/***/ "./src/app/admin/modules/components-material/child/forms/forms.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row\">\n    <div class=\"col-sm-6\">\n        <div class=\"card\">\n            <div class=\"card-header\">\n                <h3 class=\"card-title\">\n                    Checkboxes and Radio Button\n                </h3>\n            </div>\n            <div class=\"card-body\">\n                <div>\n                    <div class=\"form-check\">\n                        <label class=\"form-check-label\">\n                            <input class=\"form-check-input\" type=\"checkbox\" value=\"\"> Option one is this and that&mdash;be sure to include why it's great\n                            <span class=\"form-check-sign\">\n                                <span class=\"check\"></span>\n                            </span>\n                        </label>\n                    </div>\n\n                    <div class=\"form-check disabled\">\n                        <label class=\"form-check-label\">\n                            <input class=\"form-check-input\" type=\"checkbox\" value=\"\" disabled> Option two is disabled\n                            <span class=\"form-check-sign\">\n                                <span class=\"check\"></span>\n                            </span>\n                        </label>\n                    </div>\n                </div>\n                <div>\n                    <div class=\"form-check form-check-radio\">\n                        <label class=\"form-check-label\">\n                            <input class=\"form-check-input\" type=\"radio\" name=\"exampleRadios\" id=\"exampleRadios1\" value=\"option1\"> Radio is off\n                            <span class=\"circle\">\n                                <span class=\"check\"></span>\n                            </span>\n                        </label>\n                    </div>\n                    <div class=\"form-check form-check-radio\">\n                        <label class=\"form-check-label\">\n                            <input class=\"form-check-input\" type=\"radio\" name=\"exampleRadios\" id=\"exampleRadios2\" value=\"option2\" checked> Radio is on\n                            <span class=\"circle\">\n                                <span class=\"check\"></span>\n                            </span>\n                        </label>\n                    </div>\n\n                    <div class=\"form-check form-check-radio disabled\">\n                        <label class=\"form-check-label\">\n                            <input class=\"form-check-input\" type=\"radio\" name=\"exampleRadios1\" id=\"exampleRadios1\" value=\"option1\" disabled> Disabled radio is off\n                            <span class=\"circle\">\n                                <span class=\"check\"></span>\n                            </span>\n                        </label>\n                    </div>\n                </div>\n            </div>\n        </div>\n        <!-- <div class=\"card\">\n            <div class=\"card-header\">\n                <h3 class=\"card-title\">\n                    Auto Complete\n                </h3>\n            </div>\n            <div class=\"card-body\">\n                <div>\n                    <form action=\"\">\n                        <mat-form-field class=\"example-full-width\">\n                            <input matInput placeholder=\"State\" aria-label=\"State\" [matAutocomplete]=\"auto\" [formControl]=\"stateCtrl\">\n                            <mat-autocomplete #auto=\"matAutocomplete\">\n                                <mat-option *ngFor=\"let state of filteredStates | async\" [value]=\"state.name\">\n                                    <img style=\"vertical-align:middle;\" aria-hidden src=\"{{state.flag}}\" height=\"25\" />\n                                    <span>{{ state.name }}</span> |\n                                    <small>Population: {{state.population}}</small>\n                                </mat-option>\n                            </mat-autocomplete>\n                        </mat-form-field>\n                    </form>\n                </div>\n            </div>\n        </div> -->\n        <div class=\"card\">\n            <div class=\"card-header\">\n                Datetime Picker, Select, Slider\n            </div>\n            <div class=\"card-body\">\n                <mat-form-field>\n                    <input matInput [matDatepicker]=\"picker\" placeholder=\"Choose a date\">\n                    <mat-datepicker-toggle matSuffix [for]=\"picker\"></mat-datepicker-toggle>\n                    <mat-datepicker #picker></mat-datepicker>\n                </mat-form-field>\n                <mat-form-field>\n                    <mat-select placeholder=\"Favorite food\" class=\"has-success\">\n                        <mat-option *ngFor=\"let food of foods\" [value]=\"food.value\">\n                            {{ food.viewValue }}\n                        </mat-option>\n                    </mat-select>\n                </mat-form-field>\n                <div>\n                    <mat-slider></mat-slider>\n                    <mat-slide-toggle>Slide me!</mat-slide-toggle>\n                </div>\n            </div>\n        </div>\n    </div>\n    <div class=\"col-sm-6\">\n        <div class=\"card\">\n            <div class=\"card-header\">\n                <h3 class=\"card-title\">\n                    Input\n                </h3>\n            </div>\n            <div class=\"card-body\">\n                <div class=\"row\">\n                    <div class=\"col-sm-6\">\n                        <div class=\"form-group\">\n                            <input type=\"text\" value=\"\" placeholder=\"Regular\" class=\"form-control\" />\n                        </div>\n                    </div>\n                    <div class=\"col-sm-6\">\n                        <mat-form-field class=\"example-full-width\">\n                            <input matInput type=\"text\" placeholder=\"With Floating Label\">\n                        </mat-form-field>\n                    </div>\n                    <div class=\"col-sm-6\">\n                        <mat-form-field class=\"example-full-width has-success\">\n                            <input matInput type=\"text\" placeholder=\"Success input\">\n                            <span class=\"form-control-feedback\">\n                                <i class=\"material-icons\">done</i>\n                            </span>\n                        </mat-form-field>\n                    </div>\n                    <div class=\"col-sm-6\">\n                        <mat-form-field class=\"example-full-width has-info\">\n                            <input matInput type=\"text\" placeholder=\"Info input\">\n                            <span class=\"form-control-feedback\">\n                                <i class=\"material-icons\">info</i>\n                            </span>\n                        </mat-form-field>\n                    </div>\n                    <div class=\"col-sm-6\">\n                        <mat-form-field class=\"example-full-width has-warning\">\n                            <input matInput type=\"text\" placeholder=\"Warning input\">\n                            <span class=\"form-control-feedback\">\n                                <i class=\"material-icons\">warning</i>\n                            </span>\n                        </mat-form-field>\n                    </div>\n                    <div class=\"col-sm-6\">\n                        <mat-form-field class=\"example-full-width has-danger\">\n                            <input matInput type=\"text\" placeholder=\"Error input\">\n                            <span class=\"form-control-feedback\">\n                                <i class=\"material-icons\">clear</i>\n                            </span>\n                        </mat-form-field>\n                    </div>\n                    <div class=\"col-12\">\n                        <mat-form-field class=\"example-full-width\">\n                            <textarea matInput placeholder=\"Leave a comment\"></textarea>\n                        </mat-form-field>\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n</div>"
+module.exports = "<div class=\"row\">\r\n    <div class=\"col-sm-6\">\r\n        <div class=\"card\">\r\n            <div class=\"card-header\">\r\n                <h3 class=\"card-title\">\r\n                    Checkboxes and Radio Button\r\n                </h3>\r\n            </div>\r\n            <div class=\"card-body\">\r\n                <div>\r\n                    <div class=\"form-check\">\r\n                        <label class=\"form-check-label\">\r\n                            <input class=\"form-check-input\" type=\"checkbox\" value=\"\"> Option one is this and that&mdash;be sure to include why it's great\r\n                            <span class=\"form-check-sign\">\r\n                                <span class=\"check\"></span>\r\n                            </span>\r\n                        </label>\r\n                    </div>\r\n\r\n                    <div class=\"form-check disabled\">\r\n                        <label class=\"form-check-label\">\r\n                            <input class=\"form-check-input\" type=\"checkbox\" value=\"\" disabled> Option two is disabled\r\n                            <span class=\"form-check-sign\">\r\n                                <span class=\"check\"></span>\r\n                            </span>\r\n                        </label>\r\n                    </div>\r\n                </div>\r\n                <div>\r\n                    <div class=\"form-check form-check-radio\">\r\n                        <label class=\"form-check-label\">\r\n                            <input class=\"form-check-input\" type=\"radio\" name=\"exampleRadios\" id=\"exampleRadios1\" value=\"option1\"> Radio is off\r\n                            <span class=\"circle\">\r\n                                <span class=\"check\"></span>\r\n                            </span>\r\n                        </label>\r\n                    </div>\r\n                    <div class=\"form-check form-check-radio\">\r\n                        <label class=\"form-check-label\">\r\n                            <input class=\"form-check-input\" type=\"radio\" name=\"exampleRadios\" id=\"exampleRadios2\" value=\"option2\" checked> Radio is on\r\n                            <span class=\"circle\">\r\n                                <span class=\"check\"></span>\r\n                            </span>\r\n                        </label>\r\n                    </div>\r\n\r\n                    <div class=\"form-check form-check-radio disabled\">\r\n                        <label class=\"form-check-label\">\r\n                            <input class=\"form-check-input\" type=\"radio\" name=\"exampleRadios1\" id=\"exampleRadios1\" value=\"option1\" disabled> Disabled radio is off\r\n                            <span class=\"circle\">\r\n                                <span class=\"check\"></span>\r\n                            </span>\r\n                        </label>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <!-- <div class=\"card\">\r\n            <div class=\"card-header\">\r\n                <h3 class=\"card-title\">\r\n                    Auto Complete\r\n                </h3>\r\n            </div>\r\n            <div class=\"card-body\">\r\n                <div>\r\n                    <form action=\"\">\r\n                        <mat-form-field class=\"example-full-width\">\r\n                            <input matInput placeholder=\"State\" aria-label=\"State\" [matAutocomplete]=\"auto\" [formControl]=\"stateCtrl\">\r\n                            <mat-autocomplete #auto=\"matAutocomplete\">\r\n                                <mat-option *ngFor=\"let state of filteredStates | async\" [value]=\"state.name\">\r\n                                    <img style=\"vertical-align:middle;\" aria-hidden src=\"{{state.flag}}\" height=\"25\" />\r\n                                    <span>{{ state.name }}</span> |\r\n                                    <small>Population: {{state.population}}</small>\r\n                                </mat-option>\r\n                            </mat-autocomplete>\r\n                        </mat-form-field>\r\n                    </form>\r\n                </div>\r\n            </div>\r\n        </div> -->\r\n        <div class=\"card\">\r\n            <div class=\"card-header\">\r\n                Datetime Picker, Select, Slider\r\n            </div>\r\n            <div class=\"card-body\">\r\n                <mat-form-field>\r\n                    <input matInput [matDatepicker]=\"picker\" placeholder=\"Choose a date\">\r\n                    <mat-datepicker-toggle matSuffix [for]=\"picker\"></mat-datepicker-toggle>\r\n                    <mat-datepicker #picker></mat-datepicker>\r\n                </mat-form-field>\r\n                <mat-form-field>\r\n                    <mat-select placeholder=\"Favorite food\" class=\"has-success\">\r\n                        <mat-option *ngFor=\"let food of foods\" [value]=\"food.value\">\r\n                            {{ food.viewValue }}\r\n                        </mat-option>\r\n                    </mat-select>\r\n                </mat-form-field>\r\n                <div>\r\n                    <mat-slider></mat-slider>\r\n                    <mat-slide-toggle>Slide me!</mat-slide-toggle>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n    <div class=\"col-sm-6\">\r\n        <div class=\"card\">\r\n            <div class=\"card-header\">\r\n                <h3 class=\"card-title\">\r\n                    Input\r\n                </h3>\r\n            </div>\r\n            <div class=\"card-body\">\r\n                <div class=\"row\">\r\n                    <div class=\"col-sm-6\">\r\n                        <div class=\"form-group\">\r\n                            <input type=\"text\" value=\"\" placeholder=\"Regular\" class=\"form-control\" />\r\n                        </div>\r\n                    </div>\r\n                    <div class=\"col-sm-6\">\r\n                        <mat-form-field class=\"example-full-width\">\r\n                            <input matInput type=\"text\" placeholder=\"With Floating Label\">\r\n                        </mat-form-field>\r\n                    </div>\r\n                    <div class=\"col-sm-6\">\r\n                        <mat-form-field class=\"example-full-width has-success\">\r\n                            <input matInput type=\"text\" placeholder=\"Success input\">\r\n                            <span class=\"form-control-feedback\">\r\n                                <i class=\"material-icons\">done</i>\r\n                            </span>\r\n                        </mat-form-field>\r\n                    </div>\r\n                    <div class=\"col-sm-6\">\r\n                        <mat-form-field class=\"example-full-width has-info\">\r\n                            <input matInput type=\"text\" placeholder=\"Info input\">\r\n                            <span class=\"form-control-feedback\">\r\n                                <i class=\"material-icons\">info</i>\r\n                            </span>\r\n                        </mat-form-field>\r\n                    </div>\r\n                    <div class=\"col-sm-6\">\r\n                        <mat-form-field class=\"example-full-width has-warning\">\r\n                            <input matInput type=\"text\" placeholder=\"Warning input\">\r\n                            <span class=\"form-control-feedback\">\r\n                                <i class=\"material-icons\">warning</i>\r\n                            </span>\r\n                        </mat-form-field>\r\n                    </div>\r\n                    <div class=\"col-sm-6\">\r\n                        <mat-form-field class=\"example-full-width has-danger\">\r\n                            <input matInput type=\"text\" placeholder=\"Error input\">\r\n                            <span class=\"form-control-feedback\">\r\n                                <i class=\"material-icons\">clear</i>\r\n                            </span>\r\n                        </mat-form-field>\r\n                    </div>\r\n                    <div class=\"col-12\">\r\n                        <mat-form-field class=\"example-full-width\">\r\n                            <textarea matInput placeholder=\"Leave a comment\"></textarea>\r\n                        </mat-form-field>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>"
 
 /***/ }),
 
-/***/ "./src/app/components-material/child/forms/forms.component.scss":
+/***/ "./src/app/admin/modules/components-material/child/forms/forms.component.scss":
 /***/ (function(module, exports) {
 
 module.exports = ""
 
 /***/ }),
 
-/***/ "./src/app/components-material/child/forms/forms.component.ts":
+/***/ "./src/app/admin/modules/components-material/child/forms/forms.component.ts":
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -57586,8 +58043,8 @@ var FormsComponent = (function () {
     FormsComponent = __decorate([
         core_1.Component({
             selector: 'app-forms',
-            template: __webpack_require__("./src/app/components-material/child/forms/forms.component.html"),
-            styles: [__webpack_require__("./src/app/components-material/child/forms/forms.component.scss")]
+            template: __webpack_require__("./src/app/admin/modules/components-material/child/forms/forms.component.html"),
+            styles: [__webpack_require__("./src/app/admin/modules/components-material/child/forms/forms.component.scss")]
         }),
         __metadata("design:paramtypes", [])
     ], FormsComponent);
@@ -57598,21 +58055,21 @@ exports.FormsComponent = FormsComponent;
 
 /***/ }),
 
-/***/ "./src/app/components-material/child/icons/icons.component.html":
+/***/ "./src/app/admin/modules/components-material/child/icons/icons.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"\">\n  <div class=\"row\">\n    <div class=\"col-12\">\n      <div class=\"card\">\n        <div class=\"card-header card-header-primary\">\n          <h4 class=\"card-title\">Materal Icons</h4>\n        </div>\n        <div class=\"row\">\n          <div class=\"col-12\">\n            <div class=\"col-body\">\n              <iframe src=\"https://design.google.com/icons/\" frameborder=\"0\" height=\"1000px\"></iframe>\n            </div>\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>"
+module.exports = "<div class=\"\">\r\n  <div class=\"row\">\r\n    <div class=\"col-12\">\r\n      <div class=\"card\">\r\n        <div class=\"card-header card-header-primary\">\r\n          <h4 class=\"card-title\">Materal Icons</h4>\r\n        </div>\r\n        <div class=\"row\">\r\n          <div class=\"col-12\">\r\n            <div class=\"col-body\">\r\n              <iframe src=\"https://design.google.com/icons/\" frameborder=\"0\" height=\"1000px\"></iframe>\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>"
 
 /***/ }),
 
-/***/ "./src/app/components-material/child/icons/icons.component.scss":
+/***/ "./src/app/admin/modules/components-material/child/icons/icons.component.scss":
 /***/ (function(module, exports) {
 
 module.exports = ""
 
 /***/ }),
 
-/***/ "./src/app/components-material/child/icons/icons.component.ts":
+/***/ "./src/app/admin/modules/components-material/child/icons/icons.component.ts":
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -57636,8 +58093,8 @@ var IconsComponent = (function () {
     IconsComponent = __decorate([
         core_1.Component({
             selector: 'app-icons',
-            template: __webpack_require__("./src/app/components-material/child/icons/icons.component.html"),
-            styles: [__webpack_require__("./src/app/components-material/child/icons/icons.component.scss")]
+            template: __webpack_require__("./src/app/admin/modules/components-material/child/icons/icons.component.html"),
+            styles: [__webpack_require__("./src/app/admin/modules/components-material/child/icons/icons.component.scss")]
         }),
         __metadata("design:paramtypes", [])
     ], IconsComponent);
@@ -57648,21 +58105,21 @@ exports.IconsComponent = IconsComponent;
 
 /***/ }),
 
-/***/ "./src/app/components-material/child/notify/notify.component.html":
+/***/ "./src/app/admin/modules/components-material/child/notify/notify.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"card\">\n  <div class=\"card-body\">\n    <button mat-button class=\"btn btn-default\" (click)=\"openDialog('default')\">Dialog Default</button>\n    <button mat-button class=\"btn btn-primary\" (click)=\"openDialog('primary')\">Dialog Primary</button>\n    <button mat-button class=\"btn btn-info\" (click)=\"openDialog('info')\">Dialog Info</button>\n    <button mat-button class=\"btn btn-success\" (click)=\"openDialog('success')\">Dialog Success</button>\n    <button mat-button class=\"btn btn-warning\" (click)=\"openDialog('warning')\">Dialog Warning</button>\n    <button mat-button class=\"btn btn-danger\" (click)=\"openDialog('danger')\">Dialog Danger</button>\n  </div>\n</div>\n\n<div class=\"card\">\n  <div class=\"card-body\">\n    <button mat-button class=\"btn btn-default\" (click)=\"openSnackbar('default')\">Snackbar Default</button>\n    <button mat-button class=\"btn btn-primary\" (click)=\"openSnackbar('primary')\">Snackbar Primary</button>\n    <button mat-button class=\"btn btn-info\" (click)=\"openSnackbar('info')\">Snackbar Info</button>\n    <button mat-button class=\"btn btn-success\" (click)=\"openSnackbar('success')\">Snackbar Success</button>\n    <button mat-button class=\"btn btn-warning\" (click)=\"openSnackbar('warning')\">Snackbar Warning</button>\n    <button mat-button class=\"btn btn-danger\" (click)=\"openSnackbar('danger')\">Snackbar Danger</button>\n  </div>\n</div>"
+module.exports = "<div class=\"card\">\r\n  <div class=\"card-body\">\r\n    <button mat-button class=\"btn btn-default\" (click)=\"openDialog('default')\">Dialog Default</button>\r\n    <button mat-button class=\"btn btn-primary\" (click)=\"openDialog('primary')\">Dialog Primary</button>\r\n    <button mat-button class=\"btn btn-info\" (click)=\"openDialog('info')\">Dialog Info</button>\r\n    <button mat-button class=\"btn btn-success\" (click)=\"openDialog('success')\">Dialog Success</button>\r\n    <button mat-button class=\"btn btn-warning\" (click)=\"openDialog('warning')\">Dialog Warning</button>\r\n    <button mat-button class=\"btn btn-danger\" (click)=\"openDialog('danger')\">Dialog Danger</button>\r\n  </div>\r\n</div>\r\n\r\n<div class=\"card\">\r\n  <div class=\"card-body\">\r\n    <button mat-button class=\"btn btn-default\" (click)=\"openSnackbar('default')\">Snackbar Default</button>\r\n    <button mat-button class=\"btn btn-primary\" (click)=\"openSnackbar('primary')\">Snackbar Primary</button>\r\n    <button mat-button class=\"btn btn-info\" (click)=\"openSnackbar('info')\">Snackbar Info</button>\r\n    <button mat-button class=\"btn btn-success\" (click)=\"openSnackbar('success')\">Snackbar Success</button>\r\n    <button mat-button class=\"btn btn-warning\" (click)=\"openSnackbar('warning')\">Snackbar Warning</button>\r\n    <button mat-button class=\"btn btn-danger\" (click)=\"openSnackbar('danger')\">Snackbar Danger</button>\r\n  </div>\r\n</div>"
 
 /***/ }),
 
-/***/ "./src/app/components-material/child/notify/notify.component.scss":
+/***/ "./src/app/admin/modules/components-material/child/notify/notify.component.scss":
 /***/ (function(module, exports) {
 
 module.exports = ""
 
 /***/ }),
 
-/***/ "./src/app/components-material/child/notify/notify.component.ts":
+/***/ "./src/app/admin/modules/components-material/child/notify/notify.component.ts":
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -57677,9 +58134,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var dialog_service_1 = __webpack_require__("./src/app/services/dialog.service.ts");
+var dialog_service_1 = __webpack_require__("./src/app/admin/services/dialog.service.ts");
 var core_1 = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
-var snackbar_service_1 = __webpack_require__("./src/app/services/snackbar.service.ts");
+var snackbar_service_1 = __webpack_require__("./src/app/admin/services/snackbar.service.ts");
 var NotifyComponent = (function () {
     function NotifyComponent(snackBarSvc, dialogService) {
         this.snackBarSvc = snackBarSvc;
@@ -57722,8 +58179,8 @@ var NotifyComponent = (function () {
     NotifyComponent = __decorate([
         core_1.Component({
             selector: 'app-notify',
-            template: __webpack_require__("./src/app/components-material/child/notify/notify.component.html"),
-            styles: [__webpack_require__("./src/app/components-material/child/notify/notify.component.scss")]
+            template: __webpack_require__("./src/app/admin/modules/components-material/child/notify/notify.component.html"),
+            styles: [__webpack_require__("./src/app/admin/modules/components-material/child/notify/notify.component.scss")]
         }),
         __metadata("design:paramtypes", [snackbar_service_1.SnackbarService, dialog_service_1.DialogService])
     ], NotifyComponent);
@@ -57734,21 +58191,21 @@ exports.NotifyComponent = NotifyComponent;
 
 /***/ }),
 
-/***/ "./src/app/components-material/child/stepper/stepper.component.html":
+/***/ "./src/app/admin/modules/components-material/child/stepper/stepper.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<button mat-raised-button (click)=\"isLinear = !isLinear\" id=\"toggle-linear\">\n  {{!isLinear ? 'Enable linear mode' : 'Disable linear mode'}}\n</button>\n<mat-horizontal-stepper [linear]=\"isLinear\" #stepper>\n  <mat-step [stepControl]=\"firstFormGroup\">\n    <form [formGroup]=\"firstFormGroup\">\n      <ng-template matStepLabel>Fill out your name</ng-template>\n      <mat-form-field>\n        <input matInput placeholder=\"Last name, First name\" formControlName=\"firstCtrl\" required>\n      </mat-form-field>\n      <div>\n        <button mat-button class=\"btn btn-primary\" matStepperNext>Next</button>\n      </div>\n    </form>\n  </mat-step>\n  <mat-step [stepControl]=\"secondFormGroup\">\n    <form [formGroup]=\"secondFormGroup\">\n      <ng-template matStepLabel>Fill out your address</ng-template>\n      <mat-form-field>\n        <input matInput placeholder=\"Address\" formControlName=\"secondCtrl\" required>\n      </mat-form-field>\n      <div>\n        <button mat-button class=\"btn btn-primary\" matStepperPrevious>Back</button>\n        <button mat-button class=\"btn btn-primary\" matStepperNext>Next</button>\n      </div>\n    </form>\n  </mat-step>\n  <mat-step>\n    <ng-template matStepLabel>Done</ng-template>\n    You are now done.\n    <div>\n      <button mat-button class=\"btn btn-primary\" matStepperPrevious>Back</button>\n      <button mat-button class=\"btn btn-primary\" (click)=\"stepper.reset()\">Reset</button>\n    </div>\n  </mat-step>\n</mat-horizontal-stepper>"
+module.exports = "<button mat-raised-button (click)=\"isLinear = !isLinear\" id=\"toggle-linear\">\r\n  {{!isLinear ? 'Enable linear mode' : 'Disable linear mode'}}\r\n</button>\r\n<mat-horizontal-stepper [linear]=\"isLinear\" #stepper>\r\n  <mat-step [stepControl]=\"firstFormGroup\">\r\n    <form [formGroup]=\"firstFormGroup\">\r\n      <ng-template matStepLabel>Fill out your name</ng-template>\r\n      <mat-form-field>\r\n        <input matInput placeholder=\"Last name, First name\" formControlName=\"firstCtrl\" required>\r\n      </mat-form-field>\r\n      <div>\r\n        <button mat-button class=\"btn btn-primary\" matStepperNext>Next</button>\r\n      </div>\r\n    </form>\r\n  </mat-step>\r\n  <mat-step [stepControl]=\"secondFormGroup\">\r\n    <form [formGroup]=\"secondFormGroup\">\r\n      <ng-template matStepLabel>Fill out your address</ng-template>\r\n      <mat-form-field>\r\n        <input matInput placeholder=\"Address\" formControlName=\"secondCtrl\" required>\r\n      </mat-form-field>\r\n      <div>\r\n        <button mat-button class=\"btn btn-primary\" matStepperPrevious>Back</button>\r\n        <button mat-button class=\"btn btn-primary\" matStepperNext>Next</button>\r\n      </div>\r\n    </form>\r\n  </mat-step>\r\n  <mat-step>\r\n    <ng-template matStepLabel>Done</ng-template>\r\n    You are now done.\r\n    <div>\r\n      <button mat-button class=\"btn btn-primary\" matStepperPrevious>Back</button>\r\n      <button mat-button class=\"btn btn-primary\" (click)=\"stepper.reset()\">Reset</button>\r\n    </div>\r\n  </mat-step>\r\n</mat-horizontal-stepper>"
 
 /***/ }),
 
-/***/ "./src/app/components-material/child/stepper/stepper.component.scss":
+/***/ "./src/app/admin/modules/components-material/child/stepper/stepper.component.scss":
 /***/ (function(module, exports) {
 
 module.exports = ""
 
 /***/ }),
 
-/***/ "./src/app/components-material/child/stepper/stepper.component.ts":
+/***/ "./src/app/admin/modules/components-material/child/stepper/stepper.component.ts":
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -57781,8 +58238,8 @@ var StepperComponent = (function () {
     StepperComponent = __decorate([
         core_1.Component({
             selector: 'app-stepper',
-            template: __webpack_require__("./src/app/components-material/child/stepper/stepper.component.html"),
-            styles: [__webpack_require__("./src/app/components-material/child/stepper/stepper.component.scss")]
+            template: __webpack_require__("./src/app/admin/modules/components-material/child/stepper/stepper.component.html"),
+            styles: [__webpack_require__("./src/app/admin/modules/components-material/child/stepper/stepper.component.scss")]
         }),
         __metadata("design:paramtypes", [forms_1.FormBuilder])
     ], StepperComponent);
@@ -57793,21 +58250,21 @@ exports.StepperComponent = StepperComponent;
 
 /***/ }),
 
-/***/ "./src/app/components-material/child/table/table.component.html":
+/***/ "./src/app/admin/modules/components-material/child/table/table.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"\">\n  <div class=\"row\">\n    <div class=\"col-12\">\n      <div class=\"card card-plain\">\n        <div class=\"card-header card-header-primary\">\n          <h4 class=\"card-title\">Table Title</h4>\n          <p class=\"card-category\">Here is a subtitle for this table</p>\n        </div>\n        <div class=\"card-content table-responsive table-full-width\">\n          <table class=\"table\">\n            <thead>\n              <th class=\"text-warning\">Name</th>\n              <th class=\"text-danger\">Country</th>\n              <th class=\"text-info\">City</th>\n              <th class=\"text-primary\">Salary</th>\n            </thead>\n            <tbody>\n              <tr>\n                <td class=\"text-warning\">Dakota Rice</td>\n                <td class=\"text-danger\">Niger</td>\n                <td class=\"text-info\">Oud-Turnhout</td>\n                <td class=\"text-primary\">$36,738</td>\n              </tr>\n              <tr>\n                <td class=\"text-warning\">Minerva Hooper</td>\n                <td class=\"text-danger\">Curaçao</td>\n                <td class=\"text-info\">Sinaai-Waas</td>\n                <td class=\"text-primary\">$23,789</td>\n              </tr>\n              <tr>\n                <td class=\"text-warning\">Sage Rodriguez</td>\n                <td class=\"text-danger\">Netherlands</td>\n                <td class=\"text-info\">Baileux</td>\n                <td class=\"text-primary\">$56,142</td>\n              </tr>\n              <tr>\n                <td class=\"text-warning\">Philip Chaney</td>\n                <td class=\"text-danger\">Korea, South</td>\n                <td class=\"text-info\">Overland Park</td>\n                <td class=\"text-primary\">$38,735</td>\n              </tr>\n              <tr>\n                <td class=\"text-warning\">Doris Greene</td>\n                <td class=\"text-danger\">Malawi</td>\n                <td class=\"text-info\">Feldkirchen in Kärnten</td>\n                <td class=\"text-primary\">$63,542</td>\n              </tr>\n              <tr>\n                <td class=\"text-warning\">Mason Porter</td>\n                <td class=\"text-danger\">Chile</td>\n                <td class=\"text-info\">Gloucester</td>\n                <td class=\"text-primary\">$78,615</td>\n              </tr>\n            </tbody>\n          </table>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>"
+module.exports = "<div class=\"\">\r\n  <div class=\"row\">\r\n    <div class=\"col-12\">\r\n      <div class=\"card card-plain\">\r\n        <div class=\"card-header card-header-primary\">\r\n          <h4 class=\"card-title\">Table Title</h4>\r\n          <p class=\"card-category\">Here is a subtitle for this table</p>\r\n        </div>\r\n        <div class=\"card-content table-responsive table-full-width\">\r\n          <table class=\"table\">\r\n            <thead>\r\n              <th class=\"text-warning\">Name</th>\r\n              <th class=\"text-danger\">Country</th>\r\n              <th class=\"text-info\">City</th>\r\n              <th class=\"text-primary\">Salary</th>\r\n            </thead>\r\n            <tbody>\r\n              <tr>\r\n                <td class=\"text-warning\">Dakota Rice</td>\r\n                <td class=\"text-danger\">Niger</td>\r\n                <td class=\"text-info\">Oud-Turnhout</td>\r\n                <td class=\"text-primary\">$36,738</td>\r\n              </tr>\r\n              <tr>\r\n                <td class=\"text-warning\">Minerva Hooper</td>\r\n                <td class=\"text-danger\">Curaçao</td>\r\n                <td class=\"text-info\">Sinaai-Waas</td>\r\n                <td class=\"text-primary\">$23,789</td>\r\n              </tr>\r\n              <tr>\r\n                <td class=\"text-warning\">Sage Rodriguez</td>\r\n                <td class=\"text-danger\">Netherlands</td>\r\n                <td class=\"text-info\">Baileux</td>\r\n                <td class=\"text-primary\">$56,142</td>\r\n              </tr>\r\n              <tr>\r\n                <td class=\"text-warning\">Philip Chaney</td>\r\n                <td class=\"text-danger\">Korea, South</td>\r\n                <td class=\"text-info\">Overland Park</td>\r\n                <td class=\"text-primary\">$38,735</td>\r\n              </tr>\r\n              <tr>\r\n                <td class=\"text-warning\">Doris Greene</td>\r\n                <td class=\"text-danger\">Malawi</td>\r\n                <td class=\"text-info\">Feldkirchen in Kärnten</td>\r\n                <td class=\"text-primary\">$63,542</td>\r\n              </tr>\r\n              <tr>\r\n                <td class=\"text-warning\">Mason Porter</td>\r\n                <td class=\"text-danger\">Chile</td>\r\n                <td class=\"text-info\">Gloucester</td>\r\n                <td class=\"text-primary\">$78,615</td>\r\n              </tr>\r\n            </tbody>\r\n          </table>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>"
 
 /***/ }),
 
-/***/ "./src/app/components-material/child/table/table.component.scss":
+/***/ "./src/app/admin/modules/components-material/child/table/table.component.scss":
 /***/ (function(module, exports) {
 
 module.exports = ""
 
 /***/ }),
 
-/***/ "./src/app/components-material/child/table/table.component.ts":
+/***/ "./src/app/admin/modules/components-material/child/table/table.component.ts":
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -57831,8 +58288,8 @@ var TableComponent = (function () {
     TableComponent = __decorate([
         core_1.Component({
             selector: 'app-table',
-            template: __webpack_require__("./src/app/components-material/child/table/table.component.html"),
-            styles: [__webpack_require__("./src/app/components-material/child/table/table.component.scss")]
+            template: __webpack_require__("./src/app/admin/modules/components-material/child/table/table.component.html"),
+            styles: [__webpack_require__("./src/app/admin/modules/components-material/child/table/table.component.scss")]
         }),
         __metadata("design:paramtypes", [])
     ], TableComponent);
@@ -57843,21 +58300,21 @@ exports.TableComponent = TableComponent;
 
 /***/ }),
 
-/***/ "./src/app/components-material/components-material.component.html":
+/***/ "./src/app/admin/modules/components-material/components-material.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"main-content\">\n    <div class=\"container-fluid\">\n        <mat-tab-group class=\"tab-success\">\n            <mat-tab label=\"Components\">\n                <child-components></child-components>\n            </mat-tab>\n            <mat-tab label=\"Forms\">\n                <app-forms></app-forms>\n            </mat-tab>\n            <mat-tab label=\"Table\">\n                <app-table></app-table>\n            </mat-tab>\n            <mat-tab label=\"Materal Icons\">\n                <app-icons></app-icons>\n            </mat-tab>\n            <mat-tab label=\"Expansion\">\n                <app-expansion></app-expansion>\n            </mat-tab>\n            <mat-tab label=\"Stepper\">\n                <app-stepper></app-stepper>\n            </mat-tab>\n            <mat-tab label=\"Notify\">\n                <app-notify></app-notify>\n            </mat-tab>\n        </mat-tab-group>\n    </div>\n</div>"
+module.exports = "<div class=\"main-content\">\r\n    <div class=\"container-fluid\">\r\n        <mat-tab-group class=\"tab-success\">\r\n            <mat-tab label=\"Components\">\r\n                <child-components></child-components>\r\n            </mat-tab>\r\n            <mat-tab label=\"Forms\">\r\n                <app-forms></app-forms>\r\n            </mat-tab>\r\n            <mat-tab label=\"Table\">\r\n                <app-table></app-table>\r\n            </mat-tab>\r\n            <mat-tab label=\"Materal Icons\">\r\n                <app-icons></app-icons>\r\n            </mat-tab>\r\n            <mat-tab label=\"Expansion\">\r\n                <app-expansion></app-expansion>\r\n            </mat-tab>\r\n            <mat-tab label=\"Stepper\">\r\n                <app-stepper></app-stepper>\r\n            </mat-tab>\r\n            <mat-tab label=\"Notify\">\r\n                <app-notify></app-notify>\r\n            </mat-tab>\r\n        </mat-tab-group>\r\n    </div>\r\n</div>"
 
 /***/ }),
 
-/***/ "./src/app/components-material/components-material.component.scss":
+/***/ "./src/app/admin/modules/components-material/components-material.component.scss":
 /***/ (function(module, exports) {
 
 module.exports = ""
 
 /***/ }),
 
-/***/ "./src/app/components-material/components-material.component.ts":
+/***/ "./src/app/admin/modules/components-material/components-material.component.ts":
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -57881,8 +58338,8 @@ var ComponentsMaterialComponent = (function () {
     ComponentsMaterialComponent = __decorate([
         core_1.Component({
             selector: 'app-components-material',
-            template: __webpack_require__("./src/app/components-material/components-material.component.html"),
-            styles: [__webpack_require__("./src/app/components-material/components-material.component.scss")]
+            template: __webpack_require__("./src/app/admin/modules/components-material/components-material.component.html"),
+            styles: [__webpack_require__("./src/app/admin/modules/components-material/components-material.component.scss")]
         }),
         __metadata("design:paramtypes", [])
     ], ComponentsMaterialComponent);
@@ -57893,479 +58350,21 @@ exports.ComponentsMaterialComponent = ComponentsMaterialComponent;
 
 /***/ }),
 
-/***/ "./src/app/components/dialog/danger/danger.component.html":
-/***/ (function(module, exports) {
-
-module.exports = "<div class=\"mt-modal modal-danger\">\n  <div class=\"modal-header\">\n      <h4 *ngIf=\"!content.header\">Confirm</h4>\n      <h4 *ngIf=\"content.header\">{{content.header}} ?</h4>\n  </div>\n  <div class=\"modal-body\">\n    <p *ngIf=\"!content.message\">Are you sure ?</p>\n    <p *ngIf=\"content.message\">{{content.message}} ?</p>\n  </div>\n  <div class=\"modal-footer\">\n    <button mat-button class=\"btn btn-danger\" (click)=\"continue()\">OK</button>\n    <button mat-button mat-dialog-close=\"false\">\n      Cancel\n    </button>\n  </div>\n</div>"
-
-/***/ }),
-
-/***/ "./src/app/components/dialog/danger/danger.component.scss":
+/***/ "./src/app/admin/modules/dashboard/dashboard.component.css":
 /***/ (function(module, exports) {
 
 module.exports = ""
 
 /***/ }),
 
-/***/ "./src/app/components/dialog/danger/danger.component.ts":
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-var __param = (this && this.__param) || function (paramIndex, decorator) {
-    return function (target, key) { decorator(target, key, paramIndex); }
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
-var material_1 = __webpack_require__("./node_modules/@angular/material/esm5/material.es5.js");
-var DialogDangerComponent = (function () {
-    function DialogDangerComponent(dialogRef, data) {
-        this.dialogRef = dialogRef;
-        this.data = data;
-        this.content = data;
-    }
-    DialogDangerComponent.prototype.ngOnInit = function () {
-    };
-    DialogDangerComponent.prototype.continue = function () {
-        this.dialogRef.close({
-            success: true
-        });
-    };
-    DialogDangerComponent.prototype.cancel = function () {
-        this.dialogRef.close({
-            success: false
-        });
-    };
-    DialogDangerComponent = __decorate([
-        core_1.Component({
-            selector: 'app-danger',
-            template: __webpack_require__("./src/app/components/dialog/danger/danger.component.html"),
-            styles: [__webpack_require__("./src/app/components/dialog/danger/danger.component.scss")]
-        }),
-        __param(1, core_1.Inject(material_1.MAT_DIALOG_DATA)),
-        __metadata("design:paramtypes", [material_1.MatDialogRef, Object])
-    ], DialogDangerComponent);
-    return DialogDangerComponent;
-}());
-exports.DialogDangerComponent = DialogDangerComponent;
-
-
-/***/ }),
-
-/***/ "./src/app/components/dialog/default/default.component.html":
+/***/ "./src/app/admin/modules/dashboard/dashboard.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"mt-modal modal-default\">\n  <div class=\"modal-header\">\n    <h4 *ngIf=\"!content.header\">Header</h4>\n    <h4 *ngIf=\"content.header\">{{content.header}} ?</h4>\n  </div>\n  <div class=\"modal-body\">\n    <p *ngIf=\"!content.message\">Are you sure ?</p>\n    <p *ngIf=\"content.message\">{{content.message}} ?</p>\n  </div>\n  <div class=\"modal-footer\">\n    <button mat-button class=\"btn btn-default\" (click)=\"continue()\">OK</button>\n    <button mat-button mat-dialog-close=\"false\">\n      Cancel\n    </button>\n  </div>\n</div>"
+module.exports = "<div class=\"main-content\">\r\n    <div class=\"container-fluid\">\r\n        <div class=\"row\">\r\n\r\n        </div>\r\n    </div>\r\n</div>"
 
 /***/ }),
 
-/***/ "./src/app/components/dialog/default/default.component.scss":
-/***/ (function(module, exports) {
-
-module.exports = ""
-
-/***/ }),
-
-/***/ "./src/app/components/dialog/default/default.component.ts":
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-var __param = (this && this.__param) || function (paramIndex, decorator) {
-    return function (target, key) { decorator(target, key, paramIndex); }
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
-var material_1 = __webpack_require__("./node_modules/@angular/material/esm5/material.es5.js");
-var DialogDefaultComponent = (function () {
-    function DialogDefaultComponent(dialogRef, data) {
-        this.dialogRef = dialogRef;
-        this.data = data;
-        this.content = data;
-    }
-    DialogDefaultComponent.prototype.ngOnInit = function () {
-    };
-    DialogDefaultComponent.prototype.continue = function () {
-        this.dialogRef.close({
-            success: true
-        });
-    };
-    DialogDefaultComponent.prototype.cancel = function () {
-        this.dialogRef.close({
-            success: false
-        });
-    };
-    DialogDefaultComponent = __decorate([
-        core_1.Component({
-            selector: 'app-default',
-            template: __webpack_require__("./src/app/components/dialog/default/default.component.html"),
-            styles: [__webpack_require__("./src/app/components/dialog/default/default.component.scss")]
-        }),
-        __param(1, core_1.Inject(material_1.MAT_DIALOG_DATA)),
-        __metadata("design:paramtypes", [material_1.MatDialogRef, Object])
-    ], DialogDefaultComponent);
-    return DialogDefaultComponent;
-}());
-exports.DialogDefaultComponent = DialogDefaultComponent;
-
-
-/***/ }),
-
-/***/ "./src/app/components/dialog/info/info.component.html":
-/***/ (function(module, exports) {
-
-module.exports = "<div class=\"mt-modal modal-info\">\n  <div class=\"modal-header\">\n    <h4 *ngIf=\"!content.header\">Info</h4>\n    <h4 *ngIf=\"content.header\">{{content.header}} ?</h4>\n  </div>\n  <div class=\"modal-body\">\n    <p *ngIf=\"!content.message\">Are you sure ?</p>\n    <p *ngIf=\"content.message\">{{content.message}} ?</p>\n  </div>\n  <div class=\"modal-footer\">\n    <button mat-button mat-dialog-close=\"false\">\n      Close\n    </button>\n  </div>\n</div>"
-
-/***/ }),
-
-/***/ "./src/app/components/dialog/info/info.component.scss":
-/***/ (function(module, exports) {
-
-module.exports = ""
-
-/***/ }),
-
-/***/ "./src/app/components/dialog/info/info.component.ts":
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-var __param = (this && this.__param) || function (paramIndex, decorator) {
-    return function (target, key) { decorator(target, key, paramIndex); }
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
-var material_1 = __webpack_require__("./node_modules/@angular/material/esm5/material.es5.js");
-var DialogInfoComponent = (function () {
-    function DialogInfoComponent(dialogRef, data) {
-        this.dialogRef = dialogRef;
-        this.data = data;
-        this.content = data;
-    }
-    DialogInfoComponent.prototype.ngOnInit = function () {
-    };
-    DialogInfoComponent.prototype.continue = function () {
-        this.dialogRef.close({
-            success: true
-        });
-    };
-    DialogInfoComponent.prototype.cancel = function () {
-        this.dialogRef.close({
-            success: false
-        });
-    };
-    DialogInfoComponent = __decorate([
-        core_1.Component({
-            selector: 'app-info',
-            template: __webpack_require__("./src/app/components/dialog/info/info.component.html"),
-            styles: [__webpack_require__("./src/app/components/dialog/info/info.component.scss")]
-        }),
-        __param(1, core_1.Inject(material_1.MAT_DIALOG_DATA)),
-        __metadata("design:paramtypes", [material_1.MatDialogRef, Object])
-    ], DialogInfoComponent);
-    return DialogInfoComponent;
-}());
-exports.DialogInfoComponent = DialogInfoComponent;
-
-
-/***/ }),
-
-/***/ "./src/app/components/dialog/primary/primary.component.html":
-/***/ (function(module, exports) {
-
-module.exports = "<div class=\"mt-modal modal-primary\">\n  <div class=\"modal-header\">\n    <h4 *ngIf=\"!content.header\">Primary</h4>\n    <h4 *ngIf=\"content.header\">{{content.header}} ?</h4>\n  </div>\n  <div class=\"modal-body\">\n    <p *ngIf=\"!content.message\">Are you sure ?</p>\n    <p *ngIf=\"content.message\">{{content.message}} ?</p>\n  </div>\n  <div class=\"modal-footer\">\n    <button mat-button class=\"btn btn-primary\" (click)=\"continue()\">OK</button>\n    <button mat-button mat-dialog-close=\"false\">\n      Cancel\n    </button>\n  </div>\n</div>"
-
-/***/ }),
-
-/***/ "./src/app/components/dialog/primary/primary.component.scss":
-/***/ (function(module, exports) {
-
-module.exports = ""
-
-/***/ }),
-
-/***/ "./src/app/components/dialog/primary/primary.component.ts":
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-var __param = (this && this.__param) || function (paramIndex, decorator) {
-    return function (target, key) { decorator(target, key, paramIndex); }
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
-var material_1 = __webpack_require__("./node_modules/@angular/material/esm5/material.es5.js");
-var DialogPrimaryComponent = (function () {
-    function DialogPrimaryComponent(dialogRef, data) {
-        this.dialogRef = dialogRef;
-        this.data = data;
-        this.content = data;
-    }
-    DialogPrimaryComponent.prototype.ngOnInit = function () {
-    };
-    DialogPrimaryComponent.prototype.continue = function () {
-        this.dialogRef.close({
-            success: true
-        });
-    };
-    DialogPrimaryComponent.prototype.cancel = function () {
-        this.dialogRef.close({
-            success: false
-        });
-    };
-    DialogPrimaryComponent = __decorate([
-        core_1.Component({
-            selector: 'app-primary',
-            template: __webpack_require__("./src/app/components/dialog/primary/primary.component.html"),
-            styles: [__webpack_require__("./src/app/components/dialog/primary/primary.component.scss")]
-        }),
-        __param(1, core_1.Inject(material_1.MAT_DIALOG_DATA)),
-        __metadata("design:paramtypes", [material_1.MatDialogRef, Object])
-    ], DialogPrimaryComponent);
-    return DialogPrimaryComponent;
-}());
-exports.DialogPrimaryComponent = DialogPrimaryComponent;
-
-
-/***/ }),
-
-/***/ "./src/app/components/dialog/success/success.component.html":
-/***/ (function(module, exports) {
-
-module.exports = "<div class=\"mt-modal modal-success\">\n  <div class=\"modal-header\">\n    <h4 *ngIf=\"!content.header\">Success</h4>\n    <h4 *ngIf=\"content.header\">{{content.header}} ?</h4>\n  </div>\n  <div class=\"modal-body\">\n    <p *ngIf=\"!content.message\">Mission Success!</p>\n    <p *ngIf=\"content.message\">{{content.message}} ?</p>\n  </div>\n  <div class=\"modal-footer\">\n    <button mat-button class=\"btn btn-success\" (click)=\"continue()\">OK</button>\n  </div>\n</div>"
-
-/***/ }),
-
-/***/ "./src/app/components/dialog/success/success.component.scss":
-/***/ (function(module, exports) {
-
-module.exports = ""
-
-/***/ }),
-
-/***/ "./src/app/components/dialog/success/success.component.ts":
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-var __param = (this && this.__param) || function (paramIndex, decorator) {
-    return function (target, key) { decorator(target, key, paramIndex); }
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
-var material_1 = __webpack_require__("./node_modules/@angular/material/esm5/material.es5.js");
-var DialogSuccessComponent = (function () {
-    function DialogSuccessComponent(dialogRef, data) {
-        this.dialogRef = dialogRef;
-        this.data = data;
-        this.content = data;
-    }
-    DialogSuccessComponent.prototype.ngOnInit = function () {
-    };
-    DialogSuccessComponent.prototype.continue = function () {
-        this.dialogRef.close({
-            success: true
-        });
-    };
-    DialogSuccessComponent.prototype.cancel = function () {
-        this.dialogRef.close({
-            success: false
-        });
-    };
-    DialogSuccessComponent = __decorate([
-        core_1.Component({
-            selector: 'app-success',
-            template: __webpack_require__("./src/app/components/dialog/success/success.component.html"),
-            styles: [__webpack_require__("./src/app/components/dialog/success/success.component.scss")]
-        }),
-        __param(1, core_1.Inject(material_1.MAT_DIALOG_DATA)),
-        __metadata("design:paramtypes", [material_1.MatDialogRef, Object])
-    ], DialogSuccessComponent);
-    return DialogSuccessComponent;
-}());
-exports.DialogSuccessComponent = DialogSuccessComponent;
-
-
-/***/ }),
-
-/***/ "./src/app/components/dialog/warning/warning.component.html":
-/***/ (function(module, exports) {
-
-module.exports = "<div class=\"mt-modal modal-warning\">\n  <div class=\"modal-header\">\n    <h4>Warning</h4>\n  </div>\n  <div class=\"modal-body\">\n    <p *ngIf=\"!content.message\">Are you sure ?</p>\n    <p *ngIf=\"content.message\">{{content.message}} ?</p>\n  </div>\n  <div class=\"modal-footer\">\n    <button mat-button class=\"btn btn-warning\" (click)=\"continue()\">OK</button>\n    <button mat-button mat-dialog-close=\"false\">\n      Cancel\n    </button>\n  </div>\n</div>"
-
-/***/ }),
-
-/***/ "./src/app/components/dialog/warning/warning.component.scss":
-/***/ (function(module, exports) {
-
-module.exports = ""
-
-/***/ }),
-
-/***/ "./src/app/components/dialog/warning/warning.component.ts":
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-var __param = (this && this.__param) || function (paramIndex, decorator) {
-    return function (target, key) { decorator(target, key, paramIndex); }
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
-var material_1 = __webpack_require__("./node_modules/@angular/material/esm5/material.es5.js");
-var DialogWarningComponent = (function () {
-    function DialogWarningComponent(dialogRef, data) {
-        this.dialogRef = dialogRef;
-        this.data = data;
-        this.content = data;
-    }
-    DialogWarningComponent.prototype.ngOnInit = function () {
-    };
-    DialogWarningComponent.prototype.continue = function () {
-        this.dialogRef.close({
-            success: true
-        });
-    };
-    DialogWarningComponent.prototype.cancel = function () {
-        this.dialogRef.close({
-            success: false
-        });
-    };
-    DialogWarningComponent = __decorate([
-        core_1.Component({
-            selector: 'app-warning',
-            template: __webpack_require__("./src/app/components/dialog/warning/warning.component.html"),
-            styles: [__webpack_require__("./src/app/components/dialog/warning/warning.component.scss")]
-        }),
-        __param(1, core_1.Inject(material_1.MAT_DIALOG_DATA)),
-        __metadata("design:paramtypes", [material_1.MatDialogRef, Object])
-    ], DialogWarningComponent);
-    return DialogWarningComponent;
-}());
-exports.DialogWarningComponent = DialogWarningComponent;
-
-
-/***/ }),
-
-/***/ "./src/app/components/snackbar/default/default.component.html":
-/***/ (function(module, exports) {
-
-module.exports = "Test"
-
-/***/ }),
-
-/***/ "./src/app/components/snackbar/default/default.component.scss":
-/***/ (function(module, exports) {
-
-module.exports = ""
-
-/***/ }),
-
-/***/ "./src/app/components/snackbar/default/default.component.ts":
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
-var SnackbarDefaultComponent = (function () {
-    function SnackbarDefaultComponent() {
-    }
-    SnackbarDefaultComponent.prototype.ngOnInit = function () {
-    };
-    SnackbarDefaultComponent = __decorate([
-        core_1.Component({
-            selector: 'app-default',
-            template: __webpack_require__("./src/app/components/snackbar/default/default.component.html"),
-            styles: [__webpack_require__("./src/app/components/snackbar/default/default.component.scss")]
-        }),
-        __metadata("design:paramtypes", [])
-    ], SnackbarDefaultComponent);
-    return SnackbarDefaultComponent;
-}());
-exports.SnackbarDefaultComponent = SnackbarDefaultComponent;
-
-
-/***/ }),
-
-/***/ "./src/app/dashboard/dashboard.component.css":
-/***/ (function(module, exports) {
-
-module.exports = ""
-
-/***/ }),
-
-/***/ "./src/app/dashboard/dashboard.component.html":
-/***/ (function(module, exports) {
-
-module.exports = "<div class=\"main-content\">\n    <div class=\"container-fluid\">\n        <div class=\"row\">\n\n        </div>\n    </div>\n</div>"
-
-/***/ }),
-
-/***/ "./src/app/dashboard/dashboard.component.ts":
+/***/ "./src/app/admin/modules/dashboard/dashboard.component.ts":
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -58389,8 +58388,8 @@ var DashboardComponent = (function () {
     DashboardComponent = __decorate([
         core_1.Component({
             selector: 'app-dashboard',
-            template: __webpack_require__("./src/app/dashboard/dashboard.component.html"),
-            styles: [__webpack_require__("./src/app/dashboard/dashboard.component.css")]
+            template: __webpack_require__("./src/app/admin/modules/dashboard/dashboard.component.html"),
+            styles: [__webpack_require__("./src/app/admin/modules/dashboard/dashboard.component.css")]
         }),
         __metadata("design:paramtypes", [])
     ], DashboardComponent);
@@ -58401,150 +58400,21 @@ exports.DashboardComponent = DashboardComponent;
 
 /***/ }),
 
-/***/ "./src/app/layouts/admin-layout/admin-layout.module.ts":
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-var primary_component_1 = __webpack_require__("./src/app/components/dialog/primary/primary.component.ts");
-var components_service_1 = __webpack_require__("./src/app/components-material/child/components/components.service.ts");
-var dialog_service_1 = __webpack_require__("./src/app/services/dialog.service.ts");
-var http_service_1 = __webpack_require__("./src/app/services/http.service.ts");
-var notify_component_1 = __webpack_require__("./src/app/components-material/child/notify/notify.component.ts");
-var icons_component_1 = __webpack_require__("./src/app/components-material/child/icons/icons.component.ts");
-var table_component_1 = __webpack_require__("./src/app/components-material/child/table/table.component.ts");
-var forms_component_1 = __webpack_require__("./src/app/components-material/child/forms/forms.component.ts");
-var components_component_1 = __webpack_require__("./src/app/components-material/child/components/components.component.ts");
-var components_material_component_1 = __webpack_require__("./src/app/components-material/components-material.component.ts");
-var core_1 = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
-var router_1 = __webpack_require__("./node_modules/@angular/router/esm5/router.js");
-var common_1 = __webpack_require__("./node_modules/@angular/common/esm5/common.js");
-var forms_1 = __webpack_require__("./node_modules/@angular/forms/esm5/forms.js");
-var admin_layout_routing_1 = __webpack_require__("./src/app/layouts/admin-layout/admin-layout.routing.ts");
-var dashboard_component_1 = __webpack_require__("./src/app/dashboard/dashboard.component.ts");
-var material_1 = __webpack_require__("./node_modules/@angular/material/esm5/material.es5.js");
-var log_in_component_1 = __webpack_require__("./src/app/log-in/log-in.component.ts");
-var expansion_component_1 = __webpack_require__("./src/app/components-material/child/expansion/expansion.component.ts");
-var stepper_component_1 = __webpack_require__("./src/app/components-material/child/stepper/stepper.component.ts");
-var default_component_1 = __webpack_require__("./src/app/components/dialog/default/default.component.ts");
-var danger_component_1 = __webpack_require__("./src/app/components/dialog/danger/danger.component.ts");
-var info_component_1 = __webpack_require__("./src/app/components/dialog/info/info.component.ts");
-var success_component_1 = __webpack_require__("./src/app/components/dialog/success/success.component.ts");
-var warning_component_1 = __webpack_require__("./src/app/components/dialog/warning/warning.component.ts");
-var default_component_2 = __webpack_require__("./src/app/components/snackbar/default/default.component.ts");
-var snackbar_service_1 = __webpack_require__("./src/app/services/snackbar.service.ts");
-var AdminLayoutModule = (function () {
-    function AdminLayoutModule() {
-    }
-    AdminLayoutModule = __decorate([
-        core_1.NgModule({
-            imports: [
-                common_1.CommonModule,
-                router_1.RouterModule.forChild(admin_layout_routing_1.AdminLayoutRoutes),
-                forms_1.FormsModule,
-                forms_1.ReactiveFormsModule,
-                material_1.MatButtonModule,
-                material_1.MatRippleModule,
-                material_1.MatInputModule,
-                material_1.MatTooltipModule,
-                material_1.MatAutocompleteModule,
-                material_1.MatTabsModule,
-                material_1.MatDatepickerModule,
-                material_1.MatNativeDateModule,
-                material_1.MatSelectModule,
-                material_1.MatSliderModule,
-                material_1.MatSlideToggleModule,
-                material_1.MatExpansionModule,
-                material_1.MatStepperModule,
-                material_1.MatIconModule,
-                material_1.MatProgressSpinnerModule,
-                material_1.MatProgressBarModule,
-                material_1.MatDialogModule,
-                material_1.MatSnackBarModule,
-            ],
-            declarations: [
-                dashboard_component_1.DashboardComponent,
-                log_in_component_1.LogInComponent,
-                components_material_component_1.ComponentsMaterialComponent,
-                components_component_1.ComponentsComponent,
-                forms_component_1.FormsComponent,
-                table_component_1.TableComponent,
-                icons_component_1.IconsComponent,
-                expansion_component_1.ExpansionComponent,
-                stepper_component_1.StepperComponent,
-                notify_component_1.NotifyComponent,
-                default_component_1.DialogDefaultComponent,
-                danger_component_1.DialogDangerComponent,
-                info_component_1.DialogInfoComponent,
-                success_component_1.DialogSuccessComponent,
-                warning_component_1.DialogWarningComponent,
-                primary_component_1.DialogPrimaryComponent,
-                default_component_2.SnackbarDefaultComponent
-            ],
-            providers: [
-                http_service_1.HttpService,
-                dialog_service_1.DialogService,
-                components_service_1.ComponentsService,
-                snackbar_service_1.SnackbarService
-            ],
-            entryComponents: [
-                default_component_1.DialogDefaultComponent,
-                danger_component_1.DialogDangerComponent,
-                info_component_1.DialogInfoComponent,
-                success_component_1.DialogSuccessComponent,
-                warning_component_1.DialogWarningComponent,
-                primary_component_1.DialogPrimaryComponent,
-                default_component_2.SnackbarDefaultComponent
-            ]
-        })
-    ], AdminLayoutModule);
-    return AdminLayoutModule;
-}());
-exports.AdminLayoutModule = AdminLayoutModule;
-
-
-/***/ }),
-
-/***/ "./src/app/layouts/admin-layout/admin-layout.routing.ts":
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-var components_material_component_1 = __webpack_require__("./src/app/components-material/components-material.component.ts");
-var dashboard_component_1 = __webpack_require__("./src/app/dashboard/dashboard.component.ts");
-var log_in_component_1 = __webpack_require__("./src/app/log-in/log-in.component.ts");
-exports.AdminLayoutRoutes = [
-    { path: 'dashboard', component: dashboard_component_1.DashboardComponent },
-    { path: 'login', component: log_in_component_1.LogInComponent },
-    { path: 'components-material', component: components_material_component_1.ComponentsMaterialComponent }
-];
-
-
-/***/ }),
-
-/***/ "./src/app/log-in/log-in.component.html":
+/***/ "./src/app/admin/modules/log-in/log-in.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  log-in works!\n</p>\n"
+module.exports = "<p>\r\n  log-in works!\r\n</p>\r\n"
 
 /***/ }),
 
-/***/ "./src/app/log-in/log-in.component.scss":
+/***/ "./src/app/admin/modules/log-in/log-in.component.scss":
 /***/ (function(module, exports) {
 
 module.exports = ""
 
 /***/ }),
 
-/***/ "./src/app/log-in/log-in.component.ts":
+/***/ "./src/app/admin/modules/log-in/log-in.component.ts":
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -58568,8 +58438,8 @@ var LogInComponent = (function () {
     LogInComponent = __decorate([
         core_1.Component({
             selector: 'app-log-in',
-            template: __webpack_require__("./src/app/log-in/log-in.component.html"),
-            styles: [__webpack_require__("./src/app/log-in/log-in.component.scss")]
+            template: __webpack_require__("./src/app/admin/modules/log-in/log-in.component.html"),
+            styles: [__webpack_require__("./src/app/admin/modules/log-in/log-in.component.scss")]
         }),
         __metadata("design:paramtypes", [])
     ], LogInComponent);
@@ -58580,7 +58450,7 @@ exports.LogInComponent = LogInComponent;
 
 /***/ }),
 
-/***/ "./src/app/services/dialog.service.ts":
+/***/ "./src/app/admin/services/dialog.service.ts":
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -58596,13 +58466,13 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
-var default_component_1 = __webpack_require__("./src/app/components/dialog/default/default.component.ts");
-var success_component_1 = __webpack_require__("./src/app/components/dialog/success/success.component.ts");
-var info_component_1 = __webpack_require__("./src/app/components/dialog/info/info.component.ts");
-var warning_component_1 = __webpack_require__("./src/app/components/dialog/warning/warning.component.ts");
-var danger_component_1 = __webpack_require__("./src/app/components/dialog/danger/danger.component.ts");
+var default_component_1 = __webpack_require__("./src/app/admin/components/dialog/default/default.component.ts");
+var success_component_1 = __webpack_require__("./src/app/admin/components/dialog/success/success.component.ts");
+var info_component_1 = __webpack_require__("./src/app/admin/components/dialog/info/info.component.ts");
+var warning_component_1 = __webpack_require__("./src/app/admin/components/dialog/warning/warning.component.ts");
+var danger_component_1 = __webpack_require__("./src/app/admin/components/dialog/danger/danger.component.ts");
 var material_1 = __webpack_require__("./node_modules/@angular/material/esm5/material.es5.js");
-var primary_component_1 = __webpack_require__("./src/app/components/dialog/primary/primary.component.ts");
+var primary_component_1 = __webpack_require__("./src/app/admin/components/dialog/primary/primary.component.ts");
 var DialogService = (function () {
     function DialogService(dialog) {
         this.dialog = dialog;
@@ -58660,7 +58530,7 @@ exports.DialogService = DialogService;
 
 /***/ }),
 
-/***/ "./src/app/services/http.service.ts":
+/***/ "./src/app/admin/services/http.service.ts":
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -58753,7 +58623,7 @@ exports.HttpService = HttpService;
 
 /***/ }),
 
-/***/ "./src/app/services/snackbar.service.ts":
+/***/ "./src/app/admin/services/snackbar.service.ts":
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -58770,7 +58640,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
 var material_1 = __webpack_require__("./node_modules/@angular/material/esm5/material.es5.js");
-var default_component_1 = __webpack_require__("./src/app/components/snackbar/default/default.component.ts");
+var default_component_1 = __webpack_require__("./src/app/admin/components/snackbar/default/default.component.ts");
 var SnackbarService = (function () {
     function SnackbarService(snackBar) {
         this.snackBar = snackBar;
@@ -58818,6 +58688,136 @@ var SnackbarService = (function () {
     return SnackbarService;
 }());
 exports.SnackbarService = SnackbarService;
+
+
+/***/ }),
+
+/***/ "./src/app/layouts/admin-layout/admin-layout.module.ts":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var primary_component_1 = __webpack_require__("./src/app/admin/components/dialog/primary/primary.component.ts");
+var components_service_1 = __webpack_require__("./src/app/admin/modules/components-material/child/components/components.service.ts");
+var dialog_service_1 = __webpack_require__("./src/app/admin/services/dialog.service.ts");
+var http_service_1 = __webpack_require__("./src/app/admin/services/http.service.ts");
+var notify_component_1 = __webpack_require__("./src/app/admin/modules/components-material/child/notify/notify.component.ts");
+var icons_component_1 = __webpack_require__("./src/app/admin/modules/components-material/child/icons/icons.component.ts");
+var table_component_1 = __webpack_require__("./src/app/admin/modules/components-material/child/table/table.component.ts");
+var forms_component_1 = __webpack_require__("./src/app/admin/modules/components-material/child/forms/forms.component.ts");
+var components_component_1 = __webpack_require__("./src/app/admin/modules/components-material/child/components/components.component.ts");
+var components_material_component_1 = __webpack_require__("./src/app/admin/modules/components-material/components-material.component.ts");
+var core_1 = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+var router_1 = __webpack_require__("./node_modules/@angular/router/esm5/router.js");
+var common_1 = __webpack_require__("./node_modules/@angular/common/esm5/common.js");
+var forms_1 = __webpack_require__("./node_modules/@angular/forms/esm5/forms.js");
+var admin_layout_routing_1 = __webpack_require__("./src/app/layouts/admin-layout/admin-layout.routing.ts");
+var dashboard_component_1 = __webpack_require__("./src/app/admin/modules/dashboard/dashboard.component.ts");
+var material_1 = __webpack_require__("./node_modules/@angular/material/esm5/material.es5.js");
+var log_in_component_1 = __webpack_require__("./src/app/admin/modules/log-in/log-in.component.ts");
+var expansion_component_1 = __webpack_require__("./src/app/admin/modules/components-material/child/expansion/expansion.component.ts");
+var stepper_component_1 = __webpack_require__("./src/app/admin/modules/components-material/child/stepper/stepper.component.ts");
+var default_component_1 = __webpack_require__("./src/app/admin/components/dialog/default/default.component.ts");
+var danger_component_1 = __webpack_require__("./src/app/admin/components/dialog/danger/danger.component.ts");
+var info_component_1 = __webpack_require__("./src/app/admin/components/dialog/info/info.component.ts");
+var success_component_1 = __webpack_require__("./src/app/admin/components/dialog/success/success.component.ts");
+var warning_component_1 = __webpack_require__("./src/app/admin/components/dialog/warning/warning.component.ts");
+var default_component_2 = __webpack_require__("./src/app/admin/components/snackbar/default/default.component.ts");
+var snackbar_service_1 = __webpack_require__("./src/app/admin/services/snackbar.service.ts");
+var AdminLayoutModule = (function () {
+    function AdminLayoutModule() {
+    }
+    AdminLayoutModule = __decorate([
+        core_1.NgModule({
+            imports: [
+                common_1.CommonModule,
+                router_1.RouterModule.forChild(admin_layout_routing_1.AdminLayoutRoutes),
+                forms_1.FormsModule,
+                forms_1.ReactiveFormsModule,
+                material_1.MatButtonModule,
+                material_1.MatRippleModule,
+                material_1.MatInputModule,
+                material_1.MatTooltipModule,
+                material_1.MatAutocompleteModule,
+                material_1.MatTabsModule,
+                material_1.MatDatepickerModule,
+                material_1.MatNativeDateModule,
+                material_1.MatSelectModule,
+                material_1.MatSliderModule,
+                material_1.MatSlideToggleModule,
+                material_1.MatExpansionModule,
+                material_1.MatStepperModule,
+                material_1.MatIconModule,
+                material_1.MatProgressSpinnerModule,
+                material_1.MatProgressBarModule,
+                material_1.MatDialogModule,
+                material_1.MatSnackBarModule,
+            ],
+            declarations: [
+                dashboard_component_1.DashboardComponent,
+                log_in_component_1.LogInComponent,
+                components_material_component_1.ComponentsMaterialComponent,
+                components_component_1.ComponentsComponent,
+                forms_component_1.FormsComponent,
+                table_component_1.TableComponent,
+                icons_component_1.IconsComponent,
+                expansion_component_1.ExpansionComponent,
+                stepper_component_1.StepperComponent,
+                notify_component_1.NotifyComponent,
+                default_component_1.DialogDefaultComponent,
+                danger_component_1.DialogDangerComponent,
+                info_component_1.DialogInfoComponent,
+                success_component_1.DialogSuccessComponent,
+                warning_component_1.DialogWarningComponent,
+                primary_component_1.DialogPrimaryComponent,
+                default_component_2.SnackbarDefaultComponent
+            ],
+            providers: [
+                http_service_1.HttpService,
+                dialog_service_1.DialogService,
+                components_service_1.ComponentsService,
+                snackbar_service_1.SnackbarService
+            ],
+            entryComponents: [
+                default_component_1.DialogDefaultComponent,
+                danger_component_1.DialogDangerComponent,
+                info_component_1.DialogInfoComponent,
+                success_component_1.DialogSuccessComponent,
+                warning_component_1.DialogWarningComponent,
+                primary_component_1.DialogPrimaryComponent,
+                default_component_2.SnackbarDefaultComponent
+            ]
+        })
+    ], AdminLayoutModule);
+    return AdminLayoutModule;
+}());
+exports.AdminLayoutModule = AdminLayoutModule;
+
+
+/***/ }),
+
+/***/ "./src/app/layouts/admin-layout/admin-layout.routing.ts":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var components_material_component_1 = __webpack_require__("./src/app/admin/modules/components-material/components-material.component.ts");
+var dashboard_component_1 = __webpack_require__("./src/app/admin/modules/dashboard/dashboard.component.ts");
+var log_in_component_1 = __webpack_require__("./src/app/admin/modules/log-in/log-in.component.ts");
+exports.AdminLayoutRoutes = [
+    { path: '/', redirectTo: 'dashboard', pathMatch: 'full', },
+    { path: 'dashboard', component: dashboard_component_1.DashboardComponent, pathMatch: 'full', },
+    { path: 'login', component: log_in_component_1.LogInComponent, pathMatch: 'full', },
+    { path: 'components-material', component: components_material_component_1.ComponentsMaterialComponent, pathMatch: 'full', }
+];
 
 
 /***/ })

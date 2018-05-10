@@ -7,6 +7,10 @@ var map = {
 	"./layouts/admin-layout/admin-layout.module": [
 		"./src/app/layouts/admin-layout/admin-layout.module.ts",
 		"admin-layout.module"
+	],
+	"./layouts/web-layout/web-layout.module": [
+		"./src/app/layouts/web-layout/web-layout.module.ts",
+		"web-layout.module"
 	]
 };
 function webpackAsyncContext(req) {
@@ -25,157 +29,7 @@ module.exports = webpackAsyncContext;
 
 /***/ }),
 
-/***/ "./src/app/app.component.css":
-/***/ (function(module, exports) {
-
-module.exports = ""
-
-/***/ }),
-
-/***/ "./src/app/app.component.html":
-/***/ (function(module, exports) {
-
-module.exports = "\n<router-outlet></router-outlet>\n"
-
-/***/ }),
-
-/***/ "./src/app/app.component.ts":
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
-var AppComponent = (function () {
-    function AppComponent() {
-    }
-    AppComponent = __decorate([
-        core_1.Component({
-            selector: 'app-root',
-            template: __webpack_require__("./src/app/app.component.html"),
-            styles: [__webpack_require__("./src/app/app.component.css")]
-        })
-    ], AppComponent);
-    return AppComponent;
-}());
-exports.AppComponent = AppComponent;
-
-
-/***/ }),
-
-/***/ "./src/app/app.module.ts":
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-var animations_1 = __webpack_require__("./node_modules/@angular/platform-browser/esm5/animations.js");
-var core_1 = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
-var forms_1 = __webpack_require__("./node_modules/@angular/forms/esm5/forms.js");
-var http_1 = __webpack_require__("./node_modules/@angular/http/esm5/http.js");
-var router_1 = __webpack_require__("./node_modules/@angular/router/esm5/router.js");
-var app_routing_1 = __webpack_require__("./src/app/app.routing.ts");
-var components_module_1 = __webpack_require__("./src/app/components/components.module.ts");
-var app_component_1 = __webpack_require__("./src/app/app.component.ts");
-var core_2 = __webpack_require__("./node_modules/@agm/core/index.js");
-var admin_layout_component_1 = __webpack_require__("./src/app/layouts/admin-layout/admin-layout.component.ts");
-var AppModule = (function () {
-    function AppModule() {
-    }
-    AppModule = __decorate([
-        core_1.NgModule({
-            imports: [
-                animations_1.BrowserAnimationsModule,
-                forms_1.FormsModule,
-                http_1.HttpModule,
-                components_module_1.ComponentsModule,
-                router_1.RouterModule,
-                app_routing_1.AppRoutingModule,
-                core_2.AgmCoreModule.forRoot({
-                    apiKey: 'AIzaSyAHt2kR9H46CIjvn8BGA3absqf3fwYT7Mg'
-                })
-            ],
-            declarations: [
-                app_component_1.AppComponent,
-                admin_layout_component_1.AdminLayoutComponent,
-            ],
-            providers: [],
-            bootstrap: [app_component_1.AppComponent]
-        })
-    ], AppModule);
-    return AppModule;
-}());
-exports.AppModule = AppModule;
-
-
-/***/ }),
-
-/***/ "./src/app/app.routing.ts":
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
-var common_1 = __webpack_require__("./node_modules/@angular/common/esm5/common.js");
-var platform_browser_1 = __webpack_require__("./node_modules/@angular/platform-browser/esm5/platform-browser.js");
-var router_1 = __webpack_require__("./node_modules/@angular/router/esm5/router.js");
-var admin_layout_component_1 = __webpack_require__("./src/app/layouts/admin-layout/admin-layout.component.ts");
-var routes = [
-    {
-        path: '',
-        redirectTo: 'dashboard',
-        pathMatch: 'full',
-    }, {
-        path: '',
-        component: admin_layout_component_1.AdminLayoutComponent,
-        children: [
-            {
-                path: '',
-                loadChildren: './layouts/admin-layout/admin-layout.module#AdminLayoutModule'
-            }
-        ]
-    }
-];
-var AppRoutingModule = (function () {
-    function AppRoutingModule() {
-    }
-    AppRoutingModule = __decorate([
-        core_1.NgModule({
-            imports: [
-                common_1.CommonModule,
-                platform_browser_1.BrowserModule,
-                router_1.RouterModule.forRoot(routes)
-            ],
-            exports: [],
-        })
-    ], AppRoutingModule);
-    return AppRoutingModule;
-}());
-exports.AppRoutingModule = AppRoutingModule;
-
-
-/***/ }),
-
-/***/ "./src/app/components/components.module.ts":
+/***/ "./src/app/admin/components/components.module.ts":
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -190,9 +44,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
 var common_1 = __webpack_require__("./node_modules/@angular/common/esm5/common.js");
 var router_1 = __webpack_require__("./node_modules/@angular/router/esm5/router.js");
-var footer_component_1 = __webpack_require__("./src/app/components/footer/footer.component.ts");
-var navbar_component_1 = __webpack_require__("./src/app/components/navbar/navbar.component.ts");
-var sidebar_component_1 = __webpack_require__("./src/app/components/sidebar/sidebar.component.ts");
+var footer_component_1 = __webpack_require__("./src/app/admin/components/footer/footer.component.ts");
+var navbar_component_1 = __webpack_require__("./src/app/admin/components/navbar/navbar.component.ts");
+var sidebar_component_1 = __webpack_require__("./src/app/admin/components/sidebar/sidebar.component.ts");
 var ComponentsModule = (function () {
     function ComponentsModule() {
     }
@@ -221,21 +75,21 @@ exports.ComponentsModule = ComponentsModule;
 
 /***/ }),
 
-/***/ "./src/app/components/footer/footer.component.css":
+/***/ "./src/app/admin/components/footer/footer.component.css":
 /***/ (function(module, exports) {
 
 module.exports = ""
 
 /***/ }),
 
-/***/ "./src/app/components/footer/footer.component.html":
+/***/ "./src/app/admin/components/footer/footer.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<footer class=\"footer \">\n    <div class=\"container-fluid\">\n        <div class=\"copyright text-center\">\n            &copy;\n            {{date | date: 'yyyy'}}\n        </div>\n    </div>\n</footer>\n"
+module.exports = "<footer class=\"footer \">\r\n    <div class=\"container-fluid\">\r\n        <div class=\"copyright text-center\">\r\n            &copy;\r\n            {{date | date: 'yyyy'}}\r\n        </div>\r\n    </div>\r\n</footer>\r\n"
 
 /***/ }),
 
-/***/ "./src/app/components/footer/footer.component.ts":
+/***/ "./src/app/admin/components/footer/footer.component.ts":
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -260,8 +114,8 @@ var FooterComponent = (function () {
     FooterComponent = __decorate([
         core_1.Component({
             selector: 'app-footer',
-            template: __webpack_require__("./src/app/components/footer/footer.component.html"),
-            styles: [__webpack_require__("./src/app/components/footer/footer.component.css")]
+            template: __webpack_require__("./src/app/admin/components/footer/footer.component.html"),
+            styles: [__webpack_require__("./src/app/admin/components/footer/footer.component.css")]
         }),
         __metadata("design:paramtypes", [])
     ], FooterComponent);
@@ -272,21 +126,21 @@ exports.FooterComponent = FooterComponent;
 
 /***/ }),
 
-/***/ "./src/app/components/navbar/navbar.component.css":
+/***/ "./src/app/admin/components/navbar/navbar.component.css":
 /***/ (function(module, exports) {
 
 module.exports = ""
 
 /***/ }),
 
-/***/ "./src/app/components/navbar/navbar.component.html":
+/***/ "./src/app/admin/components/navbar/navbar.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar navbar-expand-lg navbar-transparent  navbar-absolute fixed-top\">\n    <div class=\"container-fluid\">\n        <div class=\"navbar-wrapper\">\n          <a class=\"navbar-brand\" href=\"#\">{{getTitle()}}</a>\n        </div>\n        <button mat-raised-button class=\"navbar-toggler\" type=\"button\" (click)=\"sidebarToggle()\">\n            <span class=\"sr-only\">Toggle navigation</span>\n            <span class=\"navbar-toggler-icon icon-bar\"></span>\n            <span class=\"navbar-toggler-icon icon-bar\"></span>\n            <span class=\"navbar-toggler-icon icon-bar\"></span>\n        </button>\n        <div class=\"collapse navbar-collapse justify-content-end\" id=\"navigation\">\n            <form class=\"navbar-form\">\n                <div class=\"input-group no-border\">\n                    <input type=\"text\" value=\"\" class=\"form-control\" placeholder=\"Search...\">\n                    <button mat-raised-button type=\"submit\" class=\"btn btn-white btn-round btn-just-icon\">\n                        <i class=\"material-icons\">search</i>\n                        <div class=\"ripple-container\"></div>\n                    </button>\n                </div>\n            </form>\n            <ul class=\"navbar-nav\">\n                <li class=\"nav-item\">\n                    <a class=\"nav-link\" href=\"#pablo\">\n                        <i class=\"material-icons\">dashboard</i>\n                        <p>\n                            <span class=\"d-lg-none d-md-block\">Stats</span>\n                        </p>\n                    </a>\n                </li>\n                <li class=\"nav-item dropdown\">\n                    <a class=\"nav-link\" href=\"http://example.com\" id=\"navbarDropdownMenuLink\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">\n                        <i class=\"material-icons\">notifications</i>\n                        <span class=\"notification\">5</span>\n                        <p>\n                            <span class=\"d-lg-none d-md-block\">Some Actions</span>\n                        </p>\n                    </a>\n                    <div class=\"dropdown-menu dropdown-menu-right\" aria-labelledby=\"navbarDropdownMenuLink\">\n                        <a class=\"dropdown-item\" href=\"#\">Mike John responded to your email</a>\n                        <a class=\"dropdown-item\" href=\"#\">You have 5 new tasks</a>\n                        <a class=\"dropdown-item\" href=\"#\">You're now friend with Andrew</a>\n                        <a class=\"dropdown-item\" href=\"#\">Another Notification</a>\n                        <a class=\"dropdown-item\" href=\"#\">Another One</a>\n                    </div>\n                </li>\n                <li class=\"nav-item\">\n                    <a class=\"nav-link\" href=\"#pablo\">\n                        <i class=\"material-icons\">person</i>\n                        <p>\n                            <span class=\"d-lg-none d-md-block\">Account</span>\n                        </p>\n                    </a>\n                </li>\n            </ul>\n        </div>\n    </div>\n</nav>"
+module.exports = "<nav class=\"navbar navbar-expand-lg navbar-transparent  navbar-absolute fixed-top\">\r\n    <div class=\"container-fluid\">\r\n        <div class=\"navbar-wrapper\">\r\n          <a class=\"navbar-brand\" href=\"#\">{{getTitle()}}</a>\r\n        </div>\r\n        <button mat-raised-button class=\"navbar-toggler\" type=\"button\" (click)=\"sidebarToggle()\">\r\n            <span class=\"sr-only\">Toggle navigation</span>\r\n            <span class=\"navbar-toggler-icon icon-bar\"></span>\r\n            <span class=\"navbar-toggler-icon icon-bar\"></span>\r\n            <span class=\"navbar-toggler-icon icon-bar\"></span>\r\n        </button>\r\n        <div class=\"collapse navbar-collapse justify-content-end\" id=\"navigation\">\r\n            <form class=\"navbar-form\">\r\n                <div class=\"input-group no-border\">\r\n                    <input type=\"text\" value=\"\" class=\"form-control\" placeholder=\"Search...\">\r\n                    <button mat-raised-button type=\"submit\" class=\"btn btn-white btn-round btn-just-icon\">\r\n                        <i class=\"material-icons\">search</i>\r\n                        <div class=\"ripple-container\"></div>\r\n                    </button>\r\n                </div>\r\n            </form>\r\n            <ul class=\"navbar-nav\">\r\n                <li class=\"nav-item\">\r\n                    <a class=\"nav-link\" href=\"#pablo\">\r\n                        <i class=\"material-icons\">dashboard</i>\r\n                        <p>\r\n                            <span class=\"d-lg-none d-md-block\">Stats</span>\r\n                        </p>\r\n                    </a>\r\n                </li>\r\n                <li class=\"nav-item dropdown\">\r\n                    <a class=\"nav-link\" href=\"http://example.com\" id=\"navbarDropdownMenuLink\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">\r\n                        <i class=\"material-icons\">notifications</i>\r\n                        <span class=\"notification\">5</span>\r\n                        <p>\r\n                            <span class=\"d-lg-none d-md-block\">Some Actions</span>\r\n                        </p>\r\n                    </a>\r\n                    <div class=\"dropdown-menu dropdown-menu-right\" aria-labelledby=\"navbarDropdownMenuLink\">\r\n                        <a class=\"dropdown-item\" href=\"#\">Mike John responded to your email</a>\r\n                        <a class=\"dropdown-item\" href=\"#\">You have 5 new tasks</a>\r\n                        <a class=\"dropdown-item\" href=\"#\">You're now friend with Andrew</a>\r\n                        <a class=\"dropdown-item\" href=\"#\">Another Notification</a>\r\n                        <a class=\"dropdown-item\" href=\"#\">Another One</a>\r\n                    </div>\r\n                </li>\r\n                <li class=\"nav-item\">\r\n                    <a class=\"nav-link\" href=\"#pablo\">\r\n                        <i class=\"material-icons\">person</i>\r\n                        <p>\r\n                            <span class=\"d-lg-none d-md-block\">Account</span>\r\n                        </p>\r\n                    </a>\r\n                </li>\r\n            </ul>\r\n        </div>\r\n    </div>\r\n</nav>"
 
 /***/ }),
 
-/***/ "./src/app/components/navbar/navbar.component.ts":
+/***/ "./src/app/admin/components/navbar/navbar.component.ts":
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -302,7 +156,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
-var sidebar_component_1 = __webpack_require__("./src/app/components/sidebar/sidebar.component.ts");
+var sidebar_component_1 = __webpack_require__("./src/app/admin/components/sidebar/sidebar.component.ts");
 var common_1 = __webpack_require__("./node_modules/@angular/common/esm5/common.js");
 var router_1 = __webpack_require__("./node_modules/@angular/router/esm5/router.js");
 var NavbarComponent = (function () {
@@ -411,8 +265,8 @@ var NavbarComponent = (function () {
     NavbarComponent = __decorate([
         core_1.Component({
             selector: 'app-navbar',
-            template: __webpack_require__("./src/app/components/navbar/navbar.component.html"),
-            styles: [__webpack_require__("./src/app/components/navbar/navbar.component.css")]
+            template: __webpack_require__("./src/app/admin/components/navbar/navbar.component.html"),
+            styles: [__webpack_require__("./src/app/admin/components/navbar/navbar.component.css")]
         }),
         __metadata("design:paramtypes", [common_1.Location, core_1.ElementRef, router_1.Router])
     ], NavbarComponent);
@@ -423,21 +277,21 @@ exports.NavbarComponent = NavbarComponent;
 
 /***/ }),
 
-/***/ "./src/app/components/sidebar/sidebar.component.css":
+/***/ "./src/app/admin/components/sidebar/sidebar.component.css":
 /***/ (function(module, exports) {
 
 module.exports = ""
 
 /***/ }),
 
-/***/ "./src/app/components/sidebar/sidebar.component.html":
+/***/ "./src/app/admin/components/sidebar/sidebar.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"logo\">\n    <a href=\"https://www.creative-tim.com\" class=\"simple-text\">\n        <div class=\"logo-img\">\n            <img src=\"/assets/img/angular2-logo-red.png\" />\n        </div>\n        Creative Tim\n    </a>\n</div>\n<div class=\"sidebar-wrapper\">\n    <div *ngIf=\"isMobileMenu()\">\n        <form class=\"navbar-form\">\n            <span class=\"bmd-form-group\">\n                <div class=\"input-group no-border\">\n                    <input type=\"text\" value=\"\" class=\"form-control\" placeholder=\"Search...\">\n                    <button mat-raised-button type=\"submit\" class=\"btn btn-white btn-round btn-just-icon\">\n                        <i class=\"material-icons\">search</i>\n                        <div class=\"ripple-container\"></div>\n                    </button>\n                </div>\n            </span>\n        </form>\n    </div>\n    <ul class=\"nav\">\n        <li routerLinkActive=\"active\" *ngFor=\"let menuItem of menuItems\" class=\"{{menuItem.class}} nav-item\">\n            <a class=\"nav-link\" [routerLink]=\"[menuItem.path]\">\n                <i class=\"material-icons\">{{menuItem.icon}}</i>\n                <p>{{menuItem.title}}</p>\n            </a>\n        </li>\n    </ul>\n</div>"
+module.exports = "<div class=\"logo\">\r\n    <a href=\"https://www.creative-tim.com\" class=\"simple-text\">\r\n        <div class=\"logo-img\">\r\n            <img src=\"/assets/img/angular2-logo-red.png\" />\r\n        </div>\r\n        Creative Tim\r\n    </a>\r\n</div>\r\n<div class=\"sidebar-wrapper\">\r\n    <div *ngIf=\"isMobileMenu()\">\r\n        <form class=\"navbar-form\">\r\n            <span class=\"bmd-form-group\">\r\n                <div class=\"input-group no-border\">\r\n                    <input type=\"text\" value=\"\" class=\"form-control\" placeholder=\"Search...\">\r\n                    <button mat-raised-button type=\"submit\" class=\"btn btn-white btn-round btn-just-icon\">\r\n                        <i class=\"material-icons\">search</i>\r\n                        <div class=\"ripple-container\"></div>\r\n                    </button>\r\n                </div>\r\n            </span>\r\n        </form>\r\n    </div>\r\n    <ul class=\"nav\">\r\n        <li routerLinkActive=\"active\" *ngFor=\"let menuItem of menuItems\" class=\"{{menuItem.class}} nav-item\">\r\n            <a class=\"nav-link\" [routerLink]=\"[menuItem.path]\">\r\n                <i class=\"material-icons\">{{menuItem.icon}}</i>\r\n                <p>{{menuItem.title}}</p>\r\n            </a>\r\n        </li>\r\n    </ul>\r\n</div>"
 
 /***/ }),
 
-/***/ "./src/app/components/sidebar/sidebar.component.ts":
+/***/ "./src/app/admin/components/sidebar/sidebar.component.ts":
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -454,8 +308,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
 exports.ROUTES = [
-    { path: '/dashboard', title: 'Dashboard', icon: 'dashboard', class: '' },
-    { path: '/components-material', title: 'Components Material', icon: 'view_module', class: '' },
+    { path: 'dashboard', title: 'Dashboard', icon: 'dashboard', class: '' },
+    { path: 'components-material', title: 'Components Material', icon: 'view_module', class: '' },
 ];
 var SidebarComponent = (function () {
     function SidebarComponent() {
@@ -473,14 +327,173 @@ var SidebarComponent = (function () {
     SidebarComponent = __decorate([
         core_1.Component({
             selector: 'app-sidebar',
-            template: __webpack_require__("./src/app/components/sidebar/sidebar.component.html"),
-            styles: [__webpack_require__("./src/app/components/sidebar/sidebar.component.css")]
+            template: __webpack_require__("./src/app/admin/components/sidebar/sidebar.component.html"),
+            styles: [__webpack_require__("./src/app/admin/components/sidebar/sidebar.component.css")]
         }),
         __metadata("design:paramtypes", [])
     ], SidebarComponent);
     return SidebarComponent;
 }());
 exports.SidebarComponent = SidebarComponent;
+
+
+/***/ }),
+
+/***/ "./src/app/app.component.css":
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/app.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "\n<router-outlet></router-outlet>\n"
+
+/***/ }),
+
+/***/ "./src/app/app.component.ts":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+var AppComponent = (function () {
+    function AppComponent() {
+    }
+    AppComponent = __decorate([
+        core_1.Component({
+            selector: 'app-root',
+            template: __webpack_require__("./src/app/app.component.html"),
+            styles: [__webpack_require__("./src/app/app.component.css")]
+        })
+    ], AppComponent);
+    return AppComponent;
+}());
+exports.AppComponent = AppComponent;
+
+
+/***/ }),
+
+/***/ "./src/app/app.module.ts":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var animations_1 = __webpack_require__("./node_modules/@angular/platform-browser/esm5/animations.js");
+var core_1 = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+var forms_1 = __webpack_require__("./node_modules/@angular/forms/esm5/forms.js");
+var http_1 = __webpack_require__("./node_modules/@angular/http/esm5/http.js");
+var router_1 = __webpack_require__("./node_modules/@angular/router/esm5/router.js");
+var app_routing_1 = __webpack_require__("./src/app/app.routing.ts");
+var components_module_1 = __webpack_require__("./src/app/admin/components/components.module.ts");
+var app_component_1 = __webpack_require__("./src/app/app.component.ts");
+var core_2 = __webpack_require__("./node_modules/@agm/core/index.js");
+var admin_layout_component_1 = __webpack_require__("./src/app/layouts/admin-layout/admin-layout.component.ts");
+var web_layout_component_1 = __webpack_require__("./src/app/layouts/web-layout/web-layout.component.ts");
+var AppModule = (function () {
+    function AppModule() {
+    }
+    AppModule = __decorate([
+        core_1.NgModule({
+            imports: [
+                animations_1.BrowserAnimationsModule,
+                forms_1.FormsModule,
+                http_1.HttpModule,
+                components_module_1.ComponentsModule,
+                router_1.RouterModule,
+                app_routing_1.AppRoutingModule,
+                core_2.AgmCoreModule.forRoot({
+                    apiKey: 'AIzaSyAHt2kR9H46CIjvn8BGA3absqf3fwYT7Mg'
+                })
+            ],
+            declarations: [
+                app_component_1.AppComponent,
+                admin_layout_component_1.AdminLayoutComponent,
+                web_layout_component_1.WebLayoutComponent,
+            ],
+            providers: [],
+            bootstrap: [app_component_1.AppComponent]
+        })
+    ], AppModule);
+    return AppModule;
+}());
+exports.AppModule = AppModule;
+
+
+/***/ }),
+
+/***/ "./src/app/app.routing.ts":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+var common_1 = __webpack_require__("./node_modules/@angular/common/esm5/common.js");
+var platform_browser_1 = __webpack_require__("./node_modules/@angular/platform-browser/esm5/platform-browser.js");
+var router_1 = __webpack_require__("./node_modules/@angular/router/esm5/router.js");
+var admin_layout_component_1 = __webpack_require__("./src/app/layouts/admin-layout/admin-layout.component.ts");
+var web_layout_component_1 = __webpack_require__("./src/app/layouts/web-layout/web-layout.component.ts");
+var routes = [
+    {
+        path: '',
+        component: web_layout_component_1.WebLayoutComponent,
+        children: [
+            {
+                path: '',
+                loadChildren: './layouts/web-layout/web-layout.module#WebLayoutModule'
+            }
+        ]
+    },
+    {
+        path: 'admin',
+        component: admin_layout_component_1.AdminLayoutComponent,
+        children: [
+            {
+                path: '',
+                loadChildren: './layouts/admin-layout/admin-layout.module#AdminLayoutModule'
+            }
+        ]
+    }
+];
+var AppRoutingModule = (function () {
+    function AppRoutingModule() {
+    }
+    AppRoutingModule = __decorate([
+        core_1.NgModule({
+            imports: [
+                common_1.CommonModule,
+                platform_browser_1.BrowserModule,
+                router_1.RouterModule.forRoot(routes)
+            ],
+            exports: [],
+        })
+    ], AppRoutingModule);
+    return AppRoutingModule;
+}());
+exports.AppRoutingModule = AppRoutingModule;
 
 
 /***/ }),
@@ -601,6 +614,118 @@ var AdminLayoutComponent = (function () {
     return AdminLayoutComponent;
 }());
 exports.AdminLayoutComponent = AdminLayoutComponent;
+
+
+/***/ }),
+
+/***/ "./src/app/layouts/web-layout/web-layout.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"wrapper\">\n    <div class=\"main-panel\">\n        <router-outlet></router-outlet>\n    </div>\n</div>\n"
+
+/***/ }),
+
+/***/ "./src/app/layouts/web-layout/web-layout.component.scss":
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/layouts/web-layout/web-layout.component.ts":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+var common_1 = __webpack_require__("./node_modules/@angular/common/esm5/common.js");
+__webpack_require__("./node_modules/rxjs/_esm5/add/operator/filter.js");
+var router_1 = __webpack_require__("./node_modules/@angular/router/esm5/router.js");
+var WebLayoutComponent = (function () {
+    function WebLayoutComponent(location, router) {
+        this.location = location;
+        this.router = router;
+        this.yScrollStack = [];
+    }
+    WebLayoutComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        var isWindows = navigator.platform.indexOf('Win') > -1 ? true : false;
+        if (isWindows && !document.getElementsByTagName('body')[0].classList.contains('sidebar-mini')) {
+            document.getElementsByTagName('body')[0].classList.add('perfect-scrollbar-on');
+        }
+        else {
+            document.getElementsByTagName('body')[0].classList.remove('perfect-scrollbar-off');
+        }
+        var elemMainPanel = document.querySelector('.main-panel');
+        var elemSidebar = document.querySelector('.sidebar .sidebar-wrapper');
+        this.location.subscribe(function (ev) {
+            _this.lastPoppedUrl = ev.url;
+        });
+        this.router.events.subscribe(function (event) {
+            if (event instanceof router_1.NavigationStart) {
+                if (event.url != _this.lastPoppedUrl)
+                    _this.yScrollStack.push(window.scrollY);
+            }
+            else if (event instanceof router_1.NavigationEnd) {
+                if (event.url == _this.lastPoppedUrl) {
+                    _this.lastPoppedUrl = undefined;
+                    window.scrollTo(0, _this.yScrollStack.pop());
+                }
+                else
+                    window.scrollTo(0, 0);
+            }
+        });
+        this._router = this.router.events.filter(function (event) { return event instanceof router_1.NavigationEnd; }).subscribe(function (event) {
+            elemMainPanel.scrollTop = 0;
+            elemSidebar.scrollTop = 0;
+        });
+    };
+    WebLayoutComponent.prototype.ngAfterViewInit = function () {
+        this.runOnRouteChange();
+    };
+    WebLayoutComponent.prototype.isMaps = function (path) {
+        var titlee = this.location.prepareExternalUrl(this.location.path());
+        titlee = titlee.slice(1);
+        if (path == titlee) {
+            return false;
+        }
+        else {
+            return true;
+        }
+    };
+    WebLayoutComponent.prototype.runOnRouteChange = function () {
+        if (window.matchMedia("(min-width: 960px)").matches && !this.isMac()) {
+            var elemMainPanel = document.querySelector('.main-panel');
+        }
+    };
+    WebLayoutComponent.prototype.isMac = function () {
+        var bool = false;
+        if (navigator.platform.toUpperCase().indexOf('MAC') >= 0 || navigator.platform.toUpperCase().indexOf('IPAD') >= 0) {
+            bool = true;
+        }
+        return bool;
+    };
+    WebLayoutComponent = __decorate([
+        core_1.Component({
+            selector: 'app-web-layout',
+            template: __webpack_require__("./src/app/layouts/web-layout/web-layout.component.html"),
+            styles: [__webpack_require__("./src/app/layouts/web-layout/web-layout.component.scss")]
+        }),
+        __metadata("design:paramtypes", [common_1.Location, router_1.Router])
+    ], WebLayoutComponent);
+    return WebLayoutComponent;
+}());
+exports.WebLayoutComponent = WebLayoutComponent;
 
 
 /***/ }),

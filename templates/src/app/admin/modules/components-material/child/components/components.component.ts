@@ -16,7 +16,6 @@ export class ComponentsComponent implements OnInit {
   }
   testApi(){
     this.compnentsSvc.get().subscribe(data=>{
-      console.log(data);
     })
   }
 }
