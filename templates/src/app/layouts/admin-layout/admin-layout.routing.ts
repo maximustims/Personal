@@ -5,7 +5,7 @@ import { DashboardComponent } from './../../admin/modules/dashboard/dashboard.co
 import { LogInComponent } from './../../admin/modules/log-in/log-in.component';
 
 export const AdminLayoutRoutes: Routes = [
-    { path: '/', redirectTo: 'dashboard', pathMatch: 'full', },
+    { path: '', redirectTo: 'dashboard', pathMatch: 'full', },
     { path: 'dashboard', component: DashboardComponent, pathMatch: 'full', },
     { path: 'login', component: LogInComponent, pathMatch: 'full', },
     { path: 'components-material', component: ComponentsMaterialComponent, pathMatch: 'full', }

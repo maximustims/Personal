@@ -8,6 +8,16 @@ import { WebLayoutComponent } from './layouts/web-layout/web-layout.component';
 
 const routes: Routes = [
     {
+        path: 'admin',
+        component: AdminLayoutComponent,
+        children: [
+            {
+                path: '',
+                loadChildren: './layouts/admin-layout/admin-layout.module#AdminLayoutModule'
+            }
+        ]
+    },
+    {
         path: '',
         component: WebLayoutComponent,
         children: [
@@ -17,16 +27,6 @@ const routes: Routes = [
             }
         ]
     },
-    {
-        path: 'admin',
-        component: AdminLayoutComponent,
-        children: [
-            {
-                path: '',
-                loadChildren: './layouts/admin-layout/admin-layout.module#AdminLayoutModule'
-            }
-        ]
-    }
 ];
 
 @NgModule({

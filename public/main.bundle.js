@@ -6,10 +6,12 @@ webpackJsonp(["main"],{
 var map = {
 	"./layouts/admin-layout/admin-layout.module": [
 		"./src/app/layouts/admin-layout/admin-layout.module.ts",
-		"admin-layout.module"
+		"admin-layout.module",
+		"common"
 	],
 	"./layouts/web-layout/web-layout.module": [
 		"./src/app/layouts/web-layout/web-layout.module.ts",
+		"common",
 		"web-layout.module"
 	]
 };
@@ -17,7 +19,7 @@ function webpackAsyncContext(req) {
 	var ids = map[req];
 	if(!ids)
 		return Promise.reject(new Error("Cannot find module '" + req + "'."));
-	return __webpack_require__.e(ids[1]).then(function() {
+	return Promise.all(ids.slice(1).map(__webpack_require__.e)).then(function() {
 		return __webpack_require__(ids[0]);
 	});
 };
@@ -458,6 +460,16 @@ var admin_layout_component_1 = __webpack_require__("./src/app/layouts/admin-layo
 var web_layout_component_1 = __webpack_require__("./src/app/layouts/web-layout/web-layout.component.ts");
 var routes = [
     {
+        path: 'admin',
+        component: admin_layout_component_1.AdminLayoutComponent,
+        children: [
+            {
+                path: '',
+                loadChildren: './layouts/admin-layout/admin-layout.module#AdminLayoutModule'
+            }
+        ]
+    },
+    {
         path: '',
         component: web_layout_component_1.WebLayoutComponent,
         children: [
@@ -467,16 +479,6 @@ var routes = [
             }
         ]
     },
-    {
-        path: 'admin',
-        component: admin_layout_component_1.AdminLayoutComponent,
-        children: [
-            {
-                path: '',
-                loadChildren: './layouts/admin-layout/admin-layout.module#AdminLayoutModule'
-            }
-        ]
-    }
 ];
 var AppRoutingModule = (function () {
     function AppRoutingModule() {

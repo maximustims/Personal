@@ -18,6 +18,8 @@ var common_1 = __webpack_require__("./node_modules/@angular/common/esm5/common.j
 var router_1 = __webpack_require__("./node_modules/@angular/router/esm5/router.js");
 var web_layout_routing_1 = __webpack_require__("./src/app/layouts/web-layout/web-layout.routing.ts");
 var index_component_1 = __webpack_require__("./src/app/web/modules/index/index.component.ts");
+var forms_1 = __webpack_require__("./node_modules/@angular/forms/esm5/forms.js");
+var material_1 = __webpack_require__("./node_modules/@angular/material/esm5/material.es5.js");
 var WebLayoutModule = (function () {
     function WebLayoutModule() {
     }
@@ -26,6 +28,18 @@ var WebLayoutModule = (function () {
             imports: [
                 common_1.CommonModule,
                 router_1.RouterModule.forChild(web_layout_routing_1.WebLayoutRoutes),
+                forms_1.FormsModule,
+                forms_1.ReactiveFormsModule,
+                material_1.MatButtonModule,
+                material_1.MatRippleModule,
+                material_1.MatInputModule,
+                material_1.MatTabsModule,
+                material_1.MatDatepickerModule,
+                material_1.MatNativeDateModule,
+                material_1.MatSelectModule,
+                material_1.MatIconModule,
+                material_1.MatDialogModule,
+                material_1.MatSnackBarModule,
             ],
             declarations: [
                 index_component_1.IndexComponent,
@@ -54,7 +68,7 @@ exports.WebLayoutRoutes = [
         component: index_component_1.IndexComponent
     },
     {
-        path: '',
+        path: '**',
         component: error404_component_1.Error404Component
     }
 ];
@@ -115,7 +129,7 @@ exports.Error404Component = Error404Component;
 /***/ "./src/app/web/modules/index/index.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  index works!\n</p>\n"
+module.exports = "<p>\n  index works!\n  <button mat-button class=\"btn btn-success\">Success</button>\n</p>\n"
 
 /***/ }),
 
