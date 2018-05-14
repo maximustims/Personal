@@ -38,7 +38,6 @@ import {
   MatSort,
   MatTableDataSource,
 } from '@angular/material';
-import { LogInComponent } from '../../admin/modules/log-in/log-in.component';
 import { ExpansionComponent } from '../../admin/modules/components-material/child/expansion/expansion.component';
 import { StepperComponent } from '../../admin/modules/components-material/child/stepper/stepper.component';
 import { DialogDefaultComponent } from '../../admin/components/dialog/default/default.component';
@@ -75,7 +74,6 @@ import { SnackbarService } from '../../admin/services/snackbar.service';
   ],
   declarations: [
     DashboardComponent,
-    LogInComponent,
     ComponentsMaterialComponent,
     ComponentsComponent,
     FormsComponent,

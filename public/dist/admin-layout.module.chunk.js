@@ -9630,56 +9630,6 @@ exports.DashboardComponent = DashboardComponent;
 
 /***/ }),
 
-/***/ "./src/app/admin/modules/log-in/log-in.component.html":
-/***/ (function(module, exports) {
-
-module.exports = "<p>\r\n  log-in works!\r\n</p>\r\n"
-
-/***/ }),
-
-/***/ "./src/app/admin/modules/log-in/log-in.component.scss":
-/***/ (function(module, exports) {
-
-module.exports = ""
-
-/***/ }),
-
-/***/ "./src/app/admin/modules/log-in/log-in.component.ts":
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
-var LogInComponent = (function () {
-    function LogInComponent() {
-    }
-    LogInComponent.prototype.ngOnInit = function () {
-    };
-    LogInComponent = __decorate([
-        core_1.Component({
-            selector: 'app-log-in',
-            template: __webpack_require__("./src/app/admin/modules/log-in/log-in.component.html"),
-            styles: [__webpack_require__("./src/app/admin/modules/log-in/log-in.component.scss")]
-        }),
-        __metadata("design:paramtypes", [])
-    ], LogInComponent);
-    return LogInComponent;
-}());
-exports.LogInComponent = LogInComponent;
-
-
-/***/ }),
-
 /***/ "./src/app/admin/services/dialog.service.ts":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -9951,7 +9901,6 @@ var forms_1 = __webpack_require__("./node_modules/@angular/forms/esm5/forms.js")
 var admin_layout_routing_1 = __webpack_require__("./src/app/layouts/admin-layout/admin-layout.routing.ts");
 var dashboard_component_1 = __webpack_require__("./src/app/admin/modules/dashboard/dashboard.component.ts");
 var material_1 = __webpack_require__("./node_modules/@angular/material/esm5/material.es5.js");
-var log_in_component_1 = __webpack_require__("./src/app/admin/modules/log-in/log-in.component.ts");
 var expansion_component_1 = __webpack_require__("./src/app/admin/modules/components-material/child/expansion/expansion.component.ts");
 var stepper_component_1 = __webpack_require__("./src/app/admin/modules/components-material/child/stepper/stepper.component.ts");
 var default_component_1 = __webpack_require__("./src/app/admin/components/dialog/default/default.component.ts");
@@ -9992,7 +9941,6 @@ var AdminLayoutModule = (function () {
             ],
             declarations: [
                 dashboard_component_1.DashboardComponent,
-                log_in_component_1.LogInComponent,
                 components_material_component_1.ComponentsMaterialComponent,
                 components_component_1.ComponentsComponent,
                 forms_component_1.FormsComponent,
@@ -10041,11 +9989,9 @@ exports.AdminLayoutModule = AdminLayoutModule;
 Object.defineProperty(exports, "__esModule", { value: true });
 var components_material_component_1 = __webpack_require__("./src/app/admin/modules/components-material/components-material.component.ts");
 var dashboard_component_1 = __webpack_require__("./src/app/admin/modules/dashboard/dashboard.component.ts");
-var log_in_component_1 = __webpack_require__("./src/app/admin/modules/log-in/log-in.component.ts");
 exports.AdminLayoutRoutes = [
     { path: '', redirectTo: 'dashboard', pathMatch: 'full', },
     { path: 'dashboard', component: dashboard_component_1.DashboardComponent, pathMatch: 'full', },
-    { path: 'login', component: log_in_component_1.LogInComponent, pathMatch: 'full', },
     { path: 'components-material', component: components_material_component_1.ComponentsMaterialComponent, pathMatch: 'full', }
 ];
 
