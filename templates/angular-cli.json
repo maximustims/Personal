@@ -22,7 +22,7 @@
       "prefix": "app",
       "styles": [
           "../node_modules/perfect-scrollbar/css/perfect-scrollbar.css",
-          "./app/admin/style/admin-layout.scss"
+          "./styles/main.scss"
       ],
       "deployUrl": "/dist/",
       "scripts": [
