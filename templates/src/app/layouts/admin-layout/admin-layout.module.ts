@@ -1,3 +1,5 @@
+import { SnackbarPrimaryComponent } from './../../admin/components/snackbar/primary/primary.component';
+import { SnackbarDangerComponent } from './../../admin/components/snackbar/danger/danger.component';
 import { DialogPrimaryComponent } from './../../admin/components/dialog/primary/primary.component';
 import { ComponentsService } from './../../admin/modules/components-material/child/components/components.service';
 import { DialogService } from './../../admin/services/dialog.service';
@@ -88,7 +90,10 @@ import { SnackbarService } from '../../admin/services/snackbar.service';
     DialogSuccessComponent,
     DialogWarningComponent,
     DialogPrimaryComponent,
-    SnackbarDefaultComponent
+    SnackbarDefaultComponent,
+    SnackbarDangerComponent,
+    SnackbarPrimaryComponent,
+    Snac
   ],
   providers:[
     HttpService,

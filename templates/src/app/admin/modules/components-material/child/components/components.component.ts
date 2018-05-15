@@ -15,7 +15,7 @@ export class ComponentsComponent implements OnInit {
   ngOnInit() {
   }
   testApi(){
-    this.compnentsSvc.get().subscribe(data=>{
-    })
+    // this.compnentsSvc.get().subscribe(data=>{
+    // })
   }
 }
