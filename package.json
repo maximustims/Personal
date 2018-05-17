@@ -6,6 +6,7 @@
   "main": "index.js",
   "scripts": {
     "start": "npm-run-all --parallel run_backend run_frontend ",
+    "build" : "cd templates && yarn build",
     "run": "node server.js",
     "test": "node ace test",
     "run_backend": "adonis serve --dev",

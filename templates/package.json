@@ -5,7 +5,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build -prod --output-path=../public/build --deloy-url=build",
+    "build": "ng build -prod --output-path=../public/build --deploy-url=build",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"

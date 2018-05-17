@@ -15,9 +15,11 @@ import {
 } from '@agm/core';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { WebLayoutComponent } from './layouts/web-layout/web-layout.component';
+import { BrowserModule } from '@angular/platform-browser';
 
 @NgModule({
   imports: [
+    BrowserModule.withServerTransition({appId: 'ang4-seo-pre'}),
     BrowserAnimationsModule,
     FormsModule,
     HttpModule,

@@ -6,9 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <base href="/">
   <title>Adonis</title>
-  <link rel="stylesheet" href="build/styles.815e46e615e0a08f3a78.bundle.css">
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Roboto:400,700,300|Material+Icons" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,700,300|Material+Icons" rel="stylesheet">
+  @each(style in listStyle)
+  <link href="{{style}}" rel="stylesheet">
+  @endeach
 </head>
 <body>
   <app-root>
@@ -25,11 +27,14 @@
       </div>
     </div>
   </app-root>
-    <script src="dist/inline.bundle.js"></script>
-  <script src="dist/polyfills.bundle.js"></script>
-  <script src="dist/styles.bundle.js"></script>
-  <script src="dist/scripts.bundle.js"></script>
-  <script src="dist/vendor.bundle.js"></script>
-  <script src="dist/main.bundle.js"></script>
+  @if(env == 'production')
+   @each(script in listScript)
+    <script src="build/{{script}}"></script>
+  @endeach
+  @else
+  @each(script in listScript)
+    <script src="dist/{{script}}.bundle.js"></script>
+  @endeach
+  @endif
 </body>
 </html>
