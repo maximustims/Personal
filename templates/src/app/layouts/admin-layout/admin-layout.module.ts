@@ -1,3 +1,5 @@
+import { SnackbarWarningComponent } from './../../admin/components/snackbar/warning/warning.component';
+import { SnackbarInfoComponent } from './../../admin/components/snackbar/info/info.component';
 import { SnackbarPrimaryComponent } from './../../admin/components/snackbar/primary/primary.component';
 import { SnackbarDangerComponent } from './../../admin/components/snackbar/danger/danger.component';
 import { DialogPrimaryComponent } from './../../admin/components/dialog/primary/primary.component';
@@ -49,6 +51,7 @@ import { DialogSuccessComponent } from '../../admin/components/dialog/success/su
 import { DialogWarningComponent } from '../../admin/components/dialog/warning/warning.component';
 import { SnackbarDefaultComponent } from '../../admin/components/snackbar/default/default.component';
 import { SnackbarService } from '../../admin/services/snackbar.service';
+import { SnackbarSuccessComponent } from '../../admin/components/snackbar/success/success.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -93,7 +96,9 @@ import { SnackbarService } from '../../admin/services/snackbar.service';
     SnackbarDefaultComponent,
     SnackbarDangerComponent,
     SnackbarPrimaryComponent,
-    Snac
+    SnackbarSuccessComponent,
+    SnackbarInfoComponent,
+    SnackbarWarningComponent
   ],
   providers:[
     HttpService,
