@@ -5,8 +5,8 @@ import { Http } from '@angular/http';
 @Injectable()
 export class ComponentsService extends HttpService {
 
-  // constructor(http: Http) {
-  //   super(http, 'api/index');
-  // }
+  constructor(http: Http) {
+    super(http, 'api/index');
+  }
 
 }

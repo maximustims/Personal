@@ -52,6 +52,7 @@ import { DialogWarningComponent } from '../../admin/components/dialog/warning/wa
 import { SnackbarDefaultComponent } from '../../admin/components/snackbar/default/default.component';
 import { SnackbarService } from '../../admin/services/snackbar.service';
 import { SnackbarSuccessComponent } from '../../admin/components/snackbar/success/success.component';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -100,13 +101,14 @@ import { SnackbarSuccessComponent } from '../../admin/components/snackbar/succes
     SnackbarInfoComponent,
     SnackbarWarningComponent
   ],
-  providers:[
+  providers: [
     HttpService,
     DialogService,
     ComponentsService,
-    SnackbarService
+    SnackbarService,
+    { provide: 'API_BASE_URL', useValue: window.location.origin }
   ],
-  entryComponents:[
+  entryComponents: [
     DialogDefaultComponent,
     DialogDangerComponent,
     DialogInfoComponent,
@@ -117,4 +119,4 @@ import { SnackbarSuccessComponent } from '../../admin/components/snackbar/succes
   ]
 })
 
-export class AdminLayoutModule {}
+export class AdminLayoutModule { }
