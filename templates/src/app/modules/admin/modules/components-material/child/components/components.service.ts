@@ -1,6 +1,6 @@
-import { HttpService } from './../../../../services/http.service';
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
+import { HttpService } from 'app/services/http.service';
 
 @Injectable()
 export class ComponentsService extends HttpService {

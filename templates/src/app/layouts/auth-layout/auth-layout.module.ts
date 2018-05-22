@@ -1,17 +1,14 @@
-import { LoginComponent } from './../../modules/web/modules/login/login.component';
-import { Error404Component } from './../../modules/web/modules/error404/error404.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { WebLayoutRoutes } from './web-layout.routing';
-import { IndexComponent } from '../../modules/web/modules/index/index.component';
+import { AuthLayoutRoutes } from './auth-layout.routing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule, MatRippleModule, MatInputModule, MatTabsModule, MatDatepickerModule, MatNativeDateModule, MatSelectModule, MatIconModule, MatDialogModule, MatSnackBarModule } from '@angular/material';
 
 @NgModule({
   imports: [
     CommonModule,
-    RouterModule.forChild(WebLayoutRoutes),
+    RouterModule.forChild(AuthLayoutRoutes),
     FormsModule,
     ReactiveFormsModule,
     MatButtonModule,
@@ -26,9 +23,6 @@ import { MatButtonModule, MatRippleModule, MatInputModule, MatTabsModule, MatDat
     MatSnackBarModule,
   ],
   declarations: [
-    IndexComponent,
-    Error404Component,
-    LoginComponent
   ]
 })
 export class WebLayoutModule { }

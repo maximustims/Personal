@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material';
-import { SnackbarDefaultComponent } from '../components/snackbar/default/default.component';
+import { SnackbarDefaultComponent } from '../modules/admin/components/snackbar/default/default.component';
 
 @Injectable()
 export class SnackbarService {

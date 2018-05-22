@@ -54,7 +54,7 @@ class AuthController {
             let userLogin = await auth.getUserByToken(data.token);
 
             return response.send({
-                user: userLogin
+                user: userLogin,
             });
         } catch (error) {
             console.log(error);

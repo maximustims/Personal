@@ -1,9 +1,9 @@
-import { DialogService } from './../../../../services/dialog.service';
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar, MatDialog } from '@angular/material';
 import { DialogDefaultComponent } from '../../../../components/dialog/default/default.component';
 import { SnackbarDefaultComponent } from '../../../../components/snackbar/default/default.component';
-import { SnackbarService } from '../../../../services/snackbar.service';
+import { SnackbarService } from '../../../../../../services/snackbar.service';
+import { DialogService } from '../../../../../../services/dialog.service';
 
 @Component({
   selector: 'app-notify',

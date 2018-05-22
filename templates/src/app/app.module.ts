@@ -1,3 +1,6 @@
+import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
+import { AuthService } from './services/auth.service';
+import { AdminGuard } from './guard/admin/admin.guard';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -6,7 +9,6 @@ import { RouterModule } from '@angular/router';
 
 
 import { AppRoutingModule } from './app.routing';
-import { ComponentsModule } from './admin/components/components.module';
 
 import { AppComponent } from './app.component';
 
@@ -16,6 +18,8 @@ import {
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { WebLayoutComponent } from './layouts/web-layout/web-layout.component';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpService } from './services/http.service';
+import { ComponentsModule } from './modules/admin/components/components.module';
 
 @NgModule({
   imports: [
@@ -34,8 +38,13 @@ import { BrowserModule } from '@angular/platform-browser';
     AppComponent,
     AdminLayoutComponent,
     WebLayoutComponent,
+    AuthLayoutComponent
   ],
-  providers: [],
+  providers: [
+    AdminGuard,
+    HttpService,
+    AuthService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

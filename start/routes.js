@@ -15,6 +15,10 @@
 
 const Route = use('Route')
 
+Route.group(() => {
+  Route.post('check-login', 'Api/AuthController.checkLogin')
+  Route.post('login', 'Api/AuthController.login')
+}).prefix('auth')
 
 Route.group(() => {
   /** Module Auth */

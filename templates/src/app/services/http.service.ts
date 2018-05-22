@@ -26,7 +26,7 @@ export class HttpService {
     }
 
     delete(params = {}) {
-        return this.http.delete(`${this.host}/${this.url}`)
+        return this.http.delete(`${this.host}/${this.url}`);
     }
 
     put(data, params = {}) {

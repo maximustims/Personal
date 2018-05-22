@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
-import { DialogDefaultComponent } from '../components/dialog/default/default.component';
-import { DialogSuccessComponent } from '../components/dialog/success/success.component';
-import { DialogInfoComponent } from '../components/dialog/info/info.component';
-import { DialogWarningComponent } from '../components/dialog/warning/warning.component';
-import { DialogDangerComponent } from '../components/dialog/danger/danger.component';
 import { MatDialog } from '@angular/material';
-import { DialogPrimaryComponent } from '../components/dialog/primary/primary.component';
+import { DialogDefaultComponent } from '../modules/admin/components/dialog/default/default.component';
+import { DialogSuccessComponent } from '../modules/admin/components/dialog/success/success.component';
+import { DialogInfoComponent } from '../modules/admin/components/dialog/info/info.component';
+import { DialogWarningComponent } from '../modules/admin/components/dialog/warning/warning.component';
+import { DialogDangerComponent } from '../modules/admin/components/dialog/danger/danger.component';
+import { DialogPrimaryComponent } from '../modules/admin/components/dialog/primary/primary.component';
 
 @Injectable()
 export class DialogService {
