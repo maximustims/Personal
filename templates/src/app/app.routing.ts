@@ -1,3 +1,4 @@
+import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
 import { NgModule } from '@angular/core';
 import { CommonModule, } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
@@ -16,6 +17,16 @@ const routes: Routes = [
             {
                 path: '',
                 loadChildren: './layouts/admin-layout/admin-layout.module#AdminLayoutModule'
+            }
+        ]
+    },
+    {
+        path: '',
+        component: AuthLayoutComponent,
+        children: [
+            {
+                path: '',
+                loadChildren: './layouts/auth-layout/auth-layout.module#AuthLayoutModule'
             }
         ]
     },

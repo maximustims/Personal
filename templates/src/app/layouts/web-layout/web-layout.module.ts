@@ -1,4 +1,3 @@
-import { LoginComponent } from './../../modules/web/modules/login/login.component';
 import { Error404Component } from './../../modules/web/modules/error404/error404.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -28,7 +27,6 @@ import { MatButtonModule, MatRippleModule, MatInputModule, MatTabsModule, MatDat
   declarations: [
     IndexComponent,
     Error404Component,
-    LoginComponent
   ]
 })
 export class WebLayoutModule { }
