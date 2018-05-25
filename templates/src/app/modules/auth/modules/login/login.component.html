@@ -1,6 +1,6 @@
 <div id="login-page" class="fake-bg d-flex align-items-center">
     <div class="background-fake"></div>
-    <form action="">
+    <form #f="ngForm" (ngSubmit)="submit(f)">
         <div class="row">
             <div class="col-12">
                 <div class="card card-login">
@@ -14,7 +14,10 @@
                             </span>
                             <div class="form-group label-floating is-empty">
                                 <mat-form-field class="example-full-width">
-                                    <input matInput type="text" placeholder="Username / Email">
+                                    <input matInput type="text" placeholder="Username / Email" ngModel name="username" #username="ngModel" autocomplete="off" required>
+                                    <mat-error *ngIf="(username.touched || f.submitted) && !username.valid">
+                                        <span *ngIf="username.errors.required">Username / Email is required</span>
+                                    </mat-error>
                                 </mat-form-field>
                             </div>
                         </div>
@@ -24,7 +27,10 @@
                             </span>
                             <div class="form-group label-floating is-empty">
                                 <mat-form-field class="example-full-width">
-                                    <input matInput type="password" placeholder="Password">
+                                    <input matInput type="password" placeholder="Password" ngModel name="password" #password="ngModel" type="password" autocomplete="off" required>
+                                    <mat-error *ngIf="(password.touched || f.submitted) && !password.valid">
+                                        <span *ngIf="password.errors.required">Password is required</span>
+                                    </mat-error>
                                 </mat-form-field>
                             </div>
                         </div>

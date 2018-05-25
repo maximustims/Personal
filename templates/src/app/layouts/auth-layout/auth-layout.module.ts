@@ -1,3 +1,4 @@
+import { LoginService } from './../../modules/auth/modules/login/login.service';
 import { LoginComponent } from './../../modules/auth/modules/login/login.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -5,6 +6,7 @@ import { RouterModule } from '@angular/router';
 import { AuthLayoutRoutes } from './auth-layout.routing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule, MatRippleModule, MatInputModule, MatTabsModule, MatDatepickerModule, MatNativeDateModule, MatSelectModule, MatIconModule, MatDialogModule, MatSnackBarModule } from '@angular/material';
+import { HttpService } from '../../services/http.service';
 
 @NgModule({
   imports: [
@@ -25,6 +27,11 @@ import { MatButtonModule, MatRippleModule, MatInputModule, MatTabsModule, MatDat
   ],
   declarations: [
     LoginComponent
-  ]
+  ],
+  providers: [
+    HttpService,
+    LoginService,
+    { provide: 'API_BASE_URL', useValue: window.location.origin }
+  ],
 })
 export class AuthLayoutModule { }
