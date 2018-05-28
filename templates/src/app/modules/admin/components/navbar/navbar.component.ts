@@ -131,7 +131,7 @@ export class NavbarComponent implements OnInit {
             data: {
                 type: 'danger',
                 header: 'Warning',
-                message: 'Are your really want to log out ?'
+                message: 'Are you sure you really want to log out ?'
             }
         });
         dialogRef.afterClosed().subscribe(resp => {

@@ -1,11 +1,5 @@
 import { ComponentsService } from './../../modules/admin/modules/components-material/child/components/components.service';
 import { HttpService } from './../../services/http.service';
-import { NotifyComponent } from './../../modules/admin/modules/components-material/child/notify/notify.component';
-import { IconsComponent } from './../../modules/admin/modules/components-material/child/icons/icons.component';
-import { TableComponent } from './../../modules/admin/modules/components-material/child/table/table.component';
-import { FormsComponent } from './../../modules/admin/modules/components-material/child/forms/forms.component';
-import { ComponentsComponent } from './../../modules/admin/modules/components-material/child/components/components.component';
-import { ComponentsMaterialComponent } from './../../modules/admin/modules/components-material/components-material.component';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
@@ -32,8 +26,6 @@ import {
   MatSort,
   MatTableDataSource,
 } from '@angular/material';
-import { ExpansionComponent } from '../../modules/admin/modules/components-material/child/expansion/expansion.component';
-import { StepperComponent } from '../../modules/admin/modules/components-material/child/stepper/stepper.component';
 
 @NgModule({
   imports: [
@@ -58,12 +50,6 @@ import { StepperComponent } from '../../modules/admin/modules/components-materia
   ],
   declarations: [
     DashboardComponent,
-    ComponentsMaterialComponent,
-    ComponentsComponent,
-    FormsComponent,
-    TableComponent,
-    IconsComponent,
-    NotifyComponent,
   ],
   providers: [
     HttpService,
