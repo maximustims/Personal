@@ -15,7 +15,7 @@ module.exports = {
   | Available Serializers - lucid, database
   |
   */
-  authenticator: 'session',
+  authenticator: 'api',
 
   /*
   |--------------------------------------------------------------------------
@@ -26,13 +26,16 @@ module.exports = {
   | Session authentication is always persistent.
   |
   */
-  session: {
-    serializer: 'lucid',
-    model: 'App/Models/User',
-    scheme: 'session',
-    uid: 'email',
-    password: 'password'
-  },
+ api: {
+  serializer: 'mongoose',
+  scheme: 'api',
+  model: 'App/Models/User',
+  token: 'App/Models/Token',
+  uid: 'username', // The user identifier. Ej: email, username
+  password: '', // Password field if using user-password validation
+  expiry: '30d', // Not yet implemented
+},
+
 
   /*
   |--------------------------------------------------------------------------
@@ -48,9 +51,9 @@ module.exports = {
   |
   */
   basic: {
-    serializer: 'lucid',
+    serializer: 'MongoSerializer',
     model: 'App/Models/User',
-    scheme: 'basic',
+    scheme: 'MongoSchema',
     uid: 'email',
     password: 'password'
   },
@@ -65,9 +68,9 @@ module.exports = {
   |
   */
   jwt: {
-    serializer: 'lucid',
+    serializer: 'MongoSerializer',
     model: 'App/Models/User',
-    scheme: 'jwt',
+    scheme: 'MongoSchema',
     uid: 'email',
     password: 'password',
     options: {

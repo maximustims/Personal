@@ -14,7 +14,7 @@ export class LoginComponent implements OnInit {
   constructor(
     private loginService: LoginService,
     private authService: AuthService,
-    private snackBar: MatSnackBar ,
+    private snackBar: MatSnackBar,
     private router: Router
   ) { }
 
@@ -27,17 +27,16 @@ export class LoginComponent implements OnInit {
     }
     this.loginService.login(form.value.username, form.value.password).subscribe(data => {
       console.log(data);
-      // const token = data.token;
-      // localStorage.setItem(`Personal_userInfo`, token);
-      // this.router.navigate(['dashboard']);
+      const token = data.token;
+      localStorage.setItem(`Personal_userInfo`, token);
+      this.router.navigate(['admin/dashboard']);
     }, error => {
+      console.log("glsdgnsndg");
       const err = JSON.parse(error._body);
       const message = err.reduce((string, item) => string + item.message, '');
       const snackBarRef = this.snackBar.open(message, 'Close', {
         duration: 3000
       });
     });
-}
   }
-
 }

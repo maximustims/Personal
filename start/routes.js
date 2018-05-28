@@ -16,16 +16,17 @@
 const Route = use('Route')
 
 Route.group(() => {
-  Route.post('check-login', 'Api/AuthController.checkLogin')
-  Route.post('login', 'Api/AuthController.login')
 }).prefix('auth')
 
 Route.group(() => {
   /** Module Auth */
-  Route.post('/log-out', 'AuthController.logout');
-  Route.post('/login', 'AuthController.login');
+  Route.post('/log-out', 'Auth/AuthController.logout');
+  Route.post('/login', 'Auth/AuthController.login');
+  Route.post('/check-login', 'Auth/AuthController.checkLogin')
+}).prefix('api/auth');
 
+Route.group(() => {
   Route.resource('/index', 'Api/IndexController');
-}).prefix('api');
+}).prefix('api/auth');
 
 Route.any('/*', 'Web/IndexController.index')

@@ -8,7 +8,7 @@ export class HttpService {
     url: string = '';
     csrfToken;
     constructor(protected http: Http, @Inject('API_BASE_URL')url: string) {
-        this.url = url;
+        this.url = 'api/' + url;
     }
 
     get(params = {}, url = null) {

@@ -13,7 +13,7 @@ module.exports = {
   | interacting with SQL databases.
   |
   */
-  connection: Env.get('DB_CONNECTION', 'sqlite'),
+  connection: Env.get('DB_CONNECTION', 'mongodb'),
 
   /*
   |--------------------------------------------------------------------------
@@ -74,5 +74,19 @@ module.exports = {
       password: Env.get('DB_PASSWORD', ''),
       database: Env.get('DB_DATABASE', 'adonis')
     }
-  }
+  },
+  mongodb: {
+    connectionString: Env.get('MONGO_CONNECTION_STRING', null),
+    connection: {
+      host: Env.get('MONGO_HOST', 'localhost'),
+      port: Env.get('MONGO_PORT', 27017),
+      user: Env.get('MONGO_USER', ''),
+      pass: Env.get('MONGO_PASSWORD', ''),
+      database: Env.get('MONGO_DATABASE', 'personal'),
+      options: {
+      },
+      debug: false
+    }
+  },
+
 }

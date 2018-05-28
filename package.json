@@ -8,6 +8,7 @@
     "start": "npm-run-all --parallel run_backend run_frontend ",
     "build": "cd templates && yarn build",
     "run": "node server.js",
+    "run_server": "node server.js",
     "test": "node ace test",
     "run_backend": "adonis serve --dev",
     "run_frontend": "cd templates && ng build -w"
@@ -31,6 +32,7 @@
     "@adonisjs/redis": "^2.0.6",
     "@adonisjs/session": "^1.0.23",
     "@adonisjs/shield": "^1.0.6",
+    "adonis-mongoose-model": "^3.0.1",
     "aguid": "^2.0.0",
     "glob": "^7.1.2",
     "jsonwebtoken": "^8.2.1",

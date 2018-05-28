@@ -21,7 +21,7 @@ const providers = [
   '@adonisjs/session/providers/SessionProvider',
   '@adonisjs/auth/providers/AuthProvider',
   '@adonisjs/redis/providers/RedisProvider',
-  path.join(__dirname, '../providers/MongoProvider.js')
+  'adonis-mongoose-model/providers/MongooseProvider',
 ]
 
 /*
