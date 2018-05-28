@@ -7,12 +7,7 @@ const BaseModel = use('MongooseModel')
  */
 class User extends BaseModel {
     static boot({ schema }) {
-        // Hooks:
-        // this.addHook('preSave', () => {})
-        // Indexes:
-        // this.index({}, {background: true})
-        // Virtuals, etc:
-        // schema.virtual('something').get(.......)
+
     }
     /**
      * User's schema

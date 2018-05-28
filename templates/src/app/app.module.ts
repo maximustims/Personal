@@ -40,12 +40,12 @@ import { DialogComponent } from './components/dialog/dialog.component';
     AdminLayoutComponent,
     WebLayoutComponent,
     AuthLayoutComponent,
-    DialogComponent
+    DialogComponent,
   ],
   providers: [
     AdminGuard,
     HttpService,
-    AuthService
+    AuthService,
   ],
   bootstrap: [AppComponent],
   entryComponents: [

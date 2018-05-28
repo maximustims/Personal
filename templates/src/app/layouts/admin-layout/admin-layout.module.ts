@@ -1,4 +1,4 @@
-import { HttpService } from './../../services/http.service';
+import { UserManagerComponent } from './../../modules/admin/modules/user-manager/user-manager.component';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
@@ -25,6 +25,10 @@ import {
   MatSort,
   MatTableDataSource,
 } from '@angular/material';
+import { WebManagerComponent } from '../../modules/admin/modules/web-manager/web-manager.component';
+import { ContactManagerComponent } from '../../modules/admin/modules/contact-manager/contact-manager.component';
+import { UserManagerService } from '../../modules/admin/modules/user-manager/user-manager.service';
+import { HttpService } from 'app/services/http.service';
 
 @NgModule({
   imports: [
@@ -49,9 +53,13 @@ import {
   ],
   declarations: [
     DashboardComponent,
+    UserManagerComponent,
+    WebManagerComponent,
+    ContactManagerComponent
   ],
   providers: [
     HttpService,
+    UserManagerService,
     { provide: 'API_BASE_URL', useValue: window.location.origin }
   ],
   entryComponents: [

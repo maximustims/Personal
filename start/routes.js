@@ -27,7 +27,7 @@ Route.group(() => {
 }).prefix('api/auth').middleware(['mongo']);
 
 Route.group(() => {
-  Route.resource('/index', 'Api/IndexController');
-}).prefix('api/auth');
+  Route.resource('/user', 'Admin/UserController');
+}).prefix('api/admin');
 
 Route.any('/*', 'Web/IndexController.index')
