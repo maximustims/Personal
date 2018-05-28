@@ -20,6 +20,7 @@ import { WebLayoutComponent } from './layouts/web-layout/web-layout.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpService } from './services/http.service';
 import { ComponentsModule } from './modules/admin/components/components.module';
+import { DialogComponent } from './components/dialog/dialog.component';
 
 @NgModule({
   imports: [
@@ -38,13 +39,17 @@ import { ComponentsModule } from './modules/admin/components/components.module';
     AppComponent,
     AdminLayoutComponent,
     WebLayoutComponent,
-    AuthLayoutComponent
+    AuthLayoutComponent,
+    DialogComponent
   ],
   providers: [
     AdminGuard,
     HttpService,
     AuthService
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [
+    DialogComponent
+  ]
 })
 export class AppModule { }

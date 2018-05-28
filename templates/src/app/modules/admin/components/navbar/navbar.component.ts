@@ -2,6 +2,8 @@ import { Component, OnInit, ElementRef } from '@angular/core';
 import { ROUTES } from '../sidebar/sidebar.component';
 import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
 import { Router } from '@angular/router';
+import { MatDialog } from '@angular/material';
+import { DialogComponent } from 'app/components/dialog/dialog.component';
 
 @Component({
     selector: 'app-navbar',
@@ -15,7 +17,7 @@ export class NavbarComponent implements OnInit {
     private toggleButton: any;
     private sidebarVisible: boolean;
 
-    constructor(location: Location, private element: ElementRef, private router: Router) {
+    constructor(location: Location, private element: ElementRef, private router: Router, public dialog: MatDialog) {
         this.location = location;
         this.sidebarVisible = false;
     }
@@ -52,8 +54,6 @@ export class NavbarComponent implements OnInit {
         body.classList.remove('nav-open');
     };
     sidebarToggle() {
-        // const toggleButton = this.toggleButton;
-        // const body = document.getElementsByTagName('body')[0];
         var $toggle = document.getElementsByClassName('navbar-toggler')[0];
 
         if (this.sidebarVisible === false) {
@@ -110,17 +110,36 @@ export class NavbarComponent implements OnInit {
     };
 
     getTitle() {
-        var titlee = this.location.prepareExternalUrl(this.location.path());
-        if (titlee.charAt(0) === '#') {
-            titlee = titlee.slice(2);
+        var title = this.location.prepareExternalUrl(this.location.path());
+        if (title.charAt(0) === '#') {
+            title = title.slice(2);
         }
-        // titlee = titlee.split('/').pop();
+        else{
+            title = title.split('/').pop();
+        }
 
         for (var item = 0; item < this.listTitles.length; item++) {
-            if (this.listTitles[item].path === titlee) {
+            if (this.listTitles[item].path === title) {
                 return this.listTitles[item].title;
             }
         }
         return 'Dashboard';
+    }
+    logOut() {
+        const dialogRef = this.dialog.open(DialogComponent, {
+            width: '750px',
+            data: {
+                type: 'danger',
+                header: 'Warning',
+                message: 'Are your really want to log out ?'
+            }
+        });
+        dialogRef.afterClosed().subscribe(resp => {
+            if(resp && resp.success){
+                localStorage.removeItem('Personal_userInfo');
+                this.router.navigate(['auth/login']);
+            }
+        })
+
     }
 }

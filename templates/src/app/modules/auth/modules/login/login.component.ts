@@ -26,7 +26,6 @@ export class LoginComponent implements OnInit {
       return;
     }
     this.loginService.login(form.value.username, form.value.password).subscribe(data => {
-      console.log(data);
       const token = data.token;
       localStorage.setItem(`Personal_userInfo`, token);
       this.router.navigate(['admin/dashboard']);

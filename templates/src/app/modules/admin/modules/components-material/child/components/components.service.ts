@@ -6,7 +6,7 @@ import { HttpService } from 'app/services/http.service';
 export class ComponentsService extends HttpService {
 
   constructor(http: Http) {
-    super(http, 'api/index');
+    super(http, 'index');
   }
 
 }
