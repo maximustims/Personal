@@ -1,4 +1,3 @@
-import { ComponentsService } from './../../modules/admin/modules/components-material/child/components/components.service';
 import { HttpService } from './../../services/http.service';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
@@ -53,7 +52,6 @@ import {
   ],
   providers: [
     HttpService,
-    ComponentsService,
     { provide: 'API_BASE_URL', useValue: window.location.origin }
   ],
   entryComponents: [
