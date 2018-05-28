@@ -22,6 +22,14 @@ export class AuthService extends HttpService {
     return this.post(data);
   }
 
+  checkIsAdmin(){
+    let token = localStorage['Personal_userInfo'];
+    let data = {
+      token
+    }
+    return this.post(data,{},'api/auth/check-is-admin');
+  }
+
   showSidebar() {
     this.showSidebarMethodCallSource.next();
   }

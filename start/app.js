@@ -12,6 +12,7 @@ const path = require('path')
 |
 */
 const providers = [
+  path.join(__dirname, '..', 'providers', 'MongoProviderExtend'),
   '@adonisjs/framework/providers/AppProvider',
   '@adonisjs/framework/providers/ViewProvider',
   '@adonisjs/lucid/providers/LucidProvider',

@@ -15,8 +15,16 @@ module.exports = {
   | Available Serializers - lucid, database
   |
   */
-  authenticator: 'api',
-
+  authenticator: 'mongoose',
+  mongoose:{
+    serializer: 'mongoose',
+    scheme: 'mongoose',
+    model: 'App/Models/User',
+    token: 'App/Models/Token',
+    uid: 'username', // The user identifier. Ej: email, username
+    password: '', // Password field if using user-password validation
+    expiry: '30d', // Not yet implemented
+  },
   /*
   |--------------------------------------------------------------------------
   | Session
@@ -35,6 +43,7 @@ module.exports = {
   password: '', // Password field if using user-password validation
   expiry: '30d', // Not yet implemented
 },
+
 
 
   /*

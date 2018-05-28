@@ -23,7 +23,8 @@ Route.group(() => {
   Route.post('/log-out', 'Auth/AuthController.logout');
   Route.post('/login', 'Auth/AuthController.login');
   Route.post('/check-login', 'Auth/AuthController.checkLogin')
-}).prefix('api/auth');
+  Route.post('/check-is-admin', 'Auth/AuthController.checkIsAdmin')
+}).prefix('api/auth').middleware(['mongo']);
 
 Route.group(() => {
   Route.resource('/index', 'Api/IndexController');

@@ -7,6 +7,7 @@ import { AuthLayoutRoutes } from './auth-layout.routing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule, MatRippleModule, MatInputModule, MatTabsModule, MatDatepickerModule, MatNativeDateModule, MatSelectModule, MatIconModule, MatDialogModule, MatSnackBarModule } from '@angular/material';
 import { HttpService } from '../../services/http.service';
+import { NotAdminGuard } from '../../guard/not-admin/not-admin.guard';
 
 @NgModule({
   imports: [
@@ -31,6 +32,7 @@ import { HttpService } from '../../services/http.service';
   providers: [
     HttpService,
     LoginService,
+    NotAdminGuard,
     { provide: 'API_BASE_URL', useValue: window.location.origin }
   ],
 })

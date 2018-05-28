@@ -31,7 +31,6 @@ export class LoginComponent implements OnInit {
       localStorage.setItem(`Personal_userInfo`, token);
       this.router.navigate(['admin/dashboard']);
     }, error => {
-      console.log("glsdgnsndg");
       const err = JSON.parse(error._body);
       const message = err.reduce((string, item) => string + item.message, '');
       const snackBarRef = this.snackBar.open(message, 'Close', {
