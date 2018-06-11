@@ -30,4 +30,8 @@ Route.group(() => {
   Route.resource('/user', 'Admin/UserController');
 }).prefix('api/admin');
 
+Route.group(() => {
+  Route.resource('/contact', 'Web/ContactController');
+}).prefix('api/web');
+
 Route.any('/*', 'Web/IndexController.index')

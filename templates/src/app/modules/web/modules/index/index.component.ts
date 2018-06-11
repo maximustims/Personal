@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { IndexService } from './index.service';
 
 @Component({
   selector: 'app-index',
@@ -6,10 +7,23 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./index.component.scss']
 })
 export class IndexComponent implements OnInit {
+  isContacted = false;
 
-  constructor() { }
+  constructor(private indexService: IndexService) {
+    if(localStorage['isContacted']) this.isContacted = true;
+  }
 
   ngOnInit() {
   }
 
+  submit(form){
+    if (!form.valid) {
+      return;
+    }
+    let data = form.value;
+    this.indexService.post({data}).subscribe(resp=>{
+      this.isContacted = true;
+      localStorage.setItem(`isContacted`, '1');
+    })
+  }
 }

@@ -9,9 +9,20 @@ class Contact extends BaseModel {
   /**
    * Contact's schema
    */
-  static get schema () {
+  static get schema() {
     return {
-
+      email: {
+        type: String
+      },
+      name: {
+        type: String
+      },
+      phone: {
+        type: Number
+      },
+      comment: {
+        type: String
+      }
     }
   }
 }

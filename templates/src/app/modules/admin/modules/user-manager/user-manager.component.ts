@@ -23,8 +23,7 @@ export class UserManagerComponent implements OnInit {
   getData() {
     this.userManagerService.getAll(this.activeRoute.snapshot.queryParams)
       .subscribe(data => {
-        console.log(data);
+        // console.log(data);
       });
-    console.log(this.userManagerService);
   }
 }

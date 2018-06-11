@@ -1,3 +1,4 @@
+import { WebComponentsModule } from './modules/web/components/web-components.module';
 import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
 import { AuthService } from './services/auth.service';
 import { AdminGuard } from './guard/admin/admin.guard';
@@ -31,6 +32,7 @@ import { DialogComponent } from './components/dialog/dialog.component';
     ComponentsModule,
     RouterModule,
     AppRoutingModule,
+    WebComponentsModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyAHt2kR9H46CIjvn8BGA3absqf3fwYT7Mg'
     })

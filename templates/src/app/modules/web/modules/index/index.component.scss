@@ -1,0 +1,16 @@
+.banner{
+    height: calc(100vh - 70px);
+    background-image: url('/assets/img/web/bg8.jpg');
+    color: white;
+    margin-bottom: -5%;
+    .content{
+        max-width: 500px;
+    }
+}
+.contact-form{
+    padding: 0 15px;
+    .card{
+        margin: 0;
+        min-height: 200px;
+    }
+}
