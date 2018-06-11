@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AdminLayoutRoutes } from './admin-layout.routing';
 import { DashboardComponent } from '../../modules/admin/modules/dashboard/dashboard.component';
+import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 
 import {
   MatButtonModule,
@@ -21,9 +22,6 @@ import {
   MatIconModule,
   MatDialogModule,
   MatSnackBarModule,
-  MatPaginator,
-  MatSort,
-  MatTableDataSource,
 } from '@angular/material';
 import { WebManagerComponent } from '../../modules/admin/modules/web-manager/web-manager.component';
 import { ContactManagerComponent } from '../../modules/admin/modules/contact-manager/contact-manager.component';
@@ -50,6 +48,7 @@ import { HttpService } from 'app/services/http.service';
     MatIconModule,
     MatDialogModule,
     MatSnackBarModule,
+    NgxDatatableModule
   ],
   declarations: [
     DashboardComponent,

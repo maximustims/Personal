@@ -3,5 +3,16 @@
         <div class="row">
             Contact Manager
         </div>
+
+        <ngx-datatable
+            class="material"
+            [rows]="data"
+            [columns]="[{name:'Name'},{name:'Gender'},{name:'Company'}]"
+            [columnMode]="'force'"
+            [headerHeight]="50"
+            [footerHeight]="50"
+            [rowHeight]="'auto'"
+            [limit]="10">
+      </ngx-datatable>
     </div>
   </div>

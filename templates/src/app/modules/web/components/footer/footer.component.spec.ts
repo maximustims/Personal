@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SettingManagerComponent } from './setting-manager.component';
+import { WebFooterComponent } from './footer.component';
 
-describe('SettingManagerComponent', () => {
-  let component: SettingManagerComponent;
-  let fixture: ComponentFixture<SettingManagerComponent>;
+describe('WebFooterComponent', () => {
+  let component: WebFooterComponent;
+  let fixture: ComponentFixture<WebFooterComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SettingManagerComponent ]
+      declarations: [ WebFooterComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SettingManagerComponent);
+    fixture = TestBed.createComponent(WebFooterComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
