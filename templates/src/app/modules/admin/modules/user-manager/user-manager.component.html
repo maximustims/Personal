@@ -1,7 +1,37 @@
 <div class="main-content">
-  <div class="container-fluid">
-      <div class="row">
-          User Manager
-      </div>
-  </div>
+    <div class="container-fluid">
+        <div class="card">
+            <div class="card-header">
+                <form action="">
+
+                </form>
+                <div class="row">
+                    <div class="col-md-4">
+                        <mat-form-field class="example-full-width">
+                            <input matInput type="text" placeholder="Username / Email" ngModel name="username" #username="ngModel" autocomplete="off">
+                        </mat-form-field>
+                    </div>
+                    <div class="col-md-4">
+                        <!-- <mat-form-field>
+                            <mat-select placeholder="Toppings" [formControl]="toppings" multiple>
+                                <mat-option *ngFor="let topping of toppingList" [value]="topping">{{topping}}</mat-option>
+                            </mat-select>
+                        </mat-form-field> -->
+                    </div>
+                    <div class="col-md-12 text-right">
+                        <button mat-button class="btn btn-secondary">Clear Filter</button>
+                        <button mbuttont-button class="btn btn-info">Filter</button>
+                    </div>
+                </div>
+                <div class="row text-right">
+                    <a mat-button class="btn btn-primary">Add</a>
+                    <button mat-button class="btn btn-danger">Delete</button>
+                </div>
+            </div>
+            <div class="card-body">
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facilis ratione quae quis optio necessitatibus culpa unde ab exercitationem
+                ex molestiae expedita illum, cupiditate ducimus fugit perferendis dolor consectetur quam molestias!
+            </div>
+        </div>
+    </div>
 </div>
