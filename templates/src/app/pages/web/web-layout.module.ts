@@ -7,7 +7,7 @@ import { WebLayoutRoutes } from './layout/web-layout.routing';
 import { IndexComponent } from './modules/index/index.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule, MatRippleModule, MatInputModule, MatTabsModule, MatDatepickerModule, MatNativeDateModule, MatSelectModule, MatIconModule, MatDialogModule, MatSnackBarModule } from '@angular/material';
-import { HttpService } from 'app/services/http.service';
+import { HttpService } from 'app/services/http/http.service';
 
 @NgModule({
   imports: [

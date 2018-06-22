@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpService } from 'app/services/http.service';
+import { HttpService } from 'app/services/http/http.service';
 import { Http } from '@angular/http';
 
 @Injectable()

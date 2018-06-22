@@ -26,7 +26,7 @@ import {
 import { WebManagerComponent } from './modules/web-manager/web-manager.component';
 import { ContactManagerComponent } from './modules/contact-manager/contact-manager.component';
 import { UserManagerService } from './modules/user-manager/user-manager.service';
-import { HttpService } from 'app/services/http.service';
+import { HttpService } from 'app/services/http/http.service';
 
 @NgModule({
   imports: [

@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule, MatRippleModule, MatInputModule, MatTabsModule, MatDatepickerModule, MatNativeDateModule, MatSelectModule, MatIconModule, MatDialogModule, MatSnackBarModule } from '@angular/material';
-import { HttpService } from '../../services/http.service';
+import { HttpService } from '../../services/http/http.service';
 import { NotAdminGuard } from '../../guard/not-admin/not-admin.guard';
 import { AuthLayoutRoutes } from './layout/auth-layout.routing';
 import { LoginComponent } from './modules/login/login.component';

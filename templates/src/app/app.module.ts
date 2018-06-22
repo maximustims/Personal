@@ -1,5 +1,5 @@
 import { AuthLayoutComponent } from './pages/auth/layout/auth-layout.component';
-import { AuthService } from './services/auth.service';
+import { AuthService } from './services/auth/auth.service';
 import { AdminGuard } from './guard/admin/admin.guard';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
@@ -17,7 +17,7 @@ import {
 } from '@agm/core';
 import { WebLayoutComponent } from './pages/web/layout/web-layout.component';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpService } from './services/http.service';
+import { HttpService } from './services/http/http.service';
 import { DialogComponent } from './components/dialog/dialog.component';
 import { WebComponentsModule } from './pages/web/components/web-components.module';
 import { AdminLayoutComponent } from './pages/admin/layout/admin-layout.component';

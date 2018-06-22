@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
-import { HttpService } from './http.service';
+import { HttpService } from './../http/http.service';
 import { Subject } from 'rxjs';
 
 @Injectable()
