@@ -21,4 +21,4 @@ import { MatDialogModule } from '@angular/material';
     SidebarComponent
   ]
 })
-export class ComponentsModule { }
+export class AdminComponentsModule { }

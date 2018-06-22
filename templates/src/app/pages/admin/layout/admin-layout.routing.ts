@@ -1,8 +1,8 @@
-import { UserManagerComponent } from './../../modules/admin/modules/user-manager/user-manager.component';
+import { UserManagerComponent } from '../modules/user-manager/user-manager.component';
 import { Routes } from '@angular/router';
-import { DashboardComponent } from '../../modules/admin/modules/dashboard/dashboard.component';
-import { WebManagerComponent } from '../../modules/admin/modules/web-manager/web-manager.component';
-import { ContactManagerComponent } from '../../modules/admin/modules/contact-manager/contact-manager.component';
+import { DashboardComponent } from '../modules/dashboard/dashboard.component';
+import { WebManagerComponent } from '../modules/web-manager/web-manager.component';
+import { ContactManagerComponent } from '../modules/contact-manager/contact-manager.component';
 
 
 export const AdminLayoutRoutes: Routes = [

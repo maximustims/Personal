@@ -1,5 +1,4 @@
-import { WebComponentsModule } from './modules/web/components/web-components.module';
-import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
+import { AuthLayoutComponent } from './pages/auth/layout/auth-layout.component';
 import { AuthService } from './services/auth.service';
 import { AdminGuard } from './guard/admin/admin.guard';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -16,12 +15,13 @@ import { AppComponent } from './app.component';
 import {
   AgmCoreModule
 } from '@agm/core';
-import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
-import { WebLayoutComponent } from './layouts/web-layout/web-layout.component';
+import { WebLayoutComponent } from './pages/web/layout/web-layout.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpService } from './services/http.service';
-import { ComponentsModule } from './modules/admin/components/components.module';
 import { DialogComponent } from './components/dialog/dialog.component';
+import { WebComponentsModule } from './pages/web/components/web-components.module';
+import { AdminLayoutComponent } from './pages/admin/layout/admin-layout.component';
+import { AdminComponentsModule } from './pages/admin/components/admin-components.module';
 
 @NgModule({
   imports: [
@@ -29,7 +29,7 @@ import { DialogComponent } from './components/dialog/dialog.component';
     BrowserAnimationsModule,
     FormsModule,
     HttpModule,
-    ComponentsModule,
+    AdminComponentsModule,
     RouterModule,
     AppRoutingModule,
     WebComponentsModule,
