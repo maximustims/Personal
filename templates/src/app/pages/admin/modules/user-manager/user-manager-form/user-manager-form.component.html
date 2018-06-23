@@ -36,7 +36,7 @@
             <!-- End: Email -->
 
             <!-- Start: Password -->
-            <div class="col-md-6">
+            <div class="col-md-6" *ngIf="status == 'add'">
               <mat-form-field class="example-full-width">
                 <input matInput type="password" placeholder="Password" [(ngModel)]="user.password" name="password" #password="ngModel" autocomplete="off" required>
                 <mat-error *ngIf="(password.touched || formUser.submitted) && !password.valid">
@@ -47,7 +47,7 @@
             <!-- End: Password -->
 
             <!-- Start: Repeat Password -->
-            <div class="col-md-6">
+            <div class="col-md-6" *ngIf="status == 'add'">
               <mat-form-field class="example-full-width">
                 <input matInput type="password" placeholder="Repeat Password" [(ngModel)]="user.repeat_password" name="repeat_password" #repeat_password="ngModel" autocomplete="off" validateEqual="password" required>
                 <mat-error *ngIf="formUser.submitted && !repeat_password.valid">
@@ -72,8 +72,8 @@
             <!-- End: Roles -->
 
             <div class="col-md-12 text-right">
-              <button mat-button class="btn btn-primary" type="submit" *ngIf="status == 'add'"><i class="material-icons">add</i>Submit</button>
-              <button mat-button class="btn btn-info" type="submit" *ngIf="status == 'edit'"><i class="material-icons">edit</i>Submit</button>
+              <button mat-button class="btn btn-primary" type="submit" *ngIf="status == 'add'"><i class="material-icons">add</i>Add</button>
+              <button mat-button class="btn btn-info" type="submit" *ngIf="status == 'edit'"><i class="material-icons">edit</i>Save</button>
               <a mat-button class="btn btn-secondary" [routerLink]="['/admin/user-manager']"><i class="material-icons">close</i>Cancel</a>
             </div>
           </div>

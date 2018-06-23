@@ -18,6 +18,12 @@ export class UserManagerComponent implements OnInit {
     currentPage: 0,
     totalPage: 0,
   };
+  filter = {
+    search: null,
+    roles: null
+  };
+  queryParams = null;
+
   constructor(private userManagerService: UserManagerService,
     private router: Router,
     private activeRoute: ActivatedRoute,
@@ -31,18 +37,24 @@ export class UserManagerComponent implements OnInit {
   }
 
   getData() {
-    this.userManagerService
-      .getAll(this.activeRoute.snapshot.queryParams)
-      .subscribe(data => {
-        let dataResp = data.data;
-        this.table = {
-          items: dataResp.items,
-          totalItems: dataResp.totalItems,
-          itemsPerPage: dataResp.itemsPerPage,
-          currentPage: dataResp.currentPage - 1,
-          totalPage: dataResp.totalPage,
-        };
-      });
+    this.activeRoute.queryParams.subscribe(data => {
+      this.userManagerService
+        .getAll(this.activeRoute.snapshot.queryParams)
+        .subscribe(data => {
+          let dataResp = data.data;
+          this.table = {
+            items: dataResp.items,
+            totalItems: dataResp.totalItems,
+            itemsPerPage: dataResp.itemsPerPage,
+            currentPage: dataResp.currentPage - 1,
+            totalPage: dataResp.totalPage,
+          };
+
+          this.queryParams = JSON.parse(JSON.stringify(this.activeRoute.snapshot.queryParams));
+          this.filter.search = this.queryParams.search;
+          this.filter.roles = this.queryParams.roles;
+        });
+    });
   }
 
   getRoleString(roles) {
@@ -50,10 +62,26 @@ export class UserManagerComponent implements OnInit {
       .map(role => search_role(role).title)
       .join(', ');
   }
-  setPage(pageInfo) {
-    this.router.navigate(['user-manager'], { queryParams: { page: pageInfo.offset + 1, limit: this.table.itemsPerPage } });
-    this.activeRoute.queryParams.subscribe(data => {
-      this.getData();
+  search() {
+    this.router.navigate(['admin/user-manager'], {
+      queryParams: this.filter
     });
+    this.getData();
+  }
+
+  clearSearch() {
+    this.router.navigate(['admin/user-manager']);
+    this.getData();
+  }
+
+  setPage(pageInfo) {
+    this.queryParams.page = pageInfo.offset + 1;
+    this.queryParams.limit = this.table.itemsPerPage;
+
+    this.router.navigate(['admin/user-manager'], {
+      queryParams: this.queryParams
+    });
+    this.getData();
+
   }
 }

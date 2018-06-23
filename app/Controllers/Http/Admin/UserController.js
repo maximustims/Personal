@@ -10,7 +10,25 @@ const CE = require('@adonisjs/auth/src/Exceptions')
 class UserController {
     async index({ request, response }) {
         let params = request.all();
-        let data = await HelperQuery.pagination(User, params.page, params.limit);
+        let and_array = [];
+        let query = {};
+        if (params.search) {
+            and_array.push({
+                $or: [
+                    { name: new RegExp(params.search, 'i') },
+                    { email: new RegExp(params.search, 'i') },
+                ]
+            })
+        }
+        if (params.roles) {
+            and_array.push({
+                roles: params.roles
+            })
+        }
+        if (and_array.length > 0) {
+            query = { $and: and_array };
+        }
+        let data = await HelperQuery.pagination(User, params.page, params.limit, query);
 
         return response.send({
             success: true,
@@ -28,7 +46,7 @@ class UserController {
                 { name: data.name }
             ]
         });
-        if(checkIsset > 0) throw new CE.InvalidApiToken('This user is already exists.');
+        if (checkIsset > 0) throw new CE.InvalidApiToken('This user is already exists.');
         let newUser = new User(data);
         await newUser.save();
 
@@ -37,11 +55,11 @@ class UserController {
         })
     }
 
-    async info({ request, response, params }) {
+    async show({ request, response, params }) {
         let user = await User.findById(params.id).lean();
         return response.send({
             success: true,
-            user
+            data: user
         })
     }
 

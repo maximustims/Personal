@@ -52,7 +52,7 @@ export class HttpService {
     }
 
     update(id, data, params = {}) {
-        return this.http.post(`${this.host}/${this.url}/${id}`, data, {
+        return this.http.put(`${this.host}/${this.url}/${id}`, data, {
             params,
             headers: this.setHeader()
         }).map(response => response.json());

@@ -15,6 +15,7 @@ export const AdminLayoutRoutes: Routes = [
             {
                 path: '',
                 component: UserManagerComponent,
+                pathMatch: 'full',
             },
             {
                 path: 'add',
