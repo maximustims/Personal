@@ -9,9 +9,7 @@
       "outDir": "../public/dist",
       "assets": [
         "assets",
-        "favicon.ico",
-        "app/admin/style",
-        "app/web/style"
+        "favicon.ico"
       ],
       "index": "index.html",
       "main": "main.ts",

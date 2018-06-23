@@ -1,0 +1,84 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="card">
+      <div class="card-header">
+        <h3>User Manager Form</h3>
+      </div>
+      <div class="card-body">
+        <form #formUser="ngForm" (ngSubmit)="submit(formUser)">
+          <div class="row">
+
+            <!-- Start: Name -->
+            <div class="col-md-6">
+              <div class="form-group label-floating is-empty">
+                <mat-form-field class="example-full-width">
+                  <input matInput type="text" placeholder="Name" ngModel name="name" #name="ngModel" autocomplete="off" required>
+                  <mat-error *ngIf="(name.touched || formUser.submitted) && !name.valid">
+                    <span *ngIf="name.errors.required">Name is required</span>
+                  </mat-error>
+                </mat-form-field>
+              </div>
+            </div>
+            <!-- End: Name -->
+
+            <!-- Start: Email -->
+            <div class="col-md-6">
+              <div class="form-group label-floating is-empty">
+                <mat-form-field class="example-full-width">
+                  <input matInput type="text" placeholder="Email" ngModel name="email" #email="ngModel" autocomplete="off" [pattern]="pattern.email" required>
+                  <mat-error *ngIf="(email.touched || formUser.submitted) && !email.valid">
+                    <span *ngIf="email.errors.required">Email is required</span>
+                    <span *ngIf="email.errors.pattern">Please insert real email.</span>
+                  </mat-error>
+                </mat-form-field>
+              </div>
+            </div>
+            <!-- End: Email -->
+
+            <!-- Start: Password -->
+            <div class="col-md-6">
+              <mat-form-field class="example-full-width">
+                <input matInput type="password" placeholder="Password" ngModel name="password" #password="ngModel" autocomplete="off" required>
+                <mat-error *ngIf="(password.touched || formUser.submitted) && !password.valid">
+                  <span *ngIf="password.errors.required">Password is required</span>
+                </mat-error>
+              </mat-form-field>
+            </div>
+            <!-- End: Password -->
+
+            <!-- Start: Repeat Password -->
+            <div class="col-md-6">
+              <mat-form-field class="example-full-width">
+                <input matInput type="password" placeholder="Repeat Password" ngModel name="repeat_password" #repeat_password="ngModel" autocomplete="off" validateEqual="password" required>
+                <mat-error *ngIf="formUser.submitted && !repeat_password.valid">
+                  <div *ngIf="repeat_password.errors.required">Please type password again.</div>
+                  <div *ngIf="!repeat_password.errors.validateEqual">Password is not correct with password typed.</div>
+                </mat-error>
+              </mat-form-field>
+            </div>
+            <!-- End: Repeat Password -->
+
+            <!-- Start: Roles -->
+            <div class="col-md-12">
+              <mat-form-field>
+                <mat-select placeholder="Roles" ngModel name="roles" #roles="ngModel" multiple required>
+                  <mat-option *ngFor="let user_role of user_roles" [value]="user_role.value">{{user_role.title}}</mat-option>
+                </mat-select>
+                <mat-error *ngIf="(roles.touched || formUser.submitted) && !roles.valid">
+                  <span *ngIf="roles.errors.required">Please select roles</span>
+                </mat-error>
+              </mat-form-field>
+            </div>
+            <!-- End: Roles -->
+
+            <div class="col-md-12 text-right">
+              <button mat-button class="btn btn-primary" type="submit" *ngIf="status == 'add'"><i class="material-icons">add</i>Submit</button>
+              <button mat-button class="btn btn-info" type="submit" *ngIf="status == 'edit'"><i class="material-icons">edit</i>Submit</button>
+              <a mat-button class="btn btn-secondary" [routerLink]="['/admin/user-manager']"><i class="material-icons">close</i>Cancel</a>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

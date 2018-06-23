@@ -25,8 +25,13 @@ class User extends BaseModel {
             },
             roles: [{
                 type: String,
-                enum: ['admin', 'user', 'supper_admin']
+                enum: ['admin', 'user', 'super_admin']
             }],
+            status: {
+                type: Number,
+                enum: [0, 1, 2],
+                default: 1
+            },
             avatar: {
                 type: String
             }

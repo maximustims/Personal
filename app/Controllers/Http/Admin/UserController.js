@@ -1,16 +1,16 @@
 'use strict'
 
-const Helpers = use('Helpers');
 const Hash = use('Hash')
 const _ = use('lodash')
 const User = use('App/Models/User');
 const HelperQuery = use('App/Models/Share/HelperQuery');
+const CE = require('@adonisjs/auth/src/Exceptions')
 
 
 class UserController {
     async index({ request, response }) {
         let params = request.all();
-        let data = await HelperQuery.pagination(User, params.page , params.limit);
+        let data = await HelperQuery.pagination(User, params.page, params.limit);
 
         return response.send({
             success: true,
@@ -22,8 +22,16 @@ class UserController {
         let data = request.input('data');
         delete data.confirm_password;
         data.password = await Hash.make(data.password);
+        let checkIsset = await User.count({
+            $or: [
+                { email: data.email },
+                { name: data.name }
+            ]
+        });
+        if(checkIsset > 0) throw new CE.InvalidApiToken('This user is already exists.');
+        console.log(checkIsset);
         let newUser = new User(data);
-        let saveUser = await newUser.save();
+        await newUser.save();
 
         return response.send({
             success: true,

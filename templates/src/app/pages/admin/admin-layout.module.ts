@@ -27,6 +27,8 @@ import { WebManagerComponent } from './modules/web-manager/web-manager.component
 import { ContactManagerComponent } from './modules/contact-manager/contact-manager.component';
 import { UserManagerService } from './modules/user-manager/user-manager.service';
 import { HttpService } from 'app/services/http/http.service';
+import { UserManagerFormComponent } from './modules/user-manager/user-manager-form/user-manager-form.component';
+import { EqualValidator } from 'app/validators/equalValidators.validators';
 
 @NgModule({
   imports: [
@@ -54,7 +56,9 @@ import { HttpService } from 'app/services/http/http.service';
     DashboardComponent,
     UserManagerComponent,
     WebManagerComponent,
-    ContactManagerComponent
+    ContactManagerComponent,
+    UserManagerFormComponent,
+    EqualValidator
   ],
   providers: [
     HttpService,
