@@ -2,13 +2,16 @@
     <div class="container-fluid">
         <div class="card">
             <div class="card-header">
+                <h2>User Manager</h2>
+            </div>
+            <div class="card-body">
                 <form action="">
 
                 </form>
                 <div class="row">
                     <div class="col-md-4">
                         <mat-form-field class="example-full-width">
-                            <input matInput type="text" placeholder="Username / Email" ngModel name="name" #name="ngModel" autocomplete="off">
+                            <input matInput type="text" placeholder="Name / Email" ngModel name="name" #name="ngModel" autocomplete="off">
                         </mat-form-field>
                     </div>
                     <div class="col-md-4">
@@ -23,15 +26,46 @@
                         <button mbuttont-button class="btn btn-info">Filter</button>
                     </div>
                 </div>
-                <div class="row text-right">
+                <div class="row">
                     <div class="col-md-12">
                         <a mat-button class="btn btn-info" [routerLink]="['add']">Add</a>
                         <button mat-button class="btn btn-danger">Delete</button>
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="card">
             <div class="card-body">
-                
+                <ngx-datatable [rows]="table.items" class="material" [columnMode]="'force'" [headerHeight]="50" [footerHeight]="50" [rowHeight]="'auto'"
+                    [externalPaging]="true" [offset]="table.currentPage" [limit]="table.itemsPerPage" [count]="table.totalItems"
+                    (page)='setPage($event)' *ngIf="table.items">
+                    <ngx-datatable-column name="Name" editable="false" frozenLeft="True" [sortable]="true" [flexGrow]="1"></ngx-datatable-column>
+                    <ngx-datatable-column name="Email" prop="email" editable="false" frozenLeft="True" [sortable]="true" [flexGrow]="1"></ngx-datatable-column>
+                    <ngx-datatable-column name="Roles" [sortable]="false" [flexGrow]="1">
+                        <ng-template ngx-datatable-cell-template let-rowIndex="rowIndex" let-value="value" let-user="row" let-group="group" let-rowHeight="rowHeight">
+                            <mat-form-field>
+                                <mat-select placeholder="Roles" [(ngModel)]='user.roles' name="roles" #roles="ngModel" multiple>
+                                    <mat-option *ngFor="let user_role of user_roles" [value]="user_role.value">{{user_role.title}}</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </ng-template>
+                    </ngx-datatable-column>
+                    <ngx-datatable-column name="Action" [sortable]="false" [flexGrow]="1">
+                        <ng-template ngx-datatable-cell-template let-rowIndex="rowIndex" let-value="value" let-user="row" let-group="group" let-rowHeight="rowHeight">
+                            <a mat-button class="btn btn-info" [routerLink]="['add']">
+                                <i class="material-icons">edit</i>Edit
+                            </a>
+                            <!--<button mat-raised-button color="accent" (click)="popChangePassword(user._id)">
+                                  <i class="material-icons">lock</i>
+                                  Change Password
+                                </button>
+                                <button mat-raised-button color="warn" (click)="popDeleteUser(user._id)">
+                                  <i class="material-icons">delete_forever</i>
+                                  Delete
+                                </button> -->
+                        </ng-template>
+                    </ngx-datatable-column>
+                </ngx-datatable>
             </div>
         </div>
     </div>

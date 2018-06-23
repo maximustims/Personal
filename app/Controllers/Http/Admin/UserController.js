@@ -29,7 +29,6 @@ class UserController {
             ]
         });
         if(checkIsset > 0) throw new CE.InvalidApiToken('This user is already exists.');
-        console.log(checkIsset);
         let newUser = new User(data);
         await newUser.save();
 

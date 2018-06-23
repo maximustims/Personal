@@ -16,6 +16,8 @@ export class UserManagerFormComponent implements OnInit {
   pattern = {
     email: PatternValidator.EMAIL_REGEXP
   };
+  user: object = {};
+
   constructor(
     private userManagerService: UserManagerService,
     private snackBar: MatSnackBar,
@@ -23,12 +25,11 @@ export class UserManagerFormComponent implements OnInit {
     private router: Router
   ) {
     this.user_roles = user_roles;
-    if (this.activatedRoute.snapshot.params.id) {
+    if (this.activatedRoute.snapshot.params.id){
       this.status = 'edit';
     }
-    else {
-      this.status = 'add';
-    }
+    else this.status = 'add';
+
   }
 
   ngOnInit() {
@@ -37,15 +38,11 @@ export class UserManagerFormComponent implements OnInit {
   submit(form) {
     if (!form.valid) return;
     this.userManagerService.create({
-      data: form.value
+      data: this.user
     }).subscribe(resp => {
       let message = '';
-      if (this.status === 'add') {
-        message = 'Add user success';
-      }
-      if (this.status === 'edit') {
-        message = 'Edit user success';
-      }
+      if (this.status === 'add') message = 'Add user success';
+      if (this.status === 'edit') message = 'Edit user success';
       const snackBarRef = this.snackBar.open(message, 'Close', {
         duration: 3000
       });
