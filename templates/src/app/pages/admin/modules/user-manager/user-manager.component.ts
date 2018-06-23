@@ -3,6 +3,7 @@ import { UserManagerService } from './user-manager.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { MatDialog, MatSnackBar } from '@angular/material';
 import { user_roles, search_role } from 'app/global/User';
+import { DialogComponent } from 'app/components/dialog/dialog.component';
 
 @Component({
   selector: 'app-user-manager',
@@ -72,6 +73,29 @@ export class UserManagerComponent implements OnInit {
   clearSearch() {
     this.router.navigate(['admin/user-manager']);
     this.getData();
+  }
+
+  delete(id) {
+    const dialogRef = this.dialog.open(DialogComponent, {
+      width: '400px',
+      data: {
+        header: 'Delete User',
+        type: 'danger',
+        message: 'Are you sure you want to delete this user?'
+      }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result && result.success) {
+        this.userManagerService.remove(id).subscribe(resp => {
+          const snackBarRef = this.snackBar.open('Delete user success', 'Close', {
+            duration: 3000
+          });
+          this.getData();
+        })
+      }
+    });
+
   }
 
   setPage(pageInfo) {

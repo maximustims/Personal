@@ -183,7 +183,9 @@ thead.thead-inverse,
 .table.table-hover tbody tr:hover{
   background-color: #f5f5f5;
 }
-
+.ngx-datatable.material .datatable-header .datatable-header-cell{
+    padding: 10px;
+}
 
 .ngx-datatable.material .datatable-body .datatable-body-row .datatable-body-cell{
     display: flex;
