@@ -31,6 +31,7 @@ Route.group(() => {
 
 Route.group(() => {
   Route.resource('/contact', 'Web/ContactController');
+  Route.get('/iframe', 'Web/IframeController.index');
 }).prefix('api/web');
 
 Route.any('/*', 'Web/IndexController.index')

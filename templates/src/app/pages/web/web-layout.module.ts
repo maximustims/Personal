@@ -8,6 +8,9 @@ import { IndexComponent } from './modules/index/index.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule, MatRippleModule, MatInputModule, MatTabsModule, MatDatepickerModule, MatNativeDateModule, MatSelectModule, MatIconModule, MatDialogModule, MatSnackBarModule } from '@angular/material';
 import { HttpService } from 'app/services/http/http.service';
+import { WebComponent } from './modules/web/web.component';
+import { WebService } from './modules/web/web.service';
+import { SafePipe } from 'app/pipe/safe-pipe.pipe';
 
 @NgModule({
   imports: [
@@ -27,12 +30,15 @@ import { HttpService } from 'app/services/http/http.service';
     MatSnackBarModule,
   ],
   declarations: [
+    SafePipe,
     IndexComponent,
     Error404Component,
+    WebComponent,
   ],
   providers:[
     HttpService,
     IndexService,
+    WebService,
     { provide: 'API_BASE_URL', useValue: window.location.origin }
   ]
 })
