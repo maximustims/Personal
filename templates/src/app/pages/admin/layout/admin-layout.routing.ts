@@ -4,6 +4,7 @@ import { DashboardComponent } from '../modules/dashboard/dashboard.component';
 import { WebManagerComponent } from '../modules/web-manager/web-manager.component';
 import { ContactManagerComponent } from '../modules/contact-manager/contact-manager.component';
 import { UserManagerFormComponent } from '../modules/user-manager/user-manager-form/user-manager-form.component';
+import { WebManagerFormComponent } from '../modules/web-manager/web-manager-form/web-manager-form.component';
 
 
 export const AdminLayoutRoutes: Routes = [
@@ -29,6 +30,25 @@ export const AdminLayoutRoutes: Routes = [
             },
         ]
     },
-    { path: 'web-manager', component: WebManagerComponent, pathMatch: 'full', },
+    {
+        path: 'web-manager',
+        children: [
+            {
+                path: '',
+                component: WebManagerComponent,
+                pathMatch: 'full',
+            },
+            {
+                path: 'add',
+                component: WebManagerFormComponent,
+                pathMatch: 'full',
+            },
+            {
+                path: ':id',
+                component: WebManagerFormComponent,
+                pathMatch: 'full',
+            },
+        ]
+    },
     { path: 'contact-manager', component: ContactManagerComponent, pathMatch: 'full', }
 ];

@@ -26,6 +26,7 @@ Route.group(() => {
 Route.group(() => {
   Route.resource('/user', 'Admin/UserController');
   Route.resource('/contact', 'Admin/ContactController');
+  Route.resource('/web', 'Admin/WebController');
 }).prefix('api/admin');
 
 Route.group(() => {

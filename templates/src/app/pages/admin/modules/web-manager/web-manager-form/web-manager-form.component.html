@@ -1,0 +1,60 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="card">
+      <div class="card-header">
+        <h3>Web Manager Form</h3>
+      </div>
+      <div class="card-body">
+        <form #form="ngForm" (ngSubmit)="submit(form)">
+          <div class="row">
+
+            <!-- Start: Name -->
+            <div class="col-md-6">
+              <div class="form-group label-floating is-empty">
+                <mat-form-field class="example-full-width">
+                  <input matInput type="text" placeholder="Name" [(ngModel)]="web.name" name="name" #name="ngModel" autocomplete="off" required>
+                  <mat-error *ngIf="(name.touched || form.submitted) && !name.valid">
+                    <span *ngIf="name.errors.required">Name is required</span>
+                  </mat-error>
+                </mat-form-field>
+              </div>
+            </div>
+            <!-- End: Name -->
+
+            <!-- Start: Url -->
+            <div class="col-md-6">
+              <div class="form-group label-floating is-empty">
+                <mat-form-field class="example-full-width">
+                  <input matInput type="text" placeholder="Url" [(ngModel)]="web.url" name="url" #url="ngModel" autocomplete="off" required>
+                  <mat-error *ngIf="(url.touched || form.submitted) && !url.valid">
+                    <span *ngIf="url.errors.required">Url is required</span>
+                  </mat-error>
+                </mat-form-field>
+              </div>
+            </div>
+            <!-- End: Url -->
+
+            <!-- Start: Order -->
+            <div class="col-md-6">
+              <div class="form-group label-floating is-empty">
+                <mat-form-field class="example-full-width">
+                  <input matInput type="number" placeholder="Order" [(ngModel)]="web.order" name="order" #order="ngModel" autocomplete="off">
+                </mat-form-field>
+              </div>
+            </div>
+            <!-- End: Url -->
+
+            <div class="col-md-12 text-right">
+              <button mat-button class="btn btn-primary" type="submit" *ngIf="status == 'add'">
+                <i class="material-icons">add</i>Add</button>
+              <button mat-button class="btn btn-info" type="submit" *ngIf="status == 'edit'">
+                <i class="material-icons">edit</i>Save</button>
+              <a mat-button class="btn btn-secondary" [routerLink]="['/admin/user-manager']">
+                <i class="material-icons">close</i>Cancel</a>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

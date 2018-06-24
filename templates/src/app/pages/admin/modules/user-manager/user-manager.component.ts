@@ -105,6 +105,5 @@ export class UserManagerComponent implements OnInit {
       queryParams: this.queryParams
     });
     this.getData();
-
   }
 }

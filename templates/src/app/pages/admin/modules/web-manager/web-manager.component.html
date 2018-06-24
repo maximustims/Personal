@@ -1,7 +1,62 @@
 <div class="main-content">
     <div class="container-fluid">
-        <div class="row">
-            Web Manager
+        <div class="card">
+            <div class="card-header">
+                <h4>Web Manager</h4>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-4">
+                        <mat-form-field class="example-full-width">
+                            <input matInput type="text" placeholder="Name / Url" [(ngModel)]='filter.search' autocomplete="off">
+                        </mat-form-field>
+                    </div>
+                    <div class="col-md-12 text-right">
+                        <button mbuttont-button class="btn btn-info" (click)="search()">
+                            <i class="material-icons">search</i>Search
+                        </button>
+                        <button mat-button class="btn btn-secondary" (click)="clearSearch()">
+                            <i class="material-icons">clear</i>Clear search
+                        </button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <a mat-button class="btn btn-info" [routerLink]="['add']">
+                            <i class="material-icons">add</i>Add</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <ngx-datatable [rows]="table.items" class="material" [columnMode]="'flex'" [headerHeight]="'auto'" [footerHeight]="50" [rowHeight]="'auto'"
+                [externalPaging]="true" [offset]="table.currentPage" [limit]="table.itemsPerPage" [count]="table.totalItems"
+                (page)='setPage($event)' *ngIf="table.items">
+                <ngx-datatable-column name="Name" [sortable]="true" [flexGrow]="1">
+                    <ng-template ngx-datatable-cell-template let-rowIndex="rowIndex" let-value="value" let-web="row" let-group="group" let-rowHeight="rowHeight">
+                        {{web.name}}
+                    </ng-template>
+                </ngx-datatable-column>
+                <ngx-datatable-column name="Url" [sortable]="true" [flexGrow]="1">
+                    <ng-template ngx-datatable-cell-template let-rowIndex="rowIndex" let-value="value" let-web="row" let-group="group" let-rowHeight="rowHeight">
+                        <a [href]="web.url" target="_blank">{{web.url}}</a>
+                    </ng-template>
+                </ngx-datatable-column>
+                <ngx-datatable-column name="Order" [sortable]="true" [flexGrow]="1">
+                    <ng-template ngx-datatable-cell-template let-rowIndex="rowIndex" let-value="value" let-web="row" let-group="group" let-rowHeight="rowHeight">
+                        {{web.order}}
+                    </ng-template>
+                </ngx-datatable-column>
+                <ngx-datatable-column name="Action" [sortable]="false" [flexGrow]="1">
+                    <ng-template ngx-datatable-cell-template let-rowIndex="rowIndex" let-value="value" let-web="row" let-group="group" let-rowHeight="rowHeight">
+                        <a mat-button class="btn btn-info" [routerLink]="[web._id]">
+                            <i class="material-icons">edit</i>Edit
+                        </a>
+                        <button mat-button class="btn btn-danger" (click)="delete(web._id)">
+                            <i class="material-icons">delete</i>Delete</button>
+                    </ng-template>
+                </ngx-datatable-column>
+            </ngx-datatable>
         </div>
     </div>
-  </div>
+</div>
