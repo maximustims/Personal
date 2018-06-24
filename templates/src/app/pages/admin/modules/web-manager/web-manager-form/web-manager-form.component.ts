@@ -10,7 +10,11 @@ import { WebManagerFormService } from '../web-manager-form.service';
 })
 export class WebManagerFormComponent implements OnInit {
 
-  web: object = {};
+  web = {
+    name: null,
+    url: null,
+    order: null,
+  };
   id = null;
   status = '';
 
@@ -39,7 +43,6 @@ export class WebManagerFormComponent implements OnInit {
     let message = '';
     if (this.status === 'add') message = 'Add web success';
     if (this.status === 'edit') message = 'Edit web success';
-    console.log(this.status);
 
     if (this.status == 'add') {
       this.webManagerFormService.create({

@@ -16,7 +16,11 @@ export class UserManagerFormComponent implements OnInit {
   pattern = {
     email: PatternValidator.EMAIL_REGEXP
   };
-  user: object = {};
+  user = {
+    name: null,
+    email: null,
+    roles: null,
+  };
   id = null;
 
   constructor(
@@ -30,7 +34,6 @@ export class UserManagerFormComponent implements OnInit {
     if (this.id) {
       this.status = 'edit';
       this.userManagerService.edit(this.id).subscribe((resp) => {
-        console.log(resp);
         this.user = resp.data;
       })
     }

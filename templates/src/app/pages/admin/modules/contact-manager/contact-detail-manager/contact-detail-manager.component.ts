@@ -8,7 +8,12 @@ import { ContactManagerService } from '../contact-manager.service';
   styleUrls: ['./contact-detail-manager.component.scss']
 })
 export class ContactDetailManagerComponent implements OnInit {
-  contactData = {};
+  contactData = {
+    name: null,
+    email: null,
+    phone: null,
+    comment: null,
+  };
 
   constructor(
     public dialogRef: MatDialogRef<ContactDetailManagerComponent>,
