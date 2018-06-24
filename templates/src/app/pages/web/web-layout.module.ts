@@ -11,6 +11,7 @@ import { HttpService } from 'app/services/http/http.service';
 import { WebComponent } from './modules/web/web.component';
 import { WebService } from './modules/web/web.service';
 import { SafePipe } from 'app/pipe/safe-pipe.pipe';
+import { ChatComponent } from './modules/chat/chat.component';
 
 @NgModule({
   imports: [
@@ -34,6 +35,7 @@ import { SafePipe } from 'app/pipe/safe-pipe.pipe';
     IndexComponent,
     Error404Component,
     WebComponent,
+    ChatComponent,
   ],
   providers:[
     HttpService,

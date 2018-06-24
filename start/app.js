@@ -23,6 +23,7 @@ const providers = [
   '@adonisjs/auth/providers/AuthProvider',
   '@adonisjs/redis/providers/RedisProvider',
   'adonis-mongoose-model/providers/MongooseProvider',
+  '@adonisjs/websocket/providers/WsProvider'
 ]
 
 /*
