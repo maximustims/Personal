@@ -1,18 +1,28 @@
 <div class="main-content">
     <div class="container-fluid">
         <div class="row">
-            Contact Manager
         </div>
-
-        <ngx-datatable
-            class="material"
-            [rows]="data"
-            [columns]="[{name:'Name'},{name:'Gender'},{name:'Company'}]"
-            [columnMode]="'force'"
-            [headerHeight]="50"
-            [footerHeight]="50"
-            [rowHeight]="'auto'"
-            [limit]="10">
-      </ngx-datatable>
+        <div class="card">
+            <div class="card-header">
+                <h4>Contact Manager</h4>
+            </div>
+        </div>
+        <div class="card">
+            <ngx-datatable [rows]="table.items" class="material" [columnMode]="'flex'" [headerHeight]="'auto'" [footerHeight]="50" [rowHeight]="'auto'"
+                [externalPaging]="true" [offset]="table.currentPage" [limit]="table.itemsPerPage" [count]="table.totalItems"
+                (page)='setPage($event)' *ngIf="table.items">
+                <ngx-datatable-column name="Name" editable="false" frozenLeft="True" [sortable]="true" [flexGrow]="1"></ngx-datatable-column>
+                <ngx-datatable-column name="Email" prop="email" editable="false" frozenLeft="True" [sortable]="true" [flexGrow]="1"></ngx-datatable-column>
+                <ngx-datatable-column name="Action" [sortable]="false" [flexGrow]="1">
+                    <ng-template ngx-datatable-cell-template let-rowIndex="rowIndex" let-value="value" let-item="row" let-group="group" let-rowHeight="rowHeight">
+                        <button mat-button class="btn btn-info" (click)="show(item._id)">
+                            <i class="material-icons">info</i>Info
+                        </button>
+                        <button mat-button class="btn btn-danger" (click)="delete(item._id)">
+                            <i class="material-icons">delete</i>Delete</button>
+                    </ng-template>
+                </ngx-datatable-column>
+            </ngx-datatable>
+        </div>
     </div>
-  </div>
+</div>

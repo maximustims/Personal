@@ -2,7 +2,7 @@
     <div class="container-fluid">
         <div class="card">
             <div class="card-header">
-                <h3>User Manager</h3>
+                <h4>User Manager</h4>
             </div>
             <div class="card-body">
                 <div class="row">
@@ -30,13 +30,13 @@
                 </div>
                 <div class="row">
                     <div class="col-md-12">
-                        <a mat-button class="btn btn-info" [routerLink]="['add']">Add</a>
+                        <a mat-button class="btn btn-info" [routerLink]="['add']"><i class="material-icons">add</i>Add</a>
                     </div>
                 </div>
             </div>
         </div>
         <div class="card">
-            <ngx-datatable [rows]="table.items" class="material" [columnMode]="'flex'" [headerHeight]="40" [footerHeight]="50" [rowHeight]="'auto'"
+            <ngx-datatable [rows]="table.items" class="material" [columnMode]="'flex'" [headerHeight]="'auto'" [footerHeight]="50" [rowHeight]="'auto'"
                 [externalPaging]="true" [offset]="table.currentPage" [limit]="table.itemsPerPage" [count]="table.totalItems"
                 (page)='setPage($event)' *ngIf="table.items">
                 <ngx-datatable-column name="Name" editable="false" frozenLeft="True" [sortable]="true" [flexGrow]="1"></ngx-datatable-column>

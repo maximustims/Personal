@@ -29,6 +29,8 @@ import { UserManagerService } from './modules/user-manager/user-manager.service'
 import { HttpService } from 'app/services/http/http.service';
 import { UserManagerFormComponent } from './modules/user-manager/user-manager-form/user-manager-form.component';
 import { EqualValidator } from 'app/validators/equalValidators.validators';
+import { ContactManagerService } from './modules/contact-manager/contact-manager.service';
+import { ContactDetailManagerComponent } from './modules/contact-manager/contact-detail-manager/contact-detail-manager.component';
 
 @NgModule({
   imports: [
@@ -58,14 +60,17 @@ import { EqualValidator } from 'app/validators/equalValidators.validators';
     WebManagerComponent,
     ContactManagerComponent,
     UserManagerFormComponent,
-    EqualValidator
+    EqualValidator,
+    ContactDetailManagerComponent
   ],
   providers: [
     HttpService,
     UserManagerService,
+    ContactManagerService,
     { provide: 'API_BASE_URL', useValue: window.location.origin }
   ],
   entryComponents: [
+    ContactDetailManagerComponent
   ]
 })
 

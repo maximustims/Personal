@@ -1,0 +1,17 @@
+<div class="mt-modal modal-info">
+  <div class="modal-header">
+    <h4>Contact Detail</h4>
+  </div>
+  <div class="modal-body">
+    <p>Name : {{contactData.name}}</p>
+    <p>Email : {{contactData.email}}</p>
+    <p>Phone : {{contactData.phone}}</p>
+    <p>Comment: </p>
+    <p>{{contactData.comment}}</p>
+  </div>
+  <div class="modal-footer">
+    <button mat-button (click)="cancel()" class="btn btn-info">
+      Close
+    </button>
+  </div>
+</div>

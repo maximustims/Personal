@@ -15,11 +15,8 @@
 
 const Route = use('Route')
 
+/** Module Auth */
 Route.group(() => {
-}).prefix('auth')
-
-Route.group(() => {
-  /** Module Auth */
   Route.post('/log-out', 'Auth/AuthController.logout');
   Route.post('/login', 'Auth/AuthController.login');
   Route.post('/check-login', 'Auth/AuthController.checkLogin')
@@ -28,6 +25,7 @@ Route.group(() => {
 
 Route.group(() => {
   Route.resource('/user', 'Admin/UserController');
+  Route.resource('/contact', 'Admin/ContactController');
 }).prefix('api/admin');
 
 Route.group(() => {
