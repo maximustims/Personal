@@ -11,8 +11,12 @@ export class ChatComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    // const io = ws(window.location.origin);
-    // const chat = io.channel('chat').connect();
+    const io = ws(window.location.origin);
+    const chat = io.channel('ws/chat').connect();
+    console.log();
+    // chat.on('connect', function () {
+      // chat.emit('hi!');
+    // });
     // console.log(chat);
     // chat.on('message', function (message) {
     // });
