@@ -1,5 +1,51 @@
-<div class="card">
-  <div class="container">
-    <!-- {{textStatus}} -->
+<div class="container">
+  <div class="card">
+    <div class="card-body">
+      <form #formChat="ngForm" (ngSubmit)="submit(formChat)" *ngIf="!username_chat">
+        <div class="row">
+
+          <!-- Start: Username -->
+          <div class="col-md-12">
+            <div class="form-group label-floating is-empty">
+              <mat-form-field class="example-full-width">
+                <input matInput type="text" placeholder="Your Name" [(ngModel)]="username" name="name" #name="ngModel" autocomplete="off"
+                  required>
+                <mat-error *ngIf="(name.touched || formChat.submitted) && !name.valid">
+                  <span *ngIf="name.errors.required">Please insert your name</span>
+                </mat-error>
+              </mat-form-field>
+            </div>
+          </div>
+          <!-- End: Username -->
+
+          <div class="col-md-12 text-right">
+            <button mat-button class="btn btn-primary" type="submit">
+              <i class="material-icons">add</i>Submit</button>
+          </div>
+        </div>
+      </form>
+
+      <form #formChat="ngForm" (ngSubmit)="submitChat(formChat)" *ngIf="username_chat">
+        <div class="section-chat">
+
+        </div>
+        <div class="row">
+          <!-- Start: Chat -->
+          <div class="col-md-12">
+            <div class="form-group label-floating is-empty">
+              <mat-form-field>
+                <textarea matInput placeholder="Chat" [(ngModel)]="chat_content" name="chat" #chat="ngModel" autocomplete="off" rows="5"></textarea>
+              </mat-form-field>
+            </div>
+          </div>
+          <!-- End: Chat -->
+
+          <div class="col-md-12 text-right">
+            <button mat-button class="btn btn-primary" type="submit">Send</button>
+          </div>
+        </div>
+      </form>
+
+    </div>
   </div>
 </div>

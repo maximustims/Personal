@@ -5,8 +5,8 @@ class ChatController {
     this.socket = socket;
     this.request = request;
   }
-  onMessage () {
-   console.log("gknsdkgnkzsd");
+  onMessage (message) {
+   console.log(message);
   }
 
   onClose () {

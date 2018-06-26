@@ -8,25 +8,45 @@ import * as Ws from '@adonisjs/websocket-client';
 })
 export class ChatComponent implements OnInit {
   textStatus = 'Connecting to socket...';
+  username_chat;
+  chat_content;
+  io;
+  io_chat;
+  chanel = 'chat';
   constructor() { }
 
   ngOnInit() {
+
+  }
+
+  submit(form) {
     let $this = this;
-    const io = Ws(`ws://${window.location.host}`);
-    io.connect();
-    io.on('open', () => {
-      this.textStatus = 'Yeah!!!! Connect socket success';
+    if (!form.valid) return;
+    this.username_chat = form.value;
+    this.startSocket();
+  }
 
-      const chat = io.subscribe('chat');
-
-      chat.on('message', (message) => {
-        console.log(message);
-        $this.textStatus = 'Hell yeah';
+  submitChat(form) {
+    if (this.chat_content && this.chat_content !== '') {
+      this.io.getSubscription('chat').emit('message',{
+        username: this.username_chat,
+        message: this.chat_content
       })
+      this.chat_content = '';
+    }
+  }
 
+  startSocket() {
+    this.io = Ws(`ws://${window.location.host}`);
+    this.io.connect();
+    this.io.on('open', () => {
+      this.io_chat = this.io.subscribe(this.chanel);
+      this.io_chat.on('message', (message) => {
+        console.log(message);
+      })
     })
-    io.on('error', () => {
-      this.textStatus = 'Damn! Connect socket failed';
+    this.io.on('error', () => {
+      this.textStatus = 'Damn! Connect socket failed.';
     })
   }
 
