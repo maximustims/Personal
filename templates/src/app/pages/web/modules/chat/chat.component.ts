@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import * as ws from 'adonis-websocket-client';
+import * as Ws from '@adonisjs/websocket-client';
 
 @Component({
   selector: 'app-chat',
@@ -7,19 +7,27 @@ import * as ws from 'adonis-websocket-client';
   styleUrls: ['./chat.component.scss']
 })
 export class ChatComponent implements OnInit {
-
+  textStatus = 'Connecting to socket...';
   constructor() { }
 
   ngOnInit() {
-    const io = ws(window.location.origin);
-    const chat = io.channel('ws/chat').connect();
-    console.log();
-    // chat.on('connect', function () {
-      // chat.emit('hi!');
-    // });
-    // console.log(chat);
-    // chat.on('message', function (message) {
-    // });
+    let $this = this;
+    const io = Ws(`ws://${window.location.host}`);
+    io.connect();
+    io.on('open', () => {
+      this.textStatus = 'Yeah!!!! Connect socket success';
+
+      const chat = io.subscribe('chat');
+
+      chat.on('message', (message) => {
+        console.log(message);
+        $this.textStatus = 'Hell yeah';
+      })
+
+    })
+    io.on('error', () => {
+      this.textStatus = 'Damn! Connect socket failed';
+    })
   }
 
 }
