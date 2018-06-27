@@ -1,7 +1,7 @@
 <div class="container">
   <div class="card">
     <div class="card-body">
-      <form #formChat="ngForm" (ngSubmit)="submit(formChat)" *ngIf="!username_chat">
+      <form #formChat="ngForm" (ngSubmit)="submit(formChat)" *ngIf="!socket.username_chat">
         <div class="row">
 
           <!-- Start: Username -->
@@ -25,16 +25,16 @@
         </div>
       </form>
 
-      <form #formChat="ngForm" (ngSubmit)="submitChat(formChat)" *ngIf="username_chat">
+      <form #formChat="ngForm" (ngSubmit)="submitChat(formChat)" *ngIf="socket.username_chat">
         <div class="section-chat">
-
+          <div class="user-chatting">{{socket.user_chatting}}</div>
         </div>
         <div class="row">
           <!-- Start: Chat -->
           <div class="col-md-12">
             <div class="form-group label-floating is-empty">
               <mat-form-field>
-                <textarea matInput placeholder="Chat" [(ngModel)]="chat_content" name="chat" #chat="ngModel" autocomplete="off" rows="5"></textarea>
+                <textarea matInput placeholder="Chat" [(ngModel)]="socket.chat_content" name="chat" #chat="ngModel" autocomplete="off" rows="5"></textarea>
               </mat-form-field>
             </div>
           </div>

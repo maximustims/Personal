@@ -8,44 +8,71 @@ import * as Ws from '@adonisjs/websocket-client';
 })
 export class ChatComponent implements OnInit {
   textStatus = 'Connecting to socket...';
-  username_chat;
-  chat_content;
-  io;
-  io_chat;
-  chanel = 'chat';
+  socket = {
+    io: null,
+    io_chat: null,
+    chanel: 'chat',
+    username_chat: null,
+    chat_content: null,
+    connId: null,
+    user_chatting: null
+  }
+  chat_section = [];
   constructor() { }
 
   ngOnInit() {
 
   }
 
+  ngOnDestroy() {
+    this.socket.io.close();
+  }
+
   submit(form) {
     let $this = this;
     if (!form.valid) return;
-    this.username_chat = form.value;
+    this.socket.username_chat = form.value;
     this.startSocket();
   }
 
   submitChat(form) {
-    if (this.chat_content && this.chat_content !== '') {
-      this.io.getSubscription('chat').emit('message',{
-        username: this.username_chat,
-        message: this.chat_content
+    if (this.socket.chat_content && this.socket.chat_content !== '') {
+      this.socket.io.getSubscription(this.socket.chanel).emit('message', {
+        username: this.socket.username_chat,
+        message: this.socket.chat_content,
+        connId: this.socket.connId
       })
-      this.chat_content = '';
+      this.socket.chat_content = '';
     }
   }
 
   startSocket() {
-    this.io = Ws(`ws://${window.location.host}`);
-    this.io.connect();
-    this.io.on('open', () => {
-      this.io_chat = this.io.subscribe(this.chanel);
-      this.io_chat.on('message', (message) => {
+    this.socket.io = Ws(`ws://${window.location.host}`);
+    this.socket.io.connect();
+    this.socket.io.on('open', (resp) => {
+      this.socket.io_chat = this.socket.io.subscribe(this.socket.chanel);
+      this.socket.connId = resp.connId;
+
+      this.socket.io.getSubscription(this.socket.chanel).emit('open', {
+        username: this.socket.username_chat,
+        message: this.socket.chat_content,
+        connId: this.socket.connId
+      })
+
+      this.socket.io_chat.on('message', (message) => {
         console.log(message);
       })
+
+      this.socket.io_chat.on('joining', (resp) => {
+        this.socket.user_chatting = resp.user_online;
+      });
+      this.socket.io_chat.on('leaving', (resp) => {
+        console.log(resp);
+        this.socket.user_chatting = resp.user_online;
+      });
     })
-    this.io.on('error', () => {
+
+    this.socket.io.on('error', () => {
       this.textStatus = 'Damn! Connect socket failed.';
     })
   }
