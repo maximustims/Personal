@@ -14,6 +14,7 @@ export class IndexComponent implements OnInit {
   }
 
   ngOnInit() {
+    console.log(document.styleSheets);
   }
 
   submit(form){

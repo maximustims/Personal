@@ -5,9 +5,11 @@ const SocketIO = use('App/Models/SocketIO');
 class ChatController {
   constructor({ socket, request }) {
     let $this = this;
+    $this.socket = socket;
+    $this.request = request;
+    console.log(socket);
     SocketIO.findOne({ channel: 'chat' }).then((user_online) => {
-      $this.socket = socket;
-      $this.request = request;
+      
       if (!user_online) {
         // $this.user_online = {
         //   channel: 'chat',
@@ -21,9 +23,8 @@ class ChatController {
       else {
         // $this.user_online = user_online;
         // $this.user_online.user_online++;
-        this.socket.broadcastToAll('joining', 'fasf');
-      this.socket.broadcastToAll('leaving', 'fasfasf');
-      console.log("gnsdk ngksdg");
+      //   this.socket.broadcastToAll('joining', 'fasf');
+      // this.socket.broadcastToAll('leaving', 'fasfasf');
 
         // $this.user_online.save().then();
       }
@@ -41,12 +42,11 @@ class ChatController {
     // let socket = await SocketIO.findOne({ channel: 'chat' });
     // socket.user_online--;
     // console.log(socket);
-    try {
-      console.log("gmsdmglsdg");
-      this.socket.broadcastToAll('leaving', 'fasfasf');
-    } catch (error) {
-      console.log(err);
-    }
+    // try {
+    //   this.socket.broadcastToAll('leaving', 'fasfasf');
+    // } catch (error) {
+    //   console.log(err);
+    // }
     // await socket.save();
   }
 

@@ -18,6 +18,7 @@ export class WebLayoutComponent implements OnInit {
     constructor(public location: Location, private router: Router) { }
 
     ngOnInit() {
+        console.log('Web');
         let $this = this;
         const isWindows = navigator.platform.indexOf('Win') > -1 ? true : false;
 

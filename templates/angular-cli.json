@@ -19,8 +19,10 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
-          "../node_modules/perfect-scrollbar/css/perfect-scrollbar.css",
-          "./styles/main.scss"
+          "./styles/main.scss",
+          {"input": "./styles/web/main.scss","output": "web/style"},
+          {"input": "./styles/admin/main.scss","output": "admin/style"},
+          {"input": "./styles/auth/main.scss","output": "auth/style"}
       ],
       "deployUrl": "/dist/",
       "scripts": [
